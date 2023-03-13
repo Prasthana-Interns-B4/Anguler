@@ -1,0 +1,23 @@
+body{
+    background-color: #f2f2f6;    
+    font-family:'inter';  
+}
+.registration-form{   
+    background-color:#ffffff;          
+    padding: 40px;         
+    border-radius: 15px;              
+    width: 500px;
+    height: 550px;
+}
+.item{
+	border-radius: 10px;    
+    padding: 15px; 
+    font-size: 16px;   
+    color: #081e42;
+    font-weight: 500; 
+}
+
+
+
+
+
