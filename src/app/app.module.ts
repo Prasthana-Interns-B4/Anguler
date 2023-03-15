@@ -15,7 +15,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 // modules
 import { EmpInventoryModule } from './emp-inventory/emp-inventory.module';
-import { DeviceInventoryModule } from './device-inventory/device-inventory.module';
+import { DeviceModule } from './device/device.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 @NgModule({
@@ -23,6 +24,7 @@ import { DeviceInventoryModule } from './device-inventory/device-inventory.modul
     AppComponent,
     LoginComponent,
     SignupComponent,
+   
     
   ],
   imports: [
@@ -32,7 +34,9 @@ import { DeviceInventoryModule } from './device-inventory/device-inventory.modul
     FormsModule,
     ReactiveFormsModule,
     EmpInventoryModule,
-    DeviceInventoryModule,
+    EmpInventoryModule,
+    DeviceModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
