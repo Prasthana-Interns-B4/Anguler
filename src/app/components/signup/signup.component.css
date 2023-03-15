@@ -1,8 +1,3 @@
-body{
-    background-color: #f2f2f6;    
-    font-family:'Inter';  
-    height: auto;  
-}
 .registration-form{   
     background-color:#ffffff;          
     padding: 30px;    
@@ -17,6 +12,10 @@ body{
     color: #081e42;
     font-weight: 500;     
 }
+.invalid{
+    border-color: #dc3545 !important;
+}
+
 
 
 

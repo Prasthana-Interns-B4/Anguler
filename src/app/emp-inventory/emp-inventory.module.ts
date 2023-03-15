@@ -24,7 +24,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     CommonModule,
     FontAwesomeModule,    
     RouterModule,
-    EmpInventoryRoutingModule
-  ]
+    EmpInventoryRoutingModule,      
+  ],
 })
 export class EmpInventoryModule { }

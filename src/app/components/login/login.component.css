@@ -1,14 +1,10 @@
-body{
-    background-color: #f2f2f6;    
-    font-family:'inter';  
-    height: auto;  
-}
-.registration-form{   
+.login-form{   
     background-color:#ffffff;          
     padding: 40px;         
     border-radius: 15px;              
     width: 500px;
-    height: 520px;
+    height: 450px;
+    
 }
 .item{
 	border-radius: 10px;    
@@ -16,6 +12,9 @@ body{
     font-size: 15px;   
     color: #081e42;
     font-weight: 500; 
+}
+.invalid{
+    border-color: #dc3545 !important;
 }
 
 
