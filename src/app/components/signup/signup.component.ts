@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 
 
 // fontawesome icons
-import { faWhatsapp, faTwitter,  faFacebookF, faInstagramSquare } from '@fortawesome/free-brands-svg-icons';
+import { faWhatsapp, faTwitter,  faFacebookF, faInstagramSquare} from '@fortawesome/free-brands-svg-icons';
+import { faEnvelope } from '@fortawesome/free-solid-svg-icons'
 
 // forms Components
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
@@ -20,6 +21,7 @@ export class SignupComponent implements OnInit  {
   faTwitter = faTwitter;
   faFacebookF = faFacebookF;
   faInstagramSquare = faInstagramSquare;
+  faEnvelope = faEnvelope;
 
   signUpForm: FormGroup | any;
   submitted = false 

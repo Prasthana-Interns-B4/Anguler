@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 
 //fontawesome icons
 import { faWhatsapp, faTwitter,  faFacebookF, faInstagramSquare } from '@fortawesome/free-brands-svg-icons';
+import { faEnvelope } from '@fortawesome/free-solid-svg-icons'
 
 //forms Components
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
@@ -12,11 +13,12 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent {
+export class LoginComponent implements OnInit {
   faWhatsapp = faWhatsapp;
   faTwitter = faTwitter;
   faFacebookF = faFacebookF;
   faInstagramSquare = faInstagramSquare;
+  faEnvelope = faEnvelope;
 
   loginForm: FormGroup | any;
   submitted = false;
