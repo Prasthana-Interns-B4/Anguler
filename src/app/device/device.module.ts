@@ -22,7 +22,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { faWhatsapp, faTwitter,  faFacebookF, faInstagramSquare } from '@fortawesome/free-brands-svg-icons';
+import { FilterPipe } from './device-list/filter pipe/filter.pipe';
 @NgModule({
   declarations: [
     DeviceComponent,
@@ -35,6 +35,7 @@ import { faWhatsapp, faTwitter,  faFacebookF, faInstagramSquare } from '@fortawe
     EditDeviceComponent,
     DeviceCardComponent,
     PageNotFoundComponent,
+    FilterPipe,
   ],
   imports: [
     CommonModule,

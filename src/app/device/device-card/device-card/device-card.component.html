@@ -14,16 +14,19 @@
       
     </mat-card-title-group>
     
-    <mat-card-actions align="end">
-      <button  mat-button><mat-icon>keyboard_arrow_right</mat-icon></button>
-    </mat-card-actions>
+    
+     
+      <button mat-button>Unassign</button>
+    <button mat-button><mat-icon>delete</mat-icon></button>
+    
+    <button  (click)="onClick()" mat-button><mat-icon>keyboard_arrow_right</mat-icon></button>
+  
    
   </mat-card-header>
-  <mat-card-actions align="end">
+  
     
-    <button mat-button>Unassign</button>
-    <button mat-button>Delete</button>
-  </mat-card-actions>
+    
+  
   
   
 </mat-card>

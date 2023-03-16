@@ -10,4 +10,9 @@ export class DeviceService {
   listDevices(){
     return this._http.get(this.url+ 'photos' )
   }
+
+  addDevice(deviceData:any){
+    return this._http.post<any>(this.url,deviceData)
+
+  }
 }

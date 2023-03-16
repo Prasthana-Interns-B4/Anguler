@@ -8,7 +8,6 @@ import { DeviceListComponent } from './device-list/device-list.component';
 
 import { EditDeviceComponent } from './edit-device/edit-device.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
-import { ViewDeviceComponent } from './view-device/view-device.component';
 
 const deviceRoutes: Routes = [
   { path: '', redirectTo: '/profile', pathMatch: 'full' },
@@ -16,10 +15,10 @@ const deviceRoutes: Routes = [
   
   { path: 'devicelist', component: DeviceListComponent,
   children:[
-    { path: 'view/:id', component: ViewDeviceComponent },
+    { path: 'devicelist/:tagNo', component: DeviceDetailComponent },
     { path: 'edit/:id', component: EditDeviceComponent },
     { path: 'delete/:id', component: DeleteDeviceComponent },
-    { path: 'devicedetail', component: DeviceDetailComponent},
+    
   ] },
   
   
