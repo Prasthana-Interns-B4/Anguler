@@ -1,0 +1,25 @@
+.example-card {
+  max-width: 800px;
+  
+  margin: 10px auto;
+}
+mat-card-subtitle {
+  margin-top: 5px;
+}
+.title {
+  padding: 0 2rem;
+}
+.devicetype {
+  background-color: #0b306a;
+  border-radius: 0.5em;
+  text-align: center;
+  color: white;
+  width: 4rem;
+  margin-bottom: 10px;
+}
+.build {
+  margin: 0 25px;
+}
+.assigned {
+ color:black;
+ margin-top: 0.5rem}

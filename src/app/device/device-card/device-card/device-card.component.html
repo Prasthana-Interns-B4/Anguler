@@ -1,0 +1,29 @@
+<mat-card class="example-card">
+  <mat-card-header>
+    <img mat-card-sm-image [src]="src" />
+    <mat-card-title-group class="title">
+      <mat-card-title>{{ name }}</mat-card-title>
+
+      <mat-card-subtitle
+        ><div class="devicetype">{{ deviceType }}</div>
+        {{ tagNo | uppercase }}
+        <span class="build">{{ build }}</span>
+        <p class="assigned">Assigned to {{employeeName}}</p>
+        </mat-card-subtitle
+      >
+      
+    </mat-card-title-group>
+    
+    <mat-card-actions align="end">
+      <button  mat-button><mat-icon>keyboard_arrow_right</mat-icon></button>
+    </mat-card-actions>
+   
+  </mat-card-header>
+  <mat-card-actions align="end">
+    
+    <button mat-button>Unassign</button>
+    <button mat-button>Delete</button>
+  </mat-card-actions>
+  
+  
+</mat-card>

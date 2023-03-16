@@ -1,0 +1,16 @@
+mat-sidenav-container{
+    height: 93%;
+}
+mat-sidenav,matsidenav-content{
+    padding: 16px;
+}
+mat-toolbar{
+    background-color: #0b306a;
+    color:#fff;
+}
+mat-icon{
+    margin-left: auto;
+}
+.menu-btn{
+    margin-left: auto;
+  }
