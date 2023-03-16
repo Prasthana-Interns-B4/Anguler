@@ -1,10 +1,6 @@
 import { Component,OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
-//fontawesome icons
-import { faWhatsapp, faTwitter,  faFacebookF, faInstagramSquare } from '@fortawesome/free-brands-svg-icons';
-import { faEnvelope } from '@fortawesome/free-solid-svg-icons'
-
 //forms Components
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
@@ -14,11 +10,6 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  faWhatsapp = faWhatsapp;
-  faTwitter = faTwitter;
-  faFacebookF = faFacebookF;
-  faInstagramSquare = faInstagramSquare;
-  faEnvelope = faEnvelope;
 
   loginForm: FormGroup | any;
   submitted = false;
@@ -48,12 +39,14 @@ onLogin(){
 
   alert("Login successful\n" + JSON.stringify(this.loginForm.value));
 
+  this.router.navigate(['/emp-details']);
+  
   this.loginForm.reset();
   this.submitted = false;
 }
 
 
-  onClickSignUp(){
+  onClickRegister(){
     this.router.navigate(['/signup']);
   }
 }
