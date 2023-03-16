@@ -1,9 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 
-
-// fontawesome icons
-import { faWhatsapp, faTwitter,  faFacebookF, faInstagramSquare } from '@fortawesome/free-brands-svg-icons';
-
 // forms Components
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
@@ -15,14 +11,13 @@ import {PasswordChecker} from './customValidators/passwordChecker'
   templateUrl: './signup.component.html',
   styleUrls: ['./signup.component.css']
 })
+
 export class SignupComponent implements OnInit  {
-  faWhatsapp = faWhatsapp
-  faTwitter = faTwitter;
-  faFacebookF = faFacebookF;
-  faInstagramSquare = faInstagramSquare;
 
   signUpForm: FormGroup | any;
   submitted = false 
+  readyToSubmit:boolean = false
+
   constructor(private formBuilder: FormBuilder){}
 
   ngOnInit(){
@@ -38,15 +33,25 @@ export class SignupComponent implements OnInit  {
     },{
         validators: PasswordChecker("password","confirmPassword"),         
     });
+
   }
 
   validateAge = (control:any) => {
     console.log(control)
     const currentDate = new Date();
     const selectedDate = new Date(control.value);
-    const age = currentDate.getFullYear() - selectedDate.getFullYear();
-    console.log(age)
-    return age >= 18 ? null : { ageInvalid: true };
+    const age = currentDate.getTime() - selectedDate.getTime();
+    const difference = age / (1000 * 60 * 60 * 24);   
+    console.log(difference)
+
+    if (difference >= 6570 ){
+      return null
+    }else if (difference <= 0){
+      return { futureAge: true }
+    }else{
+      return { ageInvalid: true };
+    }
+    
   }
 
   get binds(){    

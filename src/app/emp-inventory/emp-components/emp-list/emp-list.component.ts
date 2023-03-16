@@ -5,6 +5,11 @@ import { Component } from '@angular/core';
   templateUrl: './emp-list.component.html',
   styleUrls: ['./emp-list.component.css']
 })
+
+
 export class EmpListComponent {
 
+
+  ngOnInit(): void {
+  }
 }
