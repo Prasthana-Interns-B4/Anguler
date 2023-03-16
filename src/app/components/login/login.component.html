@@ -1,0 +1,157 @@
+<!-- COROUSEL & FORM SECTION -->
+<div class="container-fluid mt-5" style="background-color: #f2f2f6; padding-top:99px;padding-bottom:99px">
+      <div class="row">        
+        <div class="d-flex flex-row justify-content-center align-items-center">
+          <!-- COROUSEL SECTION -->
+          <div
+            id="carouselExampleIndicators"
+            class="d-none d-lg-block carousel slide shadow m-5"
+            data-bs-ride="carousel"
+            data-bs-interval="4000"
+          >
+            <div class="carousel-indicators">
+              <button
+                type="button"
+                data-bs-target="#carouselExampleIndicators"
+                data-bs-slide-to="0"
+                class="active"
+                aria-current="true"
+                aria-label="Slide 1"
+              ></button>
+              <button
+                type="button"
+                data-bs-target="#carouselExampleIndicators"
+                data-bs-slide-to="1"
+                aria-label="Slide 2"
+              ></button>
+              <button
+                type="button"
+                data-bs-target="#carouselExampleIndicators"
+                data-bs-slide-to="2"
+                aria-label="Slide 3"
+              ></button>
+            </div>
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img
+                  src="https://wowslider.com/sliders/demo-93/data1/images/sunset.jpg"
+                  class="d-block w-100"
+                  alt="Image1"
+                />
+              </div>
+              <div class="carousel-item">
+                <img
+                  src="https://wowslider.com/sliders/demo-93/data1/images/sunset.jpg"
+                  class="d-block w-100"
+                  alt="Image2"
+                />
+              </div>
+              <div class="carousel-item">
+                <img
+                  src="https://wowslider.com/sliders/demo-93/data1/images/sunset.jpg"
+                  class="d-block w-100"
+                  alt="Image2"
+                />
+              </div>
+            </div>
+            <button
+              class="carousel-control-prev"
+              type="button"
+              data-bs-target="#carouselExampleIndicators"
+              data-bs-slide="prev"
+            >
+              <span
+                class="carousel-control-prev-icon"
+                aria-hidden="true"
+              ></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button
+              class="carousel-control-next"
+              type="button"
+              data-bs-target="#carouselExampleIndicators"
+              data-bs-slide="next"
+            >
+              <span
+                class="carousel-control-next-icon"
+                aria-hidden="true"
+              ></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
+          <!-- FORM SECTION -->
+          <div class="login-form d-flex flex-column justify-content-between m-5 shadow">  
+                <form  [formGroup] = "loginForm" (ngSubmit) = "onLogin()"> 
+                  <p style="font-size: 18px; font-weight:600; color: #081e42; align-self: flex-start;" >Login to your account</p>           
+                  
+                  <div class="form-group">
+                    <input
+                      type="email"
+                      class="form-control item mt-3"
+                      formControlName = "emailAddress"            
+                      [ngClass] = "{ 'invalid': submitted && binds.emailAddress.errors }"
+                      placeholder="Email address"
+                      ngModel
+                    />
+                  </div>
+                  <div *ngIf="binds.emailAddress.touched && binds.emailAddress.errors" class="text-danger d-flex flex-row justify-content-start mt-1">
+                    <div *ngIf="binds.emailAddress.errors.required" style="font-size: 14px;">
+                      Email address is required
+                    </div> 
+                    <div *ngIf="binds.emailAddress.errors.email || binds.emailAddress.errors.pattern" style="font-size: 14px;">
+                      Email must end with @prasthana.com
+                    </div>               
+                  </div>
+                  <div class="form-group">
+                    <input
+                      type="password"
+                      class="form-control item mt-3"
+                      formControlName = "password"            
+                      [ngClass] = "{ 'invalid': submitted && binds.password.errors }"
+                      placeholder="Password"
+                      ngModel
+                    />
+                  </div>
+                  <div *ngIf="binds.password.touched && binds.password.errors" class="text-danger d-flex flex-row justify-content-start mt-1">
+                    <div *ngIf="binds.password.errors.required" style="font-size: 13px;">
+                      Password is required
+                    </div> 
+                    <div *ngIf="binds.password.errors.minlength" style="font-size: 13px;">
+                      Password must be at least 6 characters
+                    </div>               
+                  </div>
+                  <div class="d-flex flex-row justify-content-end mt-1">
+                    <p class="text-primary" style="font-size: 15px;cursor:pointer; font-weight: 500; text-decoration: underline;" >Forgot password?</p>
+                  </div>                     
+                                    
+                  <div class="d-flex flex-row justify-content-center form-group">
+                      <button
+                        type="submit"
+                        class="btn btn-primary mt-2"
+                        style="
+                            width: 200px;
+                            font-size: 16px;
+                            color: #fff;
+                            font-weight: 500"
+                        (click)="onLogin()">
+                        Login
+                      </button>
+                  </div>                                            
+                </form> 
+
+                <div>  
+                    <hr />                
+                    <span style="font-size: 16px; font-weight: 500; color: #081e42;" >Don't have an account ? &nbsp;</span>
+                    <span (click)="onClickRegister()" style="cursor: pointer; font-size: 18px; font-weight: 600; color: #081e42; text-decoration: underline;">Register </span>
+                </div>              
+          </div>
+        </div> 
+        <!-- <p>value: {{loginForm.value | json}}</p>
+          <p>value: {{loginForm.valid | json}}</p>  -->
+      </div>
+</div>
+
+
+
+
+

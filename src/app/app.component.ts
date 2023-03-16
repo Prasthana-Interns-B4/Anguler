@@ -6,9 +6,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'inventory-app';
-constructor(private router: Router){}
-  navigateToDevice(){
-    this.router.navigate(['/device-component'])
-  }
+
+  title = 'inventory-web';
+
 }

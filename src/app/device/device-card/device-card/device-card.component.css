@@ -1,13 +1,13 @@
 .example-card {
-  max-width: 800px;
+  max-width: 1000px;
   
   margin: 10px auto;
 }
 mat-card-subtitle {
-  margin-top: 5px;
+  margin-top: 3px;
 }
 .title {
-  padding: 0 2rem;
+  padding: 0 3rem;
 }
 .devicetype {
   background-color: #0b306a;

@@ -7,24 +7,21 @@ import { DeviceDetailComponent } from './device-detail/device-detail.component';
 import { DeviceListComponent } from './device-list/device-list.component';
 
 import { EditDeviceComponent } from './edit-device/edit-device.component';
-import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
-import { ViewDeviceComponent } from './view-device/view-device.component';
 
 const deviceRoutes: Routes = [
-  { path: '', redirectTo: '/profile', pathMatch: 'full' },
-  { path: 'create', component: CreateDeviceComponent },
-  
-  { path: 'devicelist', component: DeviceListComponent,
-  children:[
-    { path: 'view/:id', component: ViewDeviceComponent },
-    { path: 'edit/:id', component: EditDeviceComponent },
-    { path: 'delete/:id', component: DeleteDeviceComponent },
-    { path: 'devicedetail', component: DeviceDetailComponent},
-  ] },
-  
-  
-  
-  {path:'**',component:PageNotFoundComponent}
+  { path: '', redirectTo: 'device-list', pathMatch: 'full' },
+  { path: 'create-device', component: CreateDeviceComponent },
+
+  {
+    path: 'device-list',
+    component: DeviceListComponent,
+    // children:[
+    //   { path: 'devicelist/:tagNo', component: DeviceDetailComponent },
+    //   { path: 'edit/:id', component: EditDeviceComponent },
+    //   { path: 'delete/:id', component: DeleteDeviceComponent },
+
+    // ]{path:'emp-list', component: EmpListComponent}, 
+  },
 ];
 @NgModule({
   imports: [RouterModule.forChild(deviceRoutes)],

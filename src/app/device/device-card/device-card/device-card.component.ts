@@ -1,4 +1,5 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-device-card',
@@ -6,6 +7,7 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./device-card.component.css']
 })
 export class DeviceCardComponent {
+  constructor(private router :Router){}
   @Input()
   name!: string;
   @Input()
@@ -18,6 +20,11 @@ export class DeviceCardComponent {
   build:string='macos'
   @Input()
   employeeName!:string;
-
+  @Output() clicked = new EventEmitter<void>();
+ 
+  
+  onClick() {
+    this.clicked.emit();
+  }
   
 }

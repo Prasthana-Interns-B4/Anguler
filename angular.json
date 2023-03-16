@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "inventory-app": {
+    "inventory-web": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/inventory-app",
+            "outputPath": "dist/inventory-web",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": ["zone.js"],
@@ -57,10 +57,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "inventory-app:build:production"
+              "browserTarget": "inventory-web:build:production"
             },
             "development": {
-              "browserTarget": "inventory-app:build:development"
+              "browserTarget": "inventory-web:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -68,7 +68,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "inventory-app:build"
+            "browserTarget": "inventory-web:build"
           }
         },
         "test": {
@@ -78,13 +78,23 @@
             "tsConfig": "tsconfig.spec.json",
             "assets": ["src/favicon.ico", "src/assets"],
             "styles": [
+<<<<<<< HEAD
               "@angular/material/prebuilt-themes/indigo-pink.css",
               "src/styles.css"
+=======
+              "src/styles.css",
+              "node_modules/bootstrap/dist/css/bootstrap.min.css"
+>>>>>>> 5cc2cd15cea4ba5687cc1d6ec723a840771eebe2
             ],
-            "scripts": []
+            "scripts": [
+              "/node_modules/bootstrap/dist/js/bootstrap.min.js"
+            ]
           }
         }
       }
     }
+  },
+  "cli": {
+    "analytics": "73aadc61-1701-4b20-9874-37d50865f49b"
   }
 }

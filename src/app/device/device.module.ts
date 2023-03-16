@@ -16,14 +16,15 @@ import { DeleteDeviceComponent } from './delete-device/delete-device.component';
 import { EditDeviceComponent } from './edit-device/edit-device.component';
 import { HttpClientModule } from '@angular/common/http';
 import { DeviceCardComponent } from './device-card/device-card/device-card.component';
-import {MatCardModule} from '@angular/material/card';
-import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
-import {MatFormFieldModule} from '@angular/material/form-field';
-import { MatInputModule} from '@angular/material/input'
-import {MatSelectModule} from '@angular/material/select';
+import { MatCardModule } from '@angular/material/card';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatSelectModule } from '@angular/material/select';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { FilterPipe } from './device-list/filter pipe/filter.pipe';
+import { RouterModule } from '@angular/router';
 @NgModule({
   declarations: [
-    DeviceComponent,
     DeviceComponent,
     DeviceListComponent,
     DeviceDetailComponent,
@@ -32,7 +33,7 @@ import {MatSelectModule} from '@angular/material/select';
     DeleteDeviceComponent,
     EditDeviceComponent,
     DeviceCardComponent,
-    PageNotFoundComponent,
+    FilterPipe,
   ],
   imports: [
     CommonModule,
@@ -48,10 +49,12 @@ import {MatSelectModule} from '@angular/material/select';
     ReactiveFormsModule,
     MatFormFieldModule,
     MatInputModule,
-    MatSelectModule
+    MatSelectModule,
+    FontAwesomeModule,
+    RouterModule,
+    DeviceRouteModule,
   ],
   exports: [
-    DeviceComponent,
     DeviceComponent,
     DeviceListComponent,
     DeviceDetailComponent,

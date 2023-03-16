@@ -1,0 +1,20 @@
+body{
+    background-color: #f2f2f6;    
+    font-family:'Inter';  
+    height: auto;  
+}
+.add-device-form{   
+    background-color:#ffffff;          
+    padding: 30px;    
+    margin:auto;
+    
+    border-radius: 15px;              
+    width: 500px;    
+}
+.item{
+	border-radius: 10px;    
+    padding: 10px; 
+    font-size: 15px;   
+    color: #081e42;
+    font-weight: 500;     
+}

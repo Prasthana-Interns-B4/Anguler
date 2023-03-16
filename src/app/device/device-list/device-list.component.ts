@@ -9,6 +9,23 @@ import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 })
 export class DeviceListComponent {
   constructor(private _deviceService: DeviceService,private router:Router, private activatedRoute:ActivatedRoute) {}
+  
+  title = 'angular-text-search-highlight';
+  searchText = '';
+  characters = [
+    'Ant-Man',
+    'Aquaman',
+    'Asterix',
+    'The Atom',
+    'The Avengers',
+    'Batgirl',
+    'Batman',
+    'Batwoman'
+    
+  ]
+  
+  
+  
   listDevices = [
     {
       employeeName:'Rahul Nurup',
@@ -77,5 +94,8 @@ export class DeviceListComponent {
   ];
 
 
-  
+  handleClick(device:any) {
+    console.log('Child button clicked');
+    this.router.navigate(['/devicelist',device.tagNo])
+  }
 }

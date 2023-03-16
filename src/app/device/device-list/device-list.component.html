@@ -1,6 +1,34 @@
-<ng-container *ngFor="let device of listDevices">
-    <app-device-card [employeeName]="device.employeeName" [build]="device.build" [deviceType]="device.deviceType" [tagNo]="device.tagNo" [src]="device.img" [name]="device.deviceName"></app-device-card>
+
+
+  <!-- EMP DETAILS SECTION -->    
+
+ <div class="row">
+  <div class="col-sm-12">
+  <ng-container *ngFor="let device of listDevices">
+    <app-device-card (click)="handleClick(device)" [employeeName]="device.employeeName" [build]="device.build" [deviceType]="device.deviceType" [tagNo]="device.tagNo" [src]="device.img" [name]="device.deviceName"></app-device-card>
   </ng-container>
+</div>
+</div> 
+  
+
+
+
+
+
+
+
+ 
+  
+  
+      
+      
+       
+      
+      
+    
+    
+    
+ 
   
 
 
