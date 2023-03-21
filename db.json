@@ -1,0 +1,27 @@
+{
+  "devices": [
+    {
+      "deviceName": "thinkpad",
+      "deviceType": "Laptop",
+      "os": "Linux",
+      "tagNo": "dev1001",
+      "assigned": null,
+      "id": 6,
+      "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSsSqqTzu6yJsOQMKTOCPt4267CzKEoRFyA0Q&usqp=CAU"
+    },
+    {
+      "deviceName": "Lenovo",
+      "deviceType": "Laptop",
+      "os": "Windows",
+      "assigned": "upendra",
+      "id": 8
+    },
+    {
+      "deviceName": "Mac Pro",
+      "deviceType": "Laptop",
+      "os": "macOS",
+      "assigned": null,
+      "id": 9
+    }
+  ]
+}

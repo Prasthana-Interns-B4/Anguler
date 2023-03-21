@@ -1,101 +1,72 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
-import { DeviceService } from '../services/device.service';
-import { Router, ActivatedRoute, ParamMap } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
+import { faArrowRight, faTrashCan } from '@fortawesome/free-solid-svg-icons';
+import { DataService } from '../services/data.service';
+import { DialogService } from '../services/dialog.services';
 @Component({
   selector: 'app-device-list',
   templateUrl: './device-list.component.html',
   styleUrls: ['./device-list.component.css'],
 })
-export class DeviceListComponent {
-  constructor(private _deviceService: DeviceService,private router:Router, private activatedRoute:ActivatedRoute) {}
-  
-  title = 'angular-text-search-highlight';
-  searchText = '';
-  characters = [
-    'Ant-Man',
-    'Aquaman',
-    'Asterix',
-    'The Atom',
-    'The Avengers',
-    'Batgirl',
-    'Batman',
-    'Batwoman'
-    
-  ]
-  
-  
-  
-  listDevices = [
-    {
-      employeeName:'Rahul Nurup',
-      tagNo:'dev001',
-      img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTo-dSXGisiHYCquxAoPx9QKLZ97nxfobHviXAxl-0k0Pu320UwQkoM6S9AhzoEuRmbgNA&usqp=CAU',
-      deviceName: 'laptop',
-      deviceCategory: 'electronic',
-      deviceType:'Laptop',
-      build:'macOS'
-    },
-    {
-      employeeName:'Rahul Nurup',
-      tagNo:'dev002',
-      img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcREtlZ2oUOEbbvSenpuBWHope9vcA9JusWcda5tuM2lGMck5elDbdim_COW2wxk3gcbB2g&usqp=CAU',
-      deviceName: 'laptop',
-      deviceCategory: 'electronic',
-      deviceType:'Laptop',
-      build:'macOS'
-    },
-    {
-      employeeName:'Rahul Nurup',
-      tagNo:'dev003',
-      img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTo-dSXGisiHYCquxAoPx9QKLZ97nxfobHviXAxl-0k0Pu320UwQkoM6S9AhzoEuRmbgNA&usqp=CAU',
-      deviceName: 'laptop',
-      deviceCategory: 'electronic',
-      deviceType:'Laptop',
-      build:'macOS'
-    },
-    {
-      employeeName:'Rahul Nurup',
-      tagNo:'dev004',
-      img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcREtlZ2oUOEbbvSenpuBWHope9vcA9JusWcda5tuM2lGMck5elDbdim_COW2wxk3gcbB2g&usqp=CAU',
-      deviceName: 'laptop',
-      deviceCategory: 'electronic',
-      deviceType:'Laptop',
-      build:'macOS'
-    },
-    {
-      
-      employeeName:'Rahul Nurup',
-      tagNo:'dev005',
-      img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQezXAK_ZKMh4I9qPu5fj7juaG8kPMy4S0WKA&usqp=CAU',
-      deviceName: 'backpack ',
-      deviceCategory: 'electronic',
-      deviceType:'Laptop',
-      build:'macOS'
-    },
-    {
-      employeeName:'Rahul Nurup',
-      tagNo:'dev006',
-      img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcREtlZ2oUOEbbvSenpuBWHope9vcA9JusWcda5tuM2lGMck5elDbdim_COW2wxk3gcbB2g&usqp=CAU',
-      deviceName: 'laptop',
-      deviceCategory: 'electronic',
-      deviceType:'Laptop',
-      build:'macOS'
-    },
-    {
-      employeeName:'Rahul Nurup',
-      tagNo:'dev007',
-      img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQezXAK_ZKMh4I9qPu5fj7juaG8kPMy4S0WKA&usqp=CAU',
-      deviceName: 'backpack',
-      deviceCategory: 'electronic',
-      deviceType:'Laptop',
-      build:'macOS'
-    },
-  ];
+export class DeviceListComponent implements OnInit {
 
-
-  handleClick(device:any) {
-    console.log('Child button clicked');
-    this.router.navigate(['/devicelist',device.tagNo])
+  constructor(
+    private router: Router,
+    private activatedRoute: ActivatedRoute,
+    private ds: DataService,
+    private dialogService: DialogService
+  ) {}
+  ngOnInit(): void {
+    this.getdevices();
   }
+
+  faArrowRight = faArrowRight;
+  faTrashCan = faTrashCan;
+  searchText!: string;
+  selected: any;
+  device: any;
+  listDevices: any;
+
+  getdevices() {
+    this.ds.getDevices().subscribe({
+      next: (res) => {
+        this.listDevices = res;
+      },
+      error: () => {
+        alert('error while fetching');
+      },
+    });
+  }
+  deletedevice(id: number) {
+    this.dialogService
+      .openConfirmDialog('Are you sure to delete this device?')
+      .afterClosed()
+      .subscribe({
+        next: (_res) => {
+          if(_res){this.ds.deleteDevice(id)
+            .subscribe({
+            next:(res)=>{alert("Deleted Successfully!")
+            this.getdevices();
+            },
+          error: () => {
+                alert('error while deleting');
+             },
+        })      
+            }
+          },     
+      });
+  }
+  navigateToDetail(device: any) {
+    console.log(device);
+    this.router.navigate([device.id], { relativeTo: this.activatedRoute });
+  }
+
+  assignDevice() {
+    this.dialogService.openAssignEmpDialog() 
+  // assignDevice(device: any, empname: any) {
+  //   this.ds.editdevice(device, empname);
+    }
+  
+  
 }
+

@@ -21,6 +21,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
+import { DeviceModule } from './device/device.module';
 
 // fontawesome module
 
@@ -45,6 +46,7 @@ import { HttpClientModule } from '@angular/common/http';
     ReactiveFormsModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    DeviceModule
   ],
   providers: [],
   bootstrap: [AppComponent]

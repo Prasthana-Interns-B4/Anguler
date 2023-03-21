@@ -1,34 +1,52 @@
+<!--   -->
 
+<div  *ngFor="let device of listDevices">
+  <mat-card class="example-card list" >
+    <mat-card-header>
+      <img mat-card-sm-image [src]="device.img" />
+      <mat-card-title-group class="title">
+        <mat-card-title>{{ device.deviceName }}</mat-card-title>
 
-  <!-- EMP DETAILS SECTION -->    
+        <mat-card-subtitle
+          ><div class="devicetype">{{ device.deviceType }}</div>
+          {{ device.tagNo | uppercase }}
+          <span class="build">{{ device.os }}</span>
+          <p *ngIf="device.assigned != null" class="assigned">
+            Assigned to {{ device.assigned }}
+          </p>
+          <p *ngIf="device.assigned == null" class="assigned">
+            No device assigned
+          </p>
+        </mat-card-subtitle>
+        <button
+        (click)="assignDevice()"
+          *ngIf="device.assigned == null"
+          mat-stroked-button
+          color="primary"
+          class="assign-btn"
+        >
+          Assign
+        </button>
+      </mat-card-title-group>
 
- <div class="row">
-  <div class="col-sm-12">
-  <ng-container *ngFor="let device of listDevices">
-    <app-device-card (click)="handleClick(device)" [employeeName]="device.employeeName" [build]="device.build" [deviceType]="device.deviceType" [tagNo]="device.tagNo" [src]="device.img" [name]="device.deviceName"></app-device-card>
-  </ng-container>
+      <button
+        *ngIf="device.assigned != null"
+        mat-stroked-button
+        color="primary"
+        class="assign-btn"
+      >
+        Unassign
+      </button>
+
+      <button (click)="deletedevice(device.id)" mat-button class="del">
+        <fa-icon class="my-icon" [icon]="faTrashCan"></fa-icon>
+      </button>
+
+      <button (click)="navigateToDetail(device)" mat-button class="arrow">
+        <div class="nav-arrow">
+          <fa-icon class="my-icon" [icon]="faArrowRight"></fa-icon>
+        </div>
+      </button>
+    </mat-card-header>
+  </mat-card>
 </div>
-</div> 
-  
-
-
-
-
-
-
-
- 
-  
-  
-      
-      
-       
-      
-      
-    
-    
-    
- 
-  
-
-

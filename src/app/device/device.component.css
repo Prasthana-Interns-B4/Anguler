@@ -1,16 +1,27 @@
-mat-sidenav-container{
-    height: 93%;
+mat-sidenav-container {
+  height: 93%;
 }
-mat-sidenav,matsidenav-content{
-    padding: 16px;
+mat-sidenav,
+matsidenav-content {
+  padding: 16px;
 }
-mat-toolbar{
-    background-color: #0b306a;
-    color:#fff;
+mat-toolbar {
+  background-color: #0b306a;
+  color: #fff;
 }
-mat-icon{
-    margin-left: auto;
+mat-icon {
+  margin-left: auto;
 }
-.menu-btn{
-    margin-left: auto;
-  }
+.menulist-btn {
+  margin-left: auto;
+}
+
+.device-list {
+  margin-top: 70px;
+  margin-left: auto;
+  margin-right:auto;
+  overflow-y:auto;
+  height: 83vh;
+  
+}
+

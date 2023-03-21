@@ -1,12 +1,11 @@
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import {
-  AfterContentChecked,
-  AfterViewInit,
-  Component,
-  ElementRef,
-  OnInit,
-  ViewChild,
-} from '@angular/core';
-import { faWhatsapp, faTwitter,  faFacebookF, faInstagramSquare } from '@fortawesome/free-brands-svg-icons';
+  faWhatsapp,
+  faTwitter,
+  faFacebookF,
+  faInstagramSquare,
+} from '@fortawesome/free-brands-svg-icons';
 
 @Component({
   selector: 'app-device',
@@ -19,8 +18,16 @@ export class DeviceComponent implements OnInit {
   faTwitter = faTwitter;
   faFacebookF = faFacebookF;
   faInstagramSquare = faInstagramSquare;
+  showFiller = false;
 
-  ngOnInit():void{
-    
+  constructor(private route: Router, private router: ActivatedRoute) {}
+  ngOnInit(): void {}
+
+  navigateCreate() {
+    this.route.navigate(['create-device'], { relativeTo: this.router });
+  }
+  
+  navigateDevicelist() {
+    this.route.navigate(['device']);
   }
 }

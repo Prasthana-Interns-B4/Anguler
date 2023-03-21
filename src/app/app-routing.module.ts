@@ -13,8 +13,7 @@ import { DeviceComponent } from './device/device.component';
 const routes: Routes = [
   
   { path:'',component:LoginComponent }, { path:'signup',component:SignupComponent },
-  { path:'emp-details',component:EmpDetailsComponent },  
-  { path:'device-list',component:DeviceComponent }, 
+  { path:'emp-details',component:EmpDetailsComponent },
   { path: 'emp-inventory',component:EmpInventoryComponent,
     loadChildren: () => import('./emp-inventory/emp-inventory.module').then(res => res.EmpInventoryModule)
   },

@@ -1,29 +1,29 @@
 import { Component } from '@angular/core';
-import { FormBuilder ,Validators} from '@angular/forms';
-import { DeviceService } from '../services/device.service';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { DataService } from '../services/data.service';
 
 @Component({
   selector: 'app-create-device',
   templateUrl: './create-device.component.html',
-  styleUrls: ['./create-device.component.css']
+  styleUrls: ['./create-device.component.css'],
 })
 export class CreateDeviceComponent {
- 
-  
- constructor(private fb:FormBuilder,private deviceService:DeviceService){}
-  addDeviceForm=this.fb.group({
-    deviceName:['',[Validators.required,Validators.minLength(3)]],
-    assignedTo:['',[Validators.required,Validators.minLength(3)]],
-    deviceType:['',Validators.required],
-    os:['',Validators.required]
-  })
+  constructor(private fb: FormBuilder, private ds:DataService) {}
+  addDeviceForm = this.fb.group({
+    deviceName: ['', [Validators.required]],
+    deviceType: ['', Validators.required],
+    os: ['', Validators.required],
+    assigned:[null]
+  });
 
-  onSubmit(){
-    console.log(this.addDeviceForm.value)
-    this.deviceService.addDevice(this.addDeviceForm.value)
-    .subscribe(
-       (val) => alert("Device added successfully"),
-       
-    )
+  onSubmit() {
+    this.ds.createDevice(this.addDeviceForm.value).subscribe({
+      
+      next: (res)=> {alert('device added successfully')
+    this.addDeviceForm.reset();}, 
+    error: (e) => {alert("error while adding")},
+    complete: () =>{ console.info('complete')} }
+      
+      )
   }
 }

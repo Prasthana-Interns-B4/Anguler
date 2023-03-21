@@ -4,60 +4,44 @@ import { DeviceListComponent } from './device-list/device-list.component';
 import { DeviceDetailComponent } from './device-detail/device-detail.component';
 import { DeviceComponent } from './device.component';
 import { DeviceRouteModule } from './device-routing.module';
-import { MatToolbarModule } from '@angular/material/toolbar';
-import { MatSidenavModule } from '@angular/material/sidenav';
-import { MatIconModule } from '@angular/material/icon';
-import { MatListModule } from '@angular/material/list';
-import { MatButtonModule } from '@angular/material/button';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CreateDeviceComponent } from './create-device/create-device.component';
-import { ViewDeviceComponent } from './view-device/view-device.component';
-import { DeleteDeviceComponent } from './delete-device/delete-device.component';
 import { EditDeviceComponent } from './edit-device/edit-device.component';
 import { HttpClientModule } from '@angular/common/http';
-import { DeviceCardComponent } from './device-card/device-card/device-card.component';
 import { MatCardModule } from '@angular/material/card';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatInputModule } from '@angular/material/input';
-import { MatSelectModule } from '@angular/material/select';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { FilterPipe } from './device-list/filter pipe/filter.pipe';
 import { RouterModule } from '@angular/router';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { MaterialModule } from './material/material.module';
+import { FmprofileComponent } from './fmprofile/fmprofile.component';
+import { DialogComponent } from './dialog/dialog.component';
+import { AssignEmployeeComponent } from './assign-employee/assign-employee.component';
+
 @NgModule({
   declarations: [
     DeviceComponent,
     DeviceListComponent,
     DeviceDetailComponent,
     CreateDeviceComponent,
-    ViewDeviceComponent,
-    DeleteDeviceComponent,
     EditDeviceComponent,
-    DeviceCardComponent,
-    FilterPipe,
+    FmprofileComponent,
+    DialogComponent,
+    AssignEmployeeComponent,
   ],
   imports: [
     CommonModule,
     MatCardModule,
     DeviceRouteModule,
-    MatToolbarModule,
-    MatSidenavModule,
-    MatIconModule,
-    MatListModule,
-    MatButtonModule,
     FormsModule,
     HttpClientModule,
     ReactiveFormsModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatSelectModule,
     FontAwesomeModule,
     RouterModule,
     DeviceRouteModule,
+    Ng2SearchPipeModule,
+    MaterialModule,
   ],
-  exports: [
-    DeviceComponent,
-    DeviceListComponent,
-    DeviceDetailComponent,
-  ],
+  exports: [DeviceComponent, DeviceListComponent, DeviceDetailComponent],
+  entryComponents:[DialogComponent]
 })
 export class DeviceModule {}
