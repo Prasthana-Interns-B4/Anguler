@@ -27,7 +27,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 // AuthInterceptor component
 import { AuthInterceptor } from './services/auth.interceptor';
 
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -38,7 +37,6 @@ import { AuthInterceptor } from './services/auth.interceptor';
     FooterComponent,
     LeftBarComponent,
     NotfoundComponent,
-
   ],
   imports: [
     BrowserModule,

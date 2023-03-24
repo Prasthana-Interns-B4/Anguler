@@ -7,16 +7,16 @@ import { SignupComponent } from './components/signup/signup.component';
 import { EmpDetailsComponent } from './components/emp-details/emp-details.component';
 import { EmpInventoryComponent } from './emp-inventory/emp-inventory.component';
 import { NotfoundComponent } from './components/notfound/notfound.component';
+import { DeviceComponent } from './device/device.component';
 
 import { AuthGuard } from './services/auth.guard';
 
-import { DeviceComponent } from './device/device.component';
+const routes: Routes = [  
 
-const routes: Routes = [
-  
   { path:'',component:LoginComponent }, 
   { path:'signup',component:SignupComponent },
   { path:'emp-details',component:EmpDetailsComponent, canActivate: [AuthGuard] },  
+
 
   { path: 'emp-inventory',component:EmpInventoryComponent,
     loadChildren: () => import('./emp-inventory/emp-inventory.module').then(res => res.EmpInventoryModule)

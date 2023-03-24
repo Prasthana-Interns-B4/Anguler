@@ -12,7 +12,6 @@ import {
   faPowerOff,
   faUser
 } from '@fortawesome/free-solid-svg-icons';
-EmpService
 
 @Component({
   selector: 'app-emp-list',
