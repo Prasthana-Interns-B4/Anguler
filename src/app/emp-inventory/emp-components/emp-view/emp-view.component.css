@@ -4,6 +4,7 @@
   cursor: pointer;
 }
 
+
 .edit-icon:hover{
   color: #333;
 }
@@ -19,7 +20,10 @@
 
 }
 
+.view-Bg{
+  background-color: #eeeefc;
 
+}
 
 .name-card-container {
   margin: 8px;
@@ -49,9 +53,9 @@
   border-radius: 14px;
 }
 
-.img-card{
-  height: 80px;
-  width: 80px;
+.device-img{
+  height: 100px;
+  width: 120px;
 }
 .name-card-info {
   display: flex;

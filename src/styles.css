@@ -1,6 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~bootstrap/dist/css/bootstrap.min.css";
 
+*{
+    font-family:'Inter';
+}
 html,
 body {
   height: 100%;
@@ -24,6 +27,8 @@ body {
 .confirm-dialog-container .dialog-container {
   border-radius: 025em 025em 4em 4em;
   padding: 0px;
+
+
 }
 .confirm-dialog-container .content-container {
   margin: 0px 0px 15px 15px;
