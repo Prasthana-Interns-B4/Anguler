@@ -1,0 +1,92 @@
+.edit-icon{
+  font-size: 1.2rem;
+  color: #999;
+  cursor: pointer;
+}
+
+
+.edit-icon:hover{
+  color: #333;
+}
+
+.name-card {
+  font-size: 24px;
+  font-weight: bold;
+  color: #fff;
+  padding: 20px;
+  height: 100px;
+  width: 100px;
+  text-align: center;
+
+}
+
+.view-Bg{
+  background-color: #eeeefc;
+
+}
+
+.name-card-container {
+  margin: 8px;
+  border: 1px solid #ccc;
+  border-radius: 15px;
+  padding: 25px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.name-card-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+}
+
+.name-card {
+  font-size: 36px;
+  font-weight: bold;
+  color: #fff;
+  margin-right: 20px;
+  background-color: yellowgreen;
+  border-radius: 14px;
+}
+
+.device-img{
+  height: 100px;
+  width: 120px;
+}
+.name-card-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.name-card-name {
+  font-size: 20px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 5px;
+}
+
+.name-card-id {
+  font-size: 15px;
+  color: #666;
+  margin-bottom: 5px;
+}
+
+.name-card-designation {
+  font-size: 16px;
+  color: #666;
+}
+
+.name-card-icon {
+  font-size: 24px;
+  color: #333;
+}
+.icons{
+  color: #6664ff;
+  font-weight: 400;
+}

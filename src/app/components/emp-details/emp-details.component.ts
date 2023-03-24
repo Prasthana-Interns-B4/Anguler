@@ -5,7 +5,6 @@ import {
   faLaptop,
   faMouse,
   faEdit,
-  faTrash,
 } from '@fortawesome/free-solid-svg-icons';
 
 
@@ -19,8 +18,7 @@ export class EmpDetailsComponent implements OnInit {
   faMouse = faMouse;
   faEdit = faEdit;
   lapyAssigned = true;
-  mouseAssigned = true;
-  faTrash = faTrash;
+  mouseAssigned = true; 
 
   employee: any;
   devices: any[]=[]
