@@ -4,12 +4,6 @@ import { EmpService } from '../emp-services/emp.service';
 
 //fontawesome icons
 import {
-  faWhatsapp,
-  faTwitter,
-  faFacebookF,
-  faInstagramSquare,
-} from '@fortawesome/free-brands-svg-icons';
-import {
   faAngleRight,
   faLaptop,
   faMouse,
@@ -18,16 +12,12 @@ import {
   faPowerOff,
   faUser
 } from '@fortawesome/free-solid-svg-icons';
-EmpService
 
 @Component({
   selector: 'app-emp-list',
   templateUrl: './emp-list.component.html',
   styleUrls: ['./emp-list.component.css'],
 })
-
-
-
 
 export class EmpListComponent {
   employees: any[] = [];

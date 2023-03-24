@@ -1,13 +1,11 @@
-
-
 <!-- COROUSEL & REGISTRATION FORM SECTION -->
-<div class="container-fluid mt-5 pt-4 pb-4" style="background-color: #f2f2f6;">
-      <div class="row">
+<div class="container-fluid">
+      <div class="row" style="background-color: #f2f2f6; margin-top: 60px; min-height: 83.2vh;">
         <div class="d-flex flex-row justify-content-center align-items-center">
           <!-- COROUSEL SECTION -->
           <div
             id="carouselExampleIndicators"
-            class="d-none d-lg-block carousel slide shadow m-5"
+            class="d-none d-lg-block carousel slide m-5"
             data-bs-ride="carousel"
             data-bs-interval="4000"
           >
@@ -82,23 +80,23 @@
             </button>
           </div>
           <!-- FORM SECTION -->
-          <div class="registration-form m-5 shadow">
+          <div class="registration-form shadow">
             <form [formGroup] = "signUpForm" (ngSubmit) = "onSubmit()">
               <div class="form-group">
                 <input
                   type="text"
                   class="form-control item mt-3"      
-                  formControlName = "firstName"            
-                  [ngClass] = "{ 'invalid': submitted && binds.firstName.errors }"         
+                  formControlName = "first_name"            
+                  [ngClass] = "{ 'invalid': binds.first_name.touched && binds.first_name.errors }"         
                   placeholder="First Name"
                   ngModel
                 />
               </div>
-              <div *ngIf="binds.firstName.touched && binds.firstName.errors" class="text-danger d-flex flex-row justify-content-start mt-1">
-                <div *ngIf="binds.firstName.errors.required" style="font-size: 13px;">
+              <div *ngIf="binds.first_name.touched && binds.first_name.errors" class="text-danger d-flex flex-row justify-content-start mt-1">
+                <div *ngIf="binds.first_name.errors.required" style="font-size: 13px;">
                   First Name is required
                 </div> 
-                <div *ngIf="binds.firstName.errors.minlength" style="font-size: 13px;">
+                <div *ngIf="binds.first_name.errors.minlength" style="font-size: 13px;">
                   First Name must be at least 3 characters
                 </div>               
               </div>
@@ -106,17 +104,17 @@
                 <input
                   type="text"
                   class="form-control item mt-3"
-                  formControlName = "lastName"            
-                  [ngClass] = "{ 'invalid': submitted && binds.lastName.errors }"
+                  formControlName = "last_name"            
+                  [ngClass] = "{ 'invalid': binds.last_name.touched && binds.last_name.errors }"
                   placeholder="Last Name"
                   ngModel
                 />
               </div>
-              <div *ngIf="binds.lastName.touched && binds.lastName.errors" class="text-danger d-flex flex-row justify-content-start mt-1">
-                <div *ngIf="binds.lastName.errors.required" style="font-size: 13px;">
+              <div *ngIf="binds.last_name.touched && binds.last_name.errors" class="text-danger d-flex flex-row justify-content-start mt-1">
+                <div *ngIf="binds.last_name.errors.required" style="font-size: 13px;">
                   Last Name is required
                 </div> 
-                <div *ngIf="binds.lastName.errors.minlength" style="font-size: 13px;">
+                <div *ngIf="binds.last_name.errors.minlength" style="font-size: 13px;">
                   Last Name must be at least 2 characters
                 </div>               
               </div>
@@ -125,7 +123,7 @@
                   type="text"
                   class="form-control item mt-3"
                   formControlName = "designation"            
-                  [ngClass] = "{ 'invalid': submitted && binds.designation.errors }"
+                  [ngClass] = "{ 'invalid': binds.designation.touched && binds.designation.errors }"
                   placeholder="Designation"
                   ngModel
                 />
@@ -139,14 +137,14 @@
                 <input
                   type="text"
                   class="form-control item mt-3"
-                  formControlName = "phoneNumber"            
-                  [ngClass] = "{ 'invalid': submitted && binds.phoneNumber.errors }"
+                  formControlName = "phone_number"            
+                  [ngClass] = "{ 'invalid': binds.phone_number.touched && binds.phone_number.errors }"
                   placeholder="Phone Number"
                   ngModel
                 />
               </div>
-              <div *ngIf="binds.phoneNumber.touched && binds.phoneNumber.errors" class="text-danger d-flex flex-row justify-content-start mt-1">
-                <div *ngIf="binds.phoneNumber.errors.required" style="font-size: 13px;">
+              <div *ngIf="binds.phone_number.touched && binds.phone_number.errors" class="text-danger d-flex flex-row justify-content-start mt-1">
+                <div *ngIf="binds.phone_number.errors.required" style="font-size: 13px;">
                   Phone Number is required
                 </div>                               
               </div>
@@ -154,17 +152,17 @@
                 <input
                   type="email"
                   class="form-control item mt-3"
-                  formControlName = "emailAddress"            
-                  [ngClass] = "{ 'invalid': submitted && binds.emailAddress.errors }"
+                  formControlName = "email"            
+                  [ngClass] = "{ 'invalid': binds.email.touched && binds.email.errors }"
                   placeholder="Email address"
                   ngModel
                 />
               </div>
-              <div *ngIf="binds.emailAddress.touched && binds.emailAddress.errors" class="text-danger d-flex flex-row justify-content-start mt-1">
-                <div *ngIf="binds.emailAddress.errors.required" style="font-size: 13px;">
+              <div *ngIf="binds.email.touched && binds.email.errors" class="text-danger d-flex flex-row justify-content-start mt-1">
+                <div *ngIf="binds.email.errors.required" style="font-size: 13px;">
                   Email address is required
                 </div> 
-                <div *ngIf="binds.emailAddress.errors.email || binds.emailAddress.errors.pattern" style="font-size: 13px;">
+                <div *ngIf="binds.email.errors.email || binds.email.errors.pattern" style="font-size: 13px;">
                   Email must end with @prasthana.com
                 </div>               
               </div>
@@ -173,7 +171,7 @@
                   type="password"
                   class="form-control item mt-3"
                   formControlName = "password"            
-                  [ngClass] = "{ 'invalid': submitted && binds.password.errors }"
+                  [ngClass] = "{ 'invalid': binds.password.touched && binds.password.errors }"
                   placeholder="Password"
                   ngModel
                 />
@@ -190,17 +188,17 @@
                 <input
                   type="password"
                   class="form-control item mt-3"
-                  formControlName = "confirmPassword"            
-                  [ngClass] = "{ 'invalid': submitted && binds.confirmPassword.errors }"
+                  formControlName = "confirm_password"            
+                  [ngClass] = "{ 'invalid': binds.confirm_password.touched && binds.confirm_password.errors }"
                   placeholder="Confirm Password"
                   ngModel
                 />
               </div>
-              <div *ngIf="binds.confirmPassword.touched && binds.confirmPassword.errors" class="text-danger d-flex flex-row justify-content-start  mt-1">
-                <div *ngIf="binds.confirmPassword.errors.required" style="font-size: 13px;">
+              <div *ngIf="binds.confirm_password.touched && binds.confirm_password.errors" class="text-danger d-flex flex-row justify-content-start  mt-1">
+                <div *ngIf="binds.confirm_password.errors.required" style="font-size: 13px;">
                   Confirm Password is required
                 </div> 
-                <div *ngIf="binds.confirmPassword.errors.mustmatch" style="font-size: 13px;">
+                <div *ngIf="binds.confirm_password.errors.mustmatch" style="font-size: 13px;">
                   Password must match
                 </div>               
               </div>
@@ -208,19 +206,19 @@
                 <input
                   type="date"
                   class="form-control item mt-3"
-                  formControlName = "birthDate"            
-                  [ngClass] = "{ 'invalid': submitted && binds.birthDate.errors }"                  
+                  formControlName = "date_of_birth"            
+                  [ngClass] = "{ 'invalid': binds.date_of_birth.touched && binds.date_of_birth.errors }"                  
                   ngModel
                 />
               </div>
               <div class="text-danger d-flex flex-row justify-content-start mt-1">
-                <div *ngIf="binds.birthDate.touched && binds.birthDate.value === '' " style="font-size: 13px;">
+                <div *ngIf="binds.date_of_birth.touched && binds.date_of_birth.value === '' " style="font-size: 13px;">
                   Birth Date is required
                 </div> 
-                <div *ngIf="binds.birthDate.value !== '' && binds.birthDate.errors !== null && binds.birthDate.errors.ageInvalid" style="font-size: 13px;">
+                <div *ngIf="binds.date_of_birth.value !== '' && binds.date_of_birth.errors !== null && binds.date_of_birth.errors.ageInvalid" style="font-size: 13px;">
                   Age must be at least 18 years
                 </div> 
-                <div *ngIf="binds.birthDate.value !== '' && binds.birthDate.errors !== null && binds.birthDate.errors.futureAge" style="font-size: 13px;">
+                <div *ngIf="binds.date_of_birth.value !== '' && binds.date_of_birth.errors !== null && binds.date_of_birth.errors.futureAge" style="font-size: 13px;">
                   Birth Date can't be future date
                 </div>                             
               </div>
@@ -228,13 +226,13 @@
                 <button
                   type="submit"                  
                   style="                    
-                    width: 200px;
+                    width:50%;
                     font-size: 16px;
                     color: #fff;
                     font-weight: 500;
-                    margin-top: 25px;
+                    margin-top: 20px;
                   "
-                  [ngClass] = "signUpForm.valid  === true? 'btn btn-primary' : 'btn btn-secondary'"
+                  [ngClass] = "signUpForm.valid  === true? 'btn btn-primary button-active' : 'btn btn-primary disabled'"
                 >
                   Register
                 </button>

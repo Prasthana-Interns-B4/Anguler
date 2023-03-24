@@ -9,11 +9,15 @@ import { EmpInventoryComponent } from './emp-inventory/emp-inventory.component';
 import { NotfoundComponent } from './components/notfound/notfound.component';
 import { DeviceComponent } from './device/device.component';
 
+import { AuthGuard } from './services/auth.guard';
 
-const routes: Routes = [
-  
-  { path:'',component:LoginComponent }, { path:'signup',component:SignupComponent },
-  { path:'emp-details',component:EmpDetailsComponent },
+const routes: Routes = [  
+
+  { path:'',component:LoginComponent }, 
+  { path:'signup',component:SignupComponent },
+  { path:'emp-details',component:EmpDetailsComponent, canActivate: [AuthGuard] },  
+
+
   { path: 'emp-inventory',component:EmpInventoryComponent,
     loadChildren: () => import('./emp-inventory/emp-inventory.module').then(res => res.EmpInventoryModule)
   },
