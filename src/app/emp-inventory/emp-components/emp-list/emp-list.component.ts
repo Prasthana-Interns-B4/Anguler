@@ -25,6 +25,10 @@ EmpService
   templateUrl: './emp-list.component.html',
   styleUrls: ['./emp-list.component.css'],
 })
+
+
+
+
 export class EmpListComponent {
   employees: any[] = [];
   filteredEmployees: any[] = [];

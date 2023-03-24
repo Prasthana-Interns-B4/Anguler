@@ -14,13 +14,16 @@ import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { LeftBarComponent } from './components/left-bar/left-bar.component';
 import { NotfoundComponent } from './components/notfound/notfound.component';
-import { HttpClientModule } from '@angular/common/http';
+// fontawesome module
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 //forms module and reactive forms module
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HttpClientModule } from '@angular/common/http';
+import { DeviceModule } from './device/device.module';
 
 // fontawesome module
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 
 @NgModule({
@@ -33,14 +36,18 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     FooterComponent,
     LeftBarComponent,
     NotfoundComponent,
+
   ],
   imports: [
     BrowserModule,
     FontAwesomeModule,
+    HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
     AppRoutingModule,
     HttpClientModule,
+    BrowserAnimationsModule,
+    // DeviceModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,0 +1,84 @@
+<!-- <mat-sidenav-container>
+  <mat-sidenav #sidenav mode="side">
+    <mat-nav-list>
+      <a routerLink="/profile" mat-list-item>Profile</a>
+      <a routerLink="/create" mat-list-item>Add a Device</a>
+      <a routerLink="/devicelist" mat-list-item>DeviceList</a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container> -->
+
+<!-- LEFTBAR NAVIGATION SECTION AND EMP DETAILS SECTION -->
+
+<div class="d-flex flex-row">
+  <!-- LEFTBAR NAVIGATION SECTION -->
+  <div
+    class="d-flex flex-column justify-content-between align-items-center p-3"
+    style="
+      background-color: #1d3c6a;
+      height: auto;
+      min-height: 84.4vh;
+      color: #fff;
+      width: 20vw;
+      margin-top: 65px;
+    "
+  >
+    <div class="d-flex flex-column justify-content-center">
+      <button
+        
+        class="btn m-2"
+        style="
+          background-color: #fff;
+          color: #081e42;
+          width: 17vw;
+          text-align: start;
+        "
+      >
+        My Profile
+      </button>
+      <button
+        (click)="navigateCreate()"
+        class="btn m-2"
+        style="
+          background-color: #fff;
+          color: #081e42;
+          width: 17vw;
+          text-align: start;
+        "
+      >
+        Add Device
+      </button>
+      <button
+        (click)="navigateDevicelist()"
+        class="btn m-2"
+        style="
+          background-color: #fff;
+          color: #081e42;
+          width: 17vw;
+          text-align: start;
+        "
+      >
+        Device List
+      </button>
+    </div>
+    <div>
+      <button
+        class="btn m-2"
+        style="
+          background-color: #fff;
+          color: #081e42;
+          width: 17vw;
+          text-align: start;
+        "
+      >
+        Logout
+      </button>
+    </div>
+  </div>
+  <div class="col-md-12 col-lg-9 device-list">
+    <router-outlet></router-outlet>
+  </div>
+</div>
