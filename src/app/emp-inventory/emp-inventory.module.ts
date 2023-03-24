@@ -15,10 +15,9 @@ import { FormsModule } from '@angular/forms';
 // fontawesome module
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { EmpViewComponent } from './emp-components/emp-view/emp-view.component';
-import { EmpStatusComponent } from './emp-components/emp-status/emp-status.component';
 
 @NgModule({
-  declarations: [EmpListComponent, HrDetailsComponent, EmpInventoryComponent, EmpViewComponent, EmpStatusComponent],
+  declarations: [EmpListComponent, HrDetailsComponent, EmpInventoryComponent, EmpViewComponent],
   imports: [
     CommonModule,
     FontAwesomeModule,

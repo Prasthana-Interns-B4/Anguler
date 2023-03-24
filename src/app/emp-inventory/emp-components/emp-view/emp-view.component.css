@@ -17,7 +17,11 @@
   height: 100px;
   width: 100px;
   text-align: center;
+}
 
+.form-control:focus{
+  border-color: transparent;
+  
 }
 
 .view-Bg{

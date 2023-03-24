@@ -4,27 +4,7 @@
 *{
     font-family:'Inter';
 }
-html,
-body {
-  height: 100%;
-}
-body {
-  margin: 0;
-  font-family: Roboto, "Helvetica Neue", sans-serif;
-}
 
-* {
-  font-family: "inter";
-}
-
-html,
-body {
-  height: 100%;
-}
-body {
-  margin: 0;
-  font-family: Roboto, "Helvetica Neue", sans-serif;
-}
 
 /*for-dialog-pop-up */
 .btn-dialog-close {
@@ -84,6 +64,3 @@ body {
 .bg-img{
   background-image: none !important;
 }
-
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

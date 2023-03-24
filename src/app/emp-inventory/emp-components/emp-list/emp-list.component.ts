@@ -16,7 +16,8 @@ import {
   faTrash,
   faUsers,
   faPowerOff,
-  faUser
+  faUser,
+  faBell
 } from '@fortawesome/free-solid-svg-icons';
 EmpService
 
@@ -25,14 +26,11 @@ EmpService
   templateUrl: './emp-list.component.html',
   styleUrls: ['./emp-list.component.css'],
 })
-
-
-
-
 export class EmpListComponent {
   employees: any[] = [];
   filteredEmployees: any[] = [];
   searchInput: string = '';
+  pendingRequests=3;
   employee: any;
   employeesToDisplay: any;
   faArrowRight = faAngleRight;
@@ -40,6 +38,7 @@ export class EmpListComponent {
   faMouse = faMouse;
   faUsers = faUsers;
   faUser = faUser;
+  faBell = faBell;
   faPowerOff = faPowerOff;
   faTrash = faTrash;
   lapyAssigned = true;

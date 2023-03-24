@@ -48,13 +48,13 @@ export class EmpViewComponent {
   }
 
   openModal() {
-    const modelDiv = document.getElementById('exampleModal');
+    const modelDiv = document.getElementById('myModal') ;
     if (modelDiv != null) {
       modelDiv.style.display = 'block';
     }
   }
   closeModal() {
-    const modelDiv = document.getElementById('exampleModal');
+    const modelDiv = document.getElementById('myModal');
     if (modelDiv != null) {
       modelDiv.style.display = 'none';
     }
