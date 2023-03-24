@@ -1,25 +1,32 @@
-<!--   -->
-
-<div  *ngFor="let device of listDevices">
-  <mat-card class="example-card list" >
+<app-search (searchTextChanged)="onSearchTextEntered($event)"></app-search>
+<div *ngFor="let device of listDevices">
+  <mat-card
+    class="example-card list name-card-container" 
+    *ngIf="
+      device.deviceName === '' ||
+      device.deviceName.toLowerCase().includes(searchText)
+    "
+  >
     <mat-card-header>
       <img mat-card-sm-image [src]="device.img" />
       <mat-card-title-group class="title">
+
         <mat-card-title>{{ device.deviceName }}</mat-card-title>
 
-        <mat-card-subtitle
-          ><div class="devicetype">{{ device.deviceType }}</div>
+        <mat-card-subtitle>
+          <div class="devicetype">{{ device.deviceType }}</div>
+
           {{ device.tagNo | uppercase }}
-          <span class="build">{{ device.os }}</span>
+          <span class="build"> {{ device.os }}</span>
           <p *ngIf="device.assigned != null" class="assigned">
             Assigned to {{ device.assigned }}
           </p>
           <p *ngIf="device.assigned == null" class="assigned">
-            No device assigned
+            No employee assigned
           </p>
         </mat-card-subtitle>
         <button
-        (click)="assignDevice()"
+          (click)="assignDevice()"
           *ngIf="device.assigned == null"
           mat-stroked-button
           color="primary"
@@ -38,15 +45,19 @@
         Unassign
       </button>
 
-      <button (click)="deletedevice(device.id)" mat-button class="del">
-        <fa-icon class="my-icon" [icon]="faTrashCan"></fa-icon>
+      <button (click)="deletedevice(device.id )" mat-button class="del">
+        <fa-icon class="my-icon btn-danger" [icon]="faTrashCan"></fa-icon>
       </button>
 
       <button (click)="navigateToDetail(device)" mat-button class="arrow">
         <div class="nav-arrow">
-          <fa-icon class="my-icon" [icon]="faArrowRight"></fa-icon>
+          <fa-icon class="my-icon" [icon]="faAngleRight"></fa-icon>
         </div>
       </button>
     </mat-card-header>
   </mat-card>
 </div>
+
+
+
+         

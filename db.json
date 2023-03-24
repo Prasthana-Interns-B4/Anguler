@@ -7,21 +7,55 @@
       "tagNo": "dev1001",
       "assigned": null,
       "id": 6,
-      "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSsSqqTzu6yJsOQMKTOCPt4267CzKEoRFyA0Q&usqp=CAU"
+      "img": "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8bGFwdG9wfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60"
     },
     {
       "deviceName": "Lenovo",
       "deviceType": "Laptop",
       "os": "Windows",
       "assigned": "upendra",
-      "id": 8
+      "tagNo": "dev1001",
+
+      "id": 8,
+      "img": "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8bGFwdG9wfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60"
     },
     {
-      "deviceName": "Mac Pro",
-      "deviceType": "Laptop",
-      "os": "macOS",
+      "deviceName": "DEll",
+      "deviceType": "Desktop",
+      "os": "Windows",
       "assigned": null,
-      "id": 9
+      "tagNo": "dev1001",
+
+      "id": 10
+    },
+    {
+      "deviceName": "acer",
+      "deviceType": "Desktop",
+      "os": "Linux",
+      "assigned": null,
+      "tagNo": "dev1001",
+
+      "id": 11
+    },
+    {
+      "deviceName": "dell latitude 3520",
+      "deviceType": "Laptop",
+      "os": "Windows",
+      "category": "Electronics",
+      "assigned": null,
+      "tagNo": "dev1001",
+
+      "id": 12
+    },
+    {
+      "deviceName": "lenovo pro",
+      "deviceType": "Laptop",
+      "os": "Windows",
+      "category": "Electronics",
+      "assigned": null,
+      "tagNo": "dev1001",
+
+      "id": 13
     }
   ]
 }

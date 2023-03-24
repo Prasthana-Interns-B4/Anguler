@@ -6,16 +6,14 @@ import { DeviceComponent } from './device.component';
 import { DeviceRouteModule } from './device-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CreateDeviceComponent } from './create-device/create-device.component';
-import { EditDeviceComponent } from './edit-device/edit-device.component';
 import { HttpClientModule } from '@angular/common/http';
 import { MatCardModule } from '@angular/material/card';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { RouterModule } from '@angular/router';
-import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { MaterialModule } from './material/material.module';
-import { FmprofileComponent } from './fmprofile/fmprofile.component';
 import { DialogComponent } from './dialog/dialog.component';
 import { AssignEmployeeComponent } from './assign-employee/assign-employee.component';
+import { SearchComponent } from './search/search.component';
 
 @NgModule({
   declarations: [
@@ -23,10 +21,9 @@ import { AssignEmployeeComponent } from './assign-employee/assign-employee.compo
     DeviceListComponent,
     DeviceDetailComponent,
     CreateDeviceComponent,
-    EditDeviceComponent,
-    FmprofileComponent,
     DialogComponent,
     AssignEmployeeComponent,
+    SearchComponent,
   ],
   imports: [
     CommonModule,
@@ -38,7 +35,6 @@ import { AssignEmployeeComponent } from './assign-employee/assign-employee.compo
     FontAwesomeModule,
     RouterModule,
     DeviceRouteModule,
-    Ng2SearchPipeModule,
     MaterialModule,
   ],
   exports: [DeviceComponent, DeviceListComponent, DeviceDetailComponent],

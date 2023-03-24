@@ -1,17 +1,4 @@
-mat-sidenav-container {
-  height: 93%;
-}
-mat-sidenav,
-matsidenav-content {
-  padding: 16px;
-}
-mat-toolbar {
-  background-color: #0b306a;
-  color: #fff;
-}
-mat-icon {
-  margin-left: auto;
-}
+
 .menulist-btn {
   margin-left: auto;
 }
@@ -22,6 +9,10 @@ mat-icon {
   margin-right:auto;
   overflow-y:auto;
   height: 83vh;
+  background-color:#f2f2f6;
+  
   
 }
-
+.sidenav{
+  background-color:#f2f2f6;
+}

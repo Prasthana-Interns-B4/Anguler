@@ -47,6 +47,7 @@
         >
           <option>Laptop</option>
           <option>Desktop</option>
+          <option>Mouse</option>
         </select>
         <small
           [class.d-none]="
@@ -64,8 +65,7 @@
         <label for="os">OS:</label>
         <select
         [class.bg-img]="addDeviceForm.get('os')?.touched "
-          [class.is-invalid]="addDeviceForm.get('os')?.invalid && addDeviceForm.get('os')?.touched"
-          formControlName="os"
+                    formControlName="os"
           id="os"
           class="form-select form-control item mt-1"
         >
@@ -73,14 +73,43 @@
           <option>Windows</option>
           <option>Linux</option>
         </select>
-        <small
+        <!-- <small
           [class.d-none]="
             addDeviceForm.get('os')?.valid || addDeviceForm.get('os')?.untouched
           "
           class="text-danger"
           >Please select a OS</small
+        > -->
+      </div>
+
+
+      <div class="form-group">
+        <label for="Category">Category:</label>
+        <select
+        [class.bg-img]="addDeviceForm.get('category')?.touched "
+          [class.is-invalid]="addDeviceForm.get('category')?.invalid && addDeviceForm.get('category')?.touched"
+          formControlName="category"
+          id="category"
+          class="form-select form-control item mt-1"
+        >
+          <option>Goodies</option>
+          <option>Electronics</option>
+          <!-- <option>Linux</option> -->
+        </select>
+        <small
+          [class.d-none]="
+            addDeviceForm.get('category')?.valid || addDeviceForm.get('category')?.untouched
+          "
+          class="text-danger"
+          >Please select a category</small
         >
       </div>
+
+
+
+
+
+
       <div class="button"><button
         
         type="submit"

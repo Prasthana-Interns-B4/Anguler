@@ -1,52 +1,97 @@
 .example-card {
-  width: 100%;
+  width: 60%;
   position: relative;
-  margin: 10px auto;
+  margin: 20px auto;
+  border-radius: 10px;
 }
 mat-card-subtitle {
   margin-top: 1px;
 }
 .title {
-  padding: 0 1rem;
+  padding: 0 2rem;
+}
+.mat-mdc-card-title {
+  font-family: inter;
+  font-weight: 800;
+  font-size: 1.5em;
 }
 .devicetype {
-  background-color: #0b306a;
-  border-radius: 0.3em;
+  background-color: #1d3c6a;
+  border-radius: 1em;
   text-align: center;
   color: white;
-  width: 3rem;
-  margin-bottom: 5px;
+  width: 3.5rem;
+  font-weight:10;
+margin-bottom: 1em;
+  font-size:small;
+  /* margin-left: 1rem; */
+ 
+ 
 }
 .build {
   margin: 0 25px;
 }
 .assigned {
-  color: black;
-
+  color: rgb(47, 47, 86);
+font-weight: 200;
   margin-top: 0.5rem;
 }
 .arrow {
   margin-top: 3rem;
+  position:absolute;
+  right:0;
+
 }
 .assign-btn {
-  margin-top: 5rem;
+  margin-top: 5.5rem;
   position: absolute;
-  left: 250px;
+  left: 320px;
 }
-@media only screen and (max-width: 500px) {
+
+.mat-mdc-card-sm-image {
+  width: 100px;
+  height: 100px;
+  border-radius: 10px;
+  object-fit: cover;
+} 
+@media only screen and (max-width: 770px) {
   .assign-btn {
     position: absolute;
-    left: 250px;
+    left: 260px;
     bottom: 10px;
+    
+    
   }
+
+  .example-card {
+    width: 100%;
+    margin: 20px;
+  }
+  .mat-mdc-card-sm-image {
+    width: 80px;
+    height: 80px;
+    border-radius: 10px;
+    object-fit: cover;
+  } 
 }
 
 .del {
   position: absolute;
-  right: 10px;
+  right: 0px;
   color: #a01f1f;
+  top:5px;
 }
 .my-icon {
-  font-size: 20px;
-  color: #0b306a;
+  font-size: 18px;
+  color: #1d3c6a;
 }
+
+
+.mat-mdc-card {
+  box-shadow: none;
+  --mdc-elevated-card-container-color: #ffffff;
+  /* border: 0.5px solid grey; */
+}
+
+
+

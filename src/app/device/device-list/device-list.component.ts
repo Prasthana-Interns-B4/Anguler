@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-import { faArrowRight, faTrashCan } from '@fortawesome/free-solid-svg-icons';
+import { faAngleRight,faTrashCan } from '@fortawesome/free-solid-svg-icons';
 import { DataService } from '../services/data.service';
 import { DialogService } from '../services/dialog.services';
 @Component({
@@ -20,12 +20,12 @@ export class DeviceListComponent implements OnInit {
     this.getdevices();
   }
 
-  faArrowRight = faArrowRight;
+  faAngleRight= faAngleRight;
   faTrashCan = faTrashCan;
-  searchText!: string;
   selected: any;
-  device: any;
+  
   listDevices: any;
+  searchText: string='';
 
   getdevices() {
     this.ds.getDevices().subscribe({
@@ -38,8 +38,9 @@ export class DeviceListComponent implements OnInit {
     });
   }
   deletedevice(id: number) {
+   
     this.dialogService
-      .openConfirmDialog('Are you sure to delete this device?')
+      .openConfirmDialog('Are you sure want to delete this device?')
       .afterClosed()
       .subscribe({
         next: (_res) => {
@@ -55,6 +56,7 @@ export class DeviceListComponent implements OnInit {
             }
           },     
       });
+    
   }
   navigateToDetail(device: any) {
     console.log(device);
@@ -66,7 +68,10 @@ export class DeviceListComponent implements OnInit {
   // assignDevice(device: any, empname: any) {
   //   this.ds.editdevice(device, empname);
     }
-  
+  onSearchTextEntered(searchValue:string){
+    this.searchText=searchValue;
+    console.log(this.searchText)
+  }
   
 }
 

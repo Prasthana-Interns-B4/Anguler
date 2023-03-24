@@ -13,6 +13,7 @@ export class CreateDeviceComponent {
     deviceName: ['', [Validators.required]],
     deviceType: ['', Validators.required],
     os: ['', Validators.required],
+    category:['',Validators.required],
     assigned:[null]
   });
 

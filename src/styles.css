@@ -4,23 +4,13 @@
 html,
 body {
   height: 100%;
-}
-body {
+  margin: 0;
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 
 * {
   font-family: "inter";
-}
-
-html,
-body {
-  height: 100%;
-}
-body {
-  margin: 0;
-  font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 
 /*for-dialog-pop-up */
@@ -34,12 +24,10 @@ body {
 .confirm-dialog-container .dialog-container {
   border-radius: 025em 025em 4em 4em;
   padding: 0px;
-  
-  
 }
 .confirm-dialog-container .content-container {
   margin: 0px 0px 15px 15px;
-  /* color: #8f9cb5; */
+  color: #192b4c;
   display: flex;
 }
 
@@ -47,11 +35,10 @@ body {
   margin-left: auto;
   order: 2;
   font-weight: bolder;
-  
 }
 
 .confirm-dialog-container #close-icon:hover {
-  cursor:pointer;
+  cursor: pointer;
 }
 
 .confirm-dialog-container #no-button {
@@ -68,16 +55,26 @@ body {
   color: white;
   border-radius: 0px;
 }
-.confirm-dialog-container span.content-span{
-  padding:35px 16px;
+.confirm-dialog-container span.content-span {
+  padding: 35px 16px;
   text-align: center;
   font-size: 20px;
 }
 /*confirm-dialog*/
-.mdc-dialog__surface{
-  overflow-y:hidden !important;
+.mdc-dialog__surface {
+  overflow-y: hidden !important;
 }
 /*background-image of form filed */
-.bg-img{
+.bg-img {
   background-image: none !important;
 }
+
+/*mat card*/
+/* .mat-mdc-card-header{
+  padding: 1px 16px 0 !important;
+} */
+
+.mat-mdc-card {
+  background-color: #4462a0;
+}
+
