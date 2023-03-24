@@ -4,6 +4,8 @@ import { BrowserModule } from '@angular/platform-browser';
 // App Routing Module
 import { AppRoutingModule } from './app-routing.module';
 
+// Http Client Module
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 
 // Outer- main Components 
 import { AppComponent } from './app.component';
@@ -15,12 +17,14 @@ import { FooterComponent } from './components/footer/footer.component';
 import { LeftBarComponent } from './components/left-bar/left-bar.component';
 import { NotfoundComponent } from './components/notfound/notfound.component';
 
-
 //forms module and reactive forms module
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 // fontawesome module
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+
+// AuthInterceptor component
+import { AuthInterceptor } from './services/auth.interceptor';
 
 
 @NgModule({
@@ -38,10 +42,14 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     BrowserModule,    
     FontAwesomeModule,
     FormsModule,
-    ReactiveFormsModule,
+    HttpClientModule,
+    ReactiveFormsModule,    
     AppRoutingModule,
   ],
-  providers: [],
+  providers: [{
+    provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor,
+    multi: true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
