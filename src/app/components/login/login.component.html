@@ -1,6 +1,6 @@
 <!-- COROUSEL & FORM SECTION -->
-<div class="container-fluid mt-5" style="background-color: #f2f2f6; padding-top:99px;padding-bottom:99px">
-      <div class="row">        
+<div class="container-fluid">
+      <div class="row" style=" background-color: #f2f2f6; margin-top: 60px; min-height: 83.2vh;">        
         <div class="d-flex flex-row justify-content-center align-items-center">
           <!-- COROUSEL SECTION -->
           <div
@@ -80,34 +80,31 @@
             </button>
           </div>
           <!-- FORM SECTION -->
-          <div class="login-form d-flex flex-column justify-content-between m-5 shadow">  
+          <div class="login-form shadow">  
                 <form  [formGroup] = "loginForm" (ngSubmit) = "onLogin()"> 
                   <p style="font-size: 18px; font-weight:600; color: #081e42; align-self: flex-start;" >Login to your account</p>           
                   
                   <div class="form-group">
                     <input
-                      type="email"
+                      type="text"
                       class="form-control item mt-3"
-                      formControlName = "emailAddress"            
-                      [ngClass] = "{ 'invalid': submitted && binds.emailAddress.errors }"
-                      placeholder="Email address"
+                      formControlName = "emp_id"            
+                      [ngClass] = "{ 'invalid': binds.emp_id.touched && binds.emp_id.errors }"
+                      placeholder="Employee ID"
                       ngModel
                     />
                   </div>
-                  <div *ngIf="binds.emailAddress.touched && binds.emailAddress.errors" class="text-danger d-flex flex-row justify-content-start mt-1">
-                    <div *ngIf="binds.emailAddress.errors.required" style="font-size: 14px;">
-                      Email address is required
-                    </div> 
-                    <div *ngIf="binds.emailAddress.errors.email || binds.emailAddress.errors.pattern" style="font-size: 14px;">
-                      Email must end with @prasthana.com
-                    </div>               
+                  <div *ngIf="binds.emp_id.touched && binds.emp_id.errors" class="text-danger d-flex flex-row justify-content-start mt-1">
+                    <div *ngIf="binds.emp_id.errors.required" style="font-size: 14px;">
+                      Employee ID is required
+                    </div>                                   
                   </div>
                   <div class="form-group">
                     <input
                       type="password"
                       class="form-control item mt-3"
                       formControlName = "password"            
-                      [ngClass] = "{ 'invalid': submitted && binds.password.errors }"
+                      [ngClass] = "{ 'invalid': binds.password.touched && binds.password.errors }"
                       placeholder="Password"
                       ngModel
                     />
@@ -122,18 +119,18 @@
                   </div>
                   <div class="d-flex flex-row justify-content-end mt-1">
                     <p class="text-primary" style="font-size: 15px;cursor:pointer; font-weight: 500; text-decoration: underline;" >Forgot password?</p>
-                  </div>                     
-                                    
+                  </div>                        
                   <div class="d-flex flex-row justify-content-center form-group">
                       <button
                         type="submit"
-                        class="btn btn-primary mt-2"
+                        class="mt-2"
                         style="
                             width: 200px;
                             font-size: 16px;
                             color: #fff;
-                            font-weight: 500"
-                        (click)="onLogin()">
+                            font-weight: 500;"
+                        [ngClass] = "loginForm.valid  === true? 'btn btn-primary button-active' : 'btn btn-primary disabled'"
+                        >
                         Login
                       </button>
                   </div>                                            

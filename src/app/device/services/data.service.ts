@@ -6,7 +6,7 @@ import { Injectable } from '@angular/core';
 })
 export class DataService {
 
-  baseurl="http://localhost:3000/devices/"
+  baseurl="http://localhost:3000/devices/devices"
   constructor( private http:HttpClient) { }
 
   createDevice(data:any){
