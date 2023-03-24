@@ -1,0 +1,52 @@
+.example-card {
+  width: 100%;
+  position: relative;
+  margin: 10px auto;
+}
+mat-card-subtitle {
+  margin-top: 1px;
+}
+.title {
+  padding: 0 1rem;
+}
+.devicetype {
+  background-color: #0b306a;
+  border-radius: 0.3em;
+  text-align: center;
+  color: white;
+  width: 3rem;
+  margin-bottom: 5px;
+}
+.build {
+  margin: 0 25px;
+}
+.assigned {
+  color: black;
+
+  margin-top: 0.5rem;
+}
+.arrow {
+  margin-top: 3rem;
+}
+.assign-btn {
+  margin-top: 5rem;
+  position: absolute;
+  left: 250px;
+}
+@media only screen and (max-width: 500px) {
+  .assign-btn {
+    position: absolute;
+    left: 250px;
+    bottom: 10px;
+  }
+}
+
+.del {
+  position: absolute;
+  right: 10px;
+  color: #a01f1f;
+}
+.my-icon {
+  font-size: 20px;
+  color: #0b306a;
+}

@@ -1,0 +1,73 @@
+  <!-- EMP DETAILS SECTION -->
+<div class="container p-3 m-5" style="height: 77.8vh; width: 75vw">
+  <div class="row">
+<div class="col-12 col-md-8">
+  <div class="name-card-container">
+    <div class="d-flex flex-row justify-content- align-items-center w-100 ms-4">
+      <div class="name-card md-me-3" [ngStyle]="{ color: '#fff' }">EN</div>
+      <div class="d-flex align-items-center flex-grow-1">
+        <div class="name-card-info flex-grow-1">
+          <h2 class="h5 name-card-name">{{ employee.name }} {{ employee.username }}</h2>
+          <div class="d-flex flex-column">
+            <p class="name-card-id mb-1">{{ employee.email }}</p>
+            <p class="name-card-id">{{ employee.phone }}</p>
+          </div>
+        </div>
+        <div class="d-flex flex-row align-items-center">
+          <div class="d-flex flex-column align-items-center me-3">
+            <fa-icon [icon]="faEdit"></fa-icon>
+          </div>
+          <div class="d-flex flex-column align-items-center">
+            <fa-icon [icon]="faTrash" (click)="removeEmployee(employee)"></fa-icon>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="d-flex flex-row justify-content-start align-items-center w-100 ms-5 m-3">
+      <p class="name-card-id me-3 mb-0"><b>Emp ID:</b> 123456</p>
+      <p class="name-card-id me-3 mb-0"><b>Designation:</b> jobTitle</p>
+      <div class="d-flex flex-row align-items-center">
+        <p class="name-card-id mb-0 me-2" style="font-weight: 600">Devices:</p>
+        <ng-container *ngIf="lapyAssigned">
+          <fa-icon class="me-2 icons" [icon]="faLapy"></fa-icon>
+        </ng-container>
+        <ng-container *ngIf="mouseAssigned">
+          <fa-icon class="icons" [icon]="faMouse"></fa-icon>
+        </ng-container>
+        <ng-container *ngIf="!lapyAssigned && !mouseAssigned">
+          <p class="name-card-id mb-0 ms-3" style="color: tomato">No Devices Assigned</p>
+        </ng-container>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <h1 class="col-12 col-md-8 col-lg-7 m-3" style="font-size: 25px">
+      Devices Assigned
+    </h1>
+    <div class="col-12 col-md-8 m-1">
+      <div class="name-card-container p-3">
+        <div
+          class="d-flex flex-row justify-content-between align-items-center w-100"
+        >
+          <div class="container">
+            <div class="row">
+              <div class="col-4">
+                <img
+                  src="https://images.pexels.com/photos/7974/pexels-photo.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                  alt="Device picture"
+                  class="img-fluid"
+                />
+              </div>
+              <div class="col-8">
+                <h3>Device Name</h3>
+                <p>Device ID: 1234567890</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
