@@ -9,22 +9,22 @@ import { EmpInventoryRoutingModule } from './emp-inventory-routing.module';
 // Emp - inventory Components
 import { EmpListComponent } from './emp-components/emp-list/emp-list.component';
 import { HrDetailsComponent } from './emp-components/hr-details/hr-details.component';
+import { FormsModule } from '@angular/forms';
 
 
 // fontawesome module
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { EmpViewComponent } from './emp-components/emp-view/emp-view.component';
+import { EmpStatusComponent } from './emp-components/emp-status/emp-status.component';
 
 @NgModule({
-  declarations: [
-    EmpListComponent,
-    HrDetailsComponent,
-    EmpInventoryComponent,
-  ],
+  declarations: [EmpListComponent, HrDetailsComponent, EmpInventoryComponent, EmpViewComponent, EmpStatusComponent],
   imports: [
     CommonModule,
-    FontAwesomeModule,    
+    FontAwesomeModule,
     RouterModule,
-    EmpInventoryRoutingModule,      
+    EmpInventoryRoutingModule,
+    FormsModule,
   ],
 })
-export class EmpInventoryModule { }
+export class EmpInventoryModule {}

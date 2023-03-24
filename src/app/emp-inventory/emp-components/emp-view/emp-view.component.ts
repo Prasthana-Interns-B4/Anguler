@@ -8,19 +8,19 @@ import {
   faTrash,
 } from '@fortawesome/free-solid-svg-icons';
 
-
 @Component({
-  selector: 'app-hr-details',
-  templateUrl: './hr-details.component.html',
-  styleUrls: ['./hr-details.component.css'],
+  selector: 'app-emp-view',
+  templateUrl: './emp-view.component.html',
+  styleUrls: ['./emp-view.component.css'],
 })
-export class HrDetailsComponent {
+export class EmpViewComponent {
   employees: any[] = [];
   faLapy = faLaptop;
   faMouse = faMouse;
   faEdit = faEdit;
   lapyAssigned = true;
   mouseAssigned = true;
+
   employeeName: any;
   jobTitle: any;
   employee = this.empList.getEmployee();
@@ -44,6 +44,19 @@ export class HrDetailsComponent {
         this.router.navigate(['emp-inventory/emp-list']);
         console.log(this.employees);
       }
+    }
+  }
+
+  openModal() {
+    const modelDiv = document.getElementById('exampleModal');
+    if (modelDiv != null) {
+      modelDiv.style.display = 'block';
+    }
+  }
+  closeModal() {
+    const modelDiv = document.getElementById('exampleModal');
+    if (modelDiv != null) {
+      modelDiv.style.display = 'none';
     }
   }
 }
