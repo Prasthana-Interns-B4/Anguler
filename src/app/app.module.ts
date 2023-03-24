@@ -5,7 +5,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 
 
-// Outer- main Components 
+// Outer- main Components
 import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
 import { SignupComponent } from './components/signup/signup.component';
@@ -35,16 +35,17 @@ import { DeviceModule } from './device/device.module';
     HeaderComponent,
     FooterComponent,
     LeftBarComponent,
-    NotfoundComponent, 
-       
-  ],  
+    NotfoundComponent,
+
+  ],
   imports: [
-    BrowserModule,    
+    BrowserModule,
     FontAwesomeModule,
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
     AppRoutingModule,
+    HttpClientModule,
     BrowserAnimationsModule,
     DeviceModule
   ],
