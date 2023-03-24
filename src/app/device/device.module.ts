@@ -11,9 +11,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { MatCardModule } from '@angular/material/card';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { RouterModule } from '@angular/router';
-import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { MaterialModule } from './material/material.module';
-import { FmprofileComponent } from './fmprofile/fmprofile.component';
 import { DialogComponent } from './dialog/dialog.component';
 import { AssignEmployeeComponent } from './assign-employee/assign-employee.component';
 
@@ -24,7 +22,6 @@ import { AssignEmployeeComponent } from './assign-employee/assign-employee.compo
     DeviceDetailComponent,
     CreateDeviceComponent,
     EditDeviceComponent,
-    FmprofileComponent,
     DialogComponent,
     AssignEmployeeComponent,
   ],
@@ -38,7 +35,6 @@ import { AssignEmployeeComponent } from './assign-employee/assign-employee.compo
     FontAwesomeModule,
     RouterModule,
     DeviceRouteModule,
-    Ng2SearchPipeModule,
     MaterialModule,
   ],
   exports: [DeviceComponent, DeviceListComponent, DeviceDetailComponent],

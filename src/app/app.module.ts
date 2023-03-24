@@ -47,7 +47,7 @@ import { DeviceModule } from './device/device.module';
     AppRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    // DeviceModule
+    DeviceModule
   ],
   providers: [],
   bootstrap: [AppComponent]
