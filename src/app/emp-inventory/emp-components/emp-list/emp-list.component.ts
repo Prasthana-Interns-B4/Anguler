@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { EmpService } from '../emp-services/emp.service';
+import { MatDialogRef } from '@angular/material/dialog';
 
 //fontawesome icons
 import {
@@ -29,7 +30,7 @@ EmpService
 
 
 
-export class EmpListComponent {
+export class EmpListComponent implements OnInit{
   employees: any[] = [];
   filteredEmployees: any[] = [];
   searchInput: string = '';
@@ -44,7 +45,7 @@ export class EmpListComponent {
   faTrash = faTrash;
   lapyAssigned = true;
   mouseAssigned = true;
-
+assignbutton:boolean=false;
   colors = [
     '#FF9A9E',
     '#2F5CFF',
@@ -62,6 +63,9 @@ export class EmpListComponent {
     this.empService.getEmployeeList().subscribe((response: any) => {
       this.employees = response;
       this.employeesToDisplay = this.employees;
+
+      
+     
     });
   }
   trackByFn(index: number, employee: any): number {
@@ -86,4 +90,10 @@ export class EmpListComponent {
     this.router.navigate(['emp-inventory/emp-details', employee.id]);
     this.empService.setEmployee(employee);
   }
+
+  
+  
+    
+  
+
 }

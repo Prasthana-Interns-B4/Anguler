@@ -25,6 +25,7 @@ import { EmpStatusComponent } from './emp-components/emp-status/emp-status.compo
     RouterModule,
     EmpInventoryRoutingModule,
     FormsModule,
-  ],
+    
+  ],exports:[EmpListComponent],
 })
 export class EmpInventoryModule {}

@@ -4,17 +4,7 @@
 *{
     font-family:'Inter';
 }
-html,
-body {
-  height: 100%;
-  margin: 0;
-  margin: 0;
-  font-family: Roboto, "Helvetica Neue", sans-serif;
-}
 
-* {
-  font-family: "inter";
-}
 
 /*for-dialog-pop-up */
 .btn-dialog-close {
@@ -82,4 +72,7 @@ body {
 .mat-mdc-card {
   background-color: #4462a0;
 }
+
+
+/*assignemployee*/
 

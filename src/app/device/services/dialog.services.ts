@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { AssignEmployeeComponent } from '../assign-employee/assign-employee.component';
-import { DeviceListComponent } from '../device-list/device-list.component';
+import { EmpListComponent } from 'src/app/emp-inventory/emp-components/emp-list/emp-list.component';
 import { DialogComponent } from '../dialog/dialog.component';
 @Injectable({
   providedIn: 'root',
@@ -23,7 +22,7 @@ export class DialogService {
   
 
   openAssignEmpDialog(){
-    this.dialog.open(AssignEmployeeComponent,{
+    this.dialog.open(EmpListComponent,{
         width:'800px',
         panelClass: 'assign-employee-component',
         disableClose:true,

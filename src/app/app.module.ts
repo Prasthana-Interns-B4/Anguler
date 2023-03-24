@@ -36,7 +36,7 @@ import { DeviceModule } from './device/device.module';
     FooterComponent,
     LeftBarComponent,
     NotfoundComponent,
-
+    
   ],
   imports: [
     BrowserModule,

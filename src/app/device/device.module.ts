@@ -12,8 +12,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { RouterModule } from '@angular/router';
 import { MaterialModule } from './material/material.module';
 import { DialogComponent } from './dialog/dialog.component';
-import { AssignEmployeeComponent } from './assign-employee/assign-employee.component';
 import { SearchComponent } from './search/search.component';
+import { EmpInventoryModule } from '../emp-inventory/emp-inventory.module';
 
 @NgModule({
   declarations: [
@@ -22,8 +22,8 @@ import { SearchComponent } from './search/search.component';
     DeviceDetailComponent,
     CreateDeviceComponent,
     DialogComponent,
-    AssignEmployeeComponent,
     SearchComponent,
+    
   ],
   imports: [
     CommonModule,
@@ -36,8 +36,10 @@ import { SearchComponent } from './search/search.component';
     RouterModule,
     DeviceRouteModule,
     MaterialModule,
+    EmpInventoryModule,
+    
   ],
   exports: [DeviceComponent, DeviceListComponent, DeviceDetailComponent],
-  entryComponents:[DialogComponent]
+  entryComponents: [DialogComponent],
 })
 export class DeviceModule {}
