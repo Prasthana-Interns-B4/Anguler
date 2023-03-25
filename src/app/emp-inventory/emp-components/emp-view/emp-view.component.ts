@@ -6,55 +6,65 @@ import {
   faMouse,
   faEdit,
   faTrash,
-} from '@fortawesome/free-solid-svg-icons';
+} from '@fortawesome/free-solid-svg-icons'; 
 
 @Component({
   selector: 'app-emp-view',
   templateUrl: './emp-view.component.html',
   styleUrls: ['./emp-view.component.css'],
 })
-export class EmpViewComponent {
-  employees: any[] = [];
+export class EmpViewComponent implements OnInit {
+  employees: any[]=[]
   faLapy = faLaptop;
   faMouse = faMouse;
   faEdit = faEdit;
-  lapyAssigned = true;
-  mouseAssigned = true;
-
-  employeeName: any;
-  jobTitle: any;
-  employee = this.empList.getEmployee();
-  // canEdit = true;
-  // canDelete = true;
   faTrash = faTrash;
+  lapyAssigned = true;
+  mouseAssigned = true; 
 
-  constructor(private empList: EmpService, private router: Router) {}
+  employee: any;
+  devices: any[]=[]
+  id:any;
 
-  ngOnInit(): void {
-    this.empList.getEmployeeList().subscribe((response: any) => {
-      this.employees = response;
-    });
+  constructor(private route: Router,private empService : EmpService) {}
+
+  ngOnInit(): void {   
+    this.getEmployeeDetails();     
   }
-  editEmployee() {}
-  removeEmployee(employee: any) {
-    if (confirm('Are you sure??')) {
-      const index = this.employees.findIndex((emp) => emp.id === employee.id);
-      if (index !== -1) {
-        this.employees.splice(index, 1);
-        this.router.navigate(['emp-inventory/emp-list']);
-        console.log(this.employees);
+
+  getEmployeeDetails(){
+    this.id = localStorage.getItem('em_id');      
+    this.empService.getEmpDetails(this.id).subscribe(response => {      
+      if(response){
+        this.employee = response; 
+        this.devices = this.employee.user.devices        
+      }else{
+        this.empService.onLogout().subscribe(() => {});    
+        this.route.navigate(['']);
+        localStorage.clear();      
       }
+  },error => {
+    alert(error.message);
+  });
+  }
+
+  removeEmployee() {
+    if (confirm('Are you sure ? \n To delete this employee')) {
+      this.id = localStorage.getItem('em_id')        
+      this.empService.delete(this.id).subscribe(() => {});
+      this.route.navigate(['emp-inventory/emp-list']);      
+      
     }
   }
 
   openModal() {
-    const modelDiv = document.getElementById('exampleModal');
+    const modelDiv = document.getElementById('myModal');
     if (modelDiv != null) {
       modelDiv.style.display = 'block';
     }
   }
   closeModal() {
-    const modelDiv = document.getElementById('exampleModal');
+    const modelDiv = document.getElementById('myModal');
     if (modelDiv != null) {
       modelDiv.style.display = 'none';
     }

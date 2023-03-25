@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { FMGuard } from '../auth/guard.guard';
 import { CreateDeviceComponent } from './create-device/create-device.component';
 import { DeviceDetailComponent } from './device-detail/device-detail.component';
 

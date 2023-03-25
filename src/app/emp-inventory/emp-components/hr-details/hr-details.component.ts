@@ -5,8 +5,8 @@ import {
   faLaptop,
   faMouse,
   faEdit,
-  faTrash,
 } from '@fortawesome/free-solid-svg-icons';
+ 
 
 
 @Component({
@@ -14,36 +14,37 @@ import {
   templateUrl: './hr-details.component.html',
   styleUrls: ['./hr-details.component.css'],
 })
-export class HrDetailsComponent {
-  employees: any[] = [];
+export class HrDetailsComponent implements OnInit  {
   faLapy = faLaptop;
   faMouse = faMouse;
   faEdit = faEdit;
   lapyAssigned = true;
-  mouseAssigned = true;
-  employeeName: any;
-  jobTitle: any;
-  employee = this.empList.getEmployee();
-  // canEdit = true;
-  // canDelete = true;
-  faTrash = faTrash;
+  mouseAssigned = true; 
 
-  constructor(private empList: EmpService, private router: Router) {}
+  employee: any;
+  devices: any[]=[]
+  id:any;
 
-  ngOnInit(): void {
-    this.empList.getEmployeeList().subscribe((response: any) => {
-      this.employees = response;
-    });
+  constructor(private route: Router,private empService:EmpService) {}
+
+  ngOnInit(): void {   
+    this.getEmployeeDetails(); 
+    
   }
-  editEmployee() {}
-  removeEmployee(employee: any) {
-    if (confirm('Are you sure??')) {
-      const index = this.employees.findIndex((emp) => emp.id === employee.id);
-      if (index !== -1) {
-        this.employees.splice(index, 1);
-        this.router.navigate(['emp-inventory/emp-list']);
-        console.log(this.employees);
+
+  getEmployeeDetails(){
+    this.id = localStorage.getItem('id');    
+    this.empService.getEmpDetails(this.id).subscribe(response => {
+      if(response){
+        this.employee = response;
+        this.devices = this.employee.user.devices        
+      }else{
+        this.empService.onLogout().subscribe(() => {});     
+        this.route.navigate(['']);
+        localStorage.clear();     
       }
-    }
+  },error => {
+    alert(error.message);
+  });
   }
 }

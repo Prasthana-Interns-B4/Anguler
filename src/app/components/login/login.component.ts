@@ -31,7 +31,7 @@ export class LoginComponent implements OnInit {
   }
 
   onLogin() {
-    sessionStorage.clear();
+    localStorage.clear();
     this.submitted = true;
     if (this.loginForm.invalid) {
       return;
@@ -44,14 +44,20 @@ export class LoginComponent implements OnInit {
     };
     const data = this.users; 
     this.authService.onLogin(data).subscribe((response) => {
-        if (response) {                              
+        if (response.user) {                              
           const token = response.user.auth_token;  
           const id = response.user.id;
           const role = response.user.role.role;         
-          sessionStorage.setItem('token', token);   
-          sessionStorage.setItem('role', role);       
-          sessionStorage.setItem('id', id);
-          this.router.navigate(['/emp-details']);
+          localStorage.setItem('token', token);   
+          localStorage.setItem('role', role);       
+          localStorage.setItem('id', id);          
+          if (role === 'employee') {            
+            this.router.navigate(['/emp-details']);
+          }else if (role === 'hr_manager') {
+            this.router.navigate(['/emp-inventory/hr-details']);
+          }else if (role === 'facility_manager') {
+            this.router.navigate(['/device/fmprofile']);
+          }          
         } else {
           alert(response.message);
         }

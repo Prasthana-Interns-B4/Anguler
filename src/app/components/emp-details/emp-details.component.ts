@@ -14,6 +14,7 @@ import {
   styleUrls: ['./emp-details.component.css']
 })
 export class EmpDetailsComponent implements OnInit {
+  
   faLapy = faLaptop;
   faMouse = faMouse;
   faEdit = faEdit;
@@ -27,28 +28,23 @@ export class EmpDetailsComponent implements OnInit {
   constructor(private authService:AuthService,private route: Router) {}
 
   ngOnInit(): void {   
-    this.getEmployeeDetails(); 
-    
+    this.getEmployeeDetails();     
   }
 
   getEmployeeDetails(){
-    this.id = sessionStorage.getItem('id');    
-    this.authService.getEmpDetails(this.id).subscribe(response => {
-      if(response){
+    this.id = localStorage.getItem('id');       
+    this.authService.getEmpDetails(this.id).subscribe(response => {      
+      if(response.user){
         this.employee = response;
         this.devices = this.employee.user.devices        
       }else{
-        this.logout();
+        this.authService.onLogout().subscribe(() => {}); 
         this.route.navigate(['']);
+        localStorage.clear();   
+
       }
   },error => {
     alert(error.message);
   });
-
-  }
-
-  logout(){
-    sessionStorage.clear();
-    this.route.navigate(['']); 
   }
 }

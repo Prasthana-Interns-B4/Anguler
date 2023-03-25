@@ -7,17 +7,17 @@
           <div
             class="d-flex flex-row justify-content-center align-items-center w-100 ms-4"
           >
-            <div class="name-card md-me-3" [ngStyle]="{ color: '#fff' }">{{ employee.user.user_detail.first_name[0]}}{{ employee.user.user_detail.last_name[0] | uppercase }}</div>
+            <div class="name-card md-me-3" [ngStyle]="{ color: '#fff' }">{{ employee?.user.user_detail.first_name[0] | uppercase }}{{ employee?.user.user_detail.last_name[0] | uppercase }}</div>
             <div class="d-flex align-items-center flex-grow-1">
               <div class="name-card-info flex-grow-1">
                 <h2 class="h5 name-card-name">
-                  {{ employee.user.user_detail.first_name }} {{ employee.user.user_detail.last_name }}
+                  {{ employee?.user.user_detail.first_name }} {{ employee?.user.user_detail.last_name }}
                 </h2>
                 <div class="d-flex flex-column">
-                  <p class="name-card-id mb-1">{{ employee.user.email }}</p>
-                  <p class="name-card-id mb-1">{{ employee.user.user_detail.phone_number }}</p>
-                  <p class="name-card-id mb-1"><b>Emp ID:</b> {{ employee.user.emp_id }}</p>
-                  <p class="name-card-id mb-1"><b>Designation:</b> {{ employee.user.role.role }}</p>
+                  <p class="name-card-id mb-1">{{ employee?.user.email }}</p>
+                  <p class="name-card-id mb-1">{{ employee?.user.user_detail.phone_number }}</p>
+                  <p class="name-card-id mb-1"><b>Emp ID:</b> {{ employee?.user.emp_id }}</p>
+                  <p class="name-card-id mb-1"><b>Designation:</b> {{ employee?.user.role.role }}</p>
                 </div>
               </div>
               <div class="d-flex flex-row align-items-center">
