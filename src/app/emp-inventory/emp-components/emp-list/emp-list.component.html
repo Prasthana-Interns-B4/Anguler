@@ -15,7 +15,7 @@
         class="col-12 col-md-8 m-1"
         *ngFor="let employee of employeesToDisplay; trackBy: trackByFn"
       >
-        <div class="name-card-container p-3" >
+        <div class="name-card-container p-3">
           <div
             class="d-flex flex-row justify-content-between align-items-center w-100"
           >
@@ -49,10 +49,12 @@
                 </ng-container>
               </div>
             </div>
-           <button *ngIf="assignbutton">assign</button>
-           
+
             <div class="nav-arrow">
-              <fa-icon [icon]="faArrowRight"  (click)="viewDetails(employee)"></fa-icon>
+              <fa-icon
+                [icon]="faArrowRight"
+                (click)="viewDetails(employee)"
+              ></fa-icon>
             </div>
           </div>
         </div>
@@ -60,4 +62,3 @@
     </div>
   </div>
 </div>
-

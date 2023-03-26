@@ -33,9 +33,6 @@ import { DialogComponent } from './dialog/dialog.component';
     RouterModule,
     DeviceRouteModule,
     MaterialModule,
-    
-    
-    
   ],
   exports: [DeviceComponent, DeviceListComponent, DeviceDetailComponent],
   entryComponents: [DialogComponent],
