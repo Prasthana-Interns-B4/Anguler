@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-import { faAngleRight,faTrashCan } from '@fortawesome/free-solid-svg-icons';
+import { faAngleRight,faMagnifyingGlass,faTrashCan } from '@fortawesome/free-solid-svg-icons';
 import { DataService } from '../services/data.service';
 import { DialogService } from '../services/dialog.services';
 @Component({
@@ -18,21 +18,30 @@ export class DeviceListComponent implements OnInit {
   ) {}
   ngOnInit(): void {
     this.getdevices();
+    
+   
   }
+  faMagnifyingGlass= faMagnifyingGlass;
 
   faAngleRight= faAngleRight;
   faTrashCan = faTrashCan;
   selected: any;
   
-  listDevices: any;
+  listDevices:any;
+  devices:any[]=[];
+
+  public searchObject:any;
+  public deviceList:Array<any>=[];
+  
   searchText: string='';
 
   getdevices() {
     this.ds.getDevices().subscribe({
       next: (res) => {
         this.listDevices = res;
+        this.devices=this.listDevices.devices
       },
-      error: () => {
+      error: (err) => {
         alert('error while fetching');
       },
     });
@@ -44,6 +53,12 @@ export class DeviceListComponent implements OnInit {
       .afterClosed()
       .subscribe({
         next: (_res) => {
+
+          console.log(_res)
+
+          // if(_res){
+          //   console.log(_res +"from console if")
+          // }
           if(_res){this.ds.deleteDevice(id)
             .subscribe({
             next:(res)=>{alert("Deleted Successfully!")
@@ -71,7 +86,20 @@ export class DeviceListComponent implements OnInit {
   onSearchTextEntered(searchValue:string){
     this.searchText=searchValue;
     console.log(this.searchText)
+    
   }
+
+  /*serach*/
+
+
+searchProduct(query:KeyboardEvent){
+
+}
+
+submitSearch(val:string){
+  console.warn(val)
+    this.router.navigate([`search/${val}`],{relativeTo:this.activatedRoute})
+}
   
 }
 

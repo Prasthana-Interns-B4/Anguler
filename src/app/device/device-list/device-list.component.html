@@ -1,33 +1,39 @@
-<app-search (searchTextChanged)="onSearchTextEntered($event)"></app-search>
-<div *ngFor="let device of listDevices">
+<!-- <app-search (searchTextChanged)="onSearchTextEntered($event)"></app-search> -->
+<div class="search">
+   
+  <fa-icon (click)="submitSearch(searchInput.value)" class="my-icon" [icon]="faMagnifyingGlass"></fa-icon>
+
+  <form>
+      <input type="text" #searchInput placeholder="search device by name" (keyup)="searchProduct($event)">
+  <!-- <input placeholder="search" type="text" formControlName="search" [(ngModel)]="enteredSearchText" (input)="onSearchTextChange()"> -->
+</form>
+</div>
+<div *ngFor="let device of devices">
   <mat-card
-    class="example-card list name-card-container" 
-    *ngIf="
-      device.deviceName === '' ||
-      device.deviceName.toLowerCase().includes(searchText)
-    "
+    class="example-card list name-card-container"
+   
   >
     <mat-card-header>
-      <img mat-card-sm-image [src]="device.img" />
+      <img mat-card-sm-image [src]="device.image_url" />
       <mat-card-title-group class="title">
-
-        <mat-card-title>{{ device.deviceName }}</mat-card-title>
+        <mat-card-title>{{ device.name }}</mat-card-title>
 
         <mat-card-subtitle>
-          <div class="devicetype">{{ device.deviceType }}</div>
+          <div class="devicetype">{{ device.device_type }}</div>
 
-          {{ device.tagNo | uppercase }}
+          {{ device.tag_no | uppercase }}
           <span class="build"> {{ device.os }}</span>
-          <p *ngIf="device.assigned != null" class="assigned">
-            Assigned to {{ device.assigned }}
+          <p *ngIf="device.status ===true " class="assigned">
+            Assigned to {{ device.user.user_detail.first_name }}
+            {{ device.user.user_detail.last_name }}
           </p>
-          <p *ngIf="device.assigned == null" class="assigned">
+          <p *ngIf="device.status === false" class="assigned">
             No employee assigned
           </p>
         </mat-card-subtitle>
         <button
           (click)="assignDevice()"
-          *ngIf="device.assigned == null"
+          *ngIf="device.status == false"
           mat-stroked-button
           color="primary"
           class="assign-btn"
@@ -37,7 +43,7 @@
       </mat-card-title-group>
 
       <button
-        *ngIf="device.assigned != null"
+        *ngIf="device.status == true"
         mat-stroked-button
         color="primary"
         class="assign-btn"
@@ -45,8 +51,8 @@
         Unassign
       </button>
 
-      <button (click)="deletedevice(device.id )" mat-button class="del">
-        <fa-icon class="my-icon btn-danger" [icon]="faTrashCan"></fa-icon>
+      <button (click)="deletedevice(device.id)" mat-button class="del">
+        <fa-icon class="my-icon" [icon]="faTrashCan"></fa-icon>
       </button>
 
       <button (click)="navigateToDetail(device)" mat-button class="arrow">
@@ -57,7 +63,3 @@
     </mat-card-header>
   </mat-card>
 </div>
-
-
-
-         

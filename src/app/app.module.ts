@@ -26,7 +26,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 // AuthInterceptor component
 import { AuthInterceptor } from './services/auth.interceptor';
-
+import { DeviceModule } from './device/device.module';
 @NgModule({
   declarations: [
     AppComponent,
@@ -45,7 +45,9 @@ import { AuthInterceptor } from './services/auth.interceptor';
     FormsModule,
     HttpClientModule,
     ReactiveFormsModule,    
-    AppRoutingModule    
+    AppRoutingModule,
+    DeviceModule,
+    BrowserAnimationsModule,
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor,

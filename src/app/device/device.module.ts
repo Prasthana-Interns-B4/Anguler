@@ -11,9 +11,8 @@ import { MatCardModule } from '@angular/material/card';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { RouterModule } from '@angular/router';
 import { MaterialModule } from './material/material.module';
-import { DialogComponent } from './dialog/dialog.component';
-import { SearchComponent } from './search/search.component';
 import { EmpInventoryModule } from '../emp-inventory/emp-inventory.module';
+import { DialogComponent } from './dialog/dialog.component';
 
 @NgModule({
   declarations: [
@@ -21,8 +20,8 @@ import { EmpInventoryModule } from '../emp-inventory/emp-inventory.module';
     DeviceListComponent,
     DeviceDetailComponent,
     CreateDeviceComponent,
-    DialogComponent,
-    SearchComponent,
+    DialogComponent
+  
     
   ],
   imports: [

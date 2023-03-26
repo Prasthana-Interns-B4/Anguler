@@ -43,9 +43,10 @@ font-weight: 200;
 
 }
 .assign-btn {
-  margin-top: 5.5rem;
+  
   position: absolute;
-  left: 320px;
+  left: 350px;
+  bottom: .5rem;
 }
 
 .mat-mdc-card-sm-image {
@@ -57,9 +58,8 @@ font-weight: 200;
 @media only screen and (max-width: 770px) {
   .assign-btn {
     position: absolute;
-    left: 260px;
+    left: 265px;
     bottom: 10px;
-    
     
   }
 
@@ -73,12 +73,20 @@ font-weight: 200;
     border-radius: 10px;
     object-fit: cover;
   } 
+  .title {
+    padding: 0 .5rem;
+  }
+  .mat-mdc-card-title {
+      
+    font-weight: 600;
+    font-size: 1.5em;
+  }
 }
 
 .del {
   position: absolute;
   right: 0px;
-  color: #a01f1f;
+  
   top:5px;
 }
 .my-icon {
@@ -94,4 +102,28 @@ font-weight: 200;
 }
 
 
+
+/*search*/
+.search{
+  align-items:center;
+  display :flex;
+  background: #fff;
+  width:60%;
+  height:2.4rem;
+  padding: 10px;
+  border-radius: 10px;
+  margin-left:auto;
+  margin-right: auto;
+  /* border: 1px solid grey; */
+}
+.search input{
+  border: none;
+  outline: none;
+  background: transparent;
+  margin-left:7px;
+  width:80%;
+}
+.search o{
+  font-size: 20px;
+}
 

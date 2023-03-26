@@ -6,7 +6,9 @@ import { Injectable } from '@angular/core';
 })
 export class DataService {
 
-  baseurl="http://localhost:3000/devices/devices"
+  baseurl="http://18.142.36.157:3000/devices/"
+
+
   constructor( private http:HttpClient) { }
 
   createDevice(data:any){
@@ -18,7 +20,10 @@ export class DataService {
   deleteDevice(id:number) {
     return this.http.delete(this.baseurl+id)
   }
-  editdevice(id:number,data:any){
+  editDevice(id:number,data:any){
     return this.http.put(this.baseurl+id,data)
+  }
+  searchDevice(query:string){
+    return this.http.get(`{this.baseUrl}/search?q=${query}`)
   }
 }

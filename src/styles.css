@@ -1,26 +1,23 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~bootstrap/dist/css/bootstrap.min.css";
-*{
-    font-family:'Inter';
+* {
+  font-family: "Inter";
 }
-
 
 /*for-dialog-pop-up */
 .btn-dialog-close {
   width: 45px;
   min-width: 0px !important;
-  height: 30px;
+  height: 40px;
   padding: 0px !important;
 }
 /* confirm dialog */
-.confirm-dialog-container .dialog-container {
-  border-radius: 025em 025em 4em 4em;
+.confirm-dialog-container .mat-dialog-container {
+  border-radius: 0.25em 0.25em 0.4em 0.4em;
   padding: 0px;
-
-
 }
 .confirm-dialog-container .content-container {
-  margin: 0px 0px 15px 15px;
+  margin: 5px 5px 15px 5px;
   color: #192b4c;
   display: flex;
 }
@@ -62,19 +59,6 @@
 .bg-img {
   background-image: none !important;
 }
-
-/*mat card*/
-/* .mat-mdc-card-header{
-  padding: 1px 16px 0 !important;
-} */
-
-.mat-mdc-card {
+/* .mat-mdc-card {
   background-color: #4462a0;
-}
-
-
-/*assignemployee*/
-
-
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+} */

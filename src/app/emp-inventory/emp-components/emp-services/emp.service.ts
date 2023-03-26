@@ -5,7 +5,7 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root',
 })
 export class EmpService {
-  private baseUrl = 'https://jsonplaceholder.typicode.com/users';
+  private baseUrl = 'http://18.142.36.157:3000/users/';
 
   employee: any;
 

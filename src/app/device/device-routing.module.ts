@@ -12,6 +12,7 @@ const deviceRoutes: Routes = [
   { path: 'create-device', component: CreateDeviceComponent },
 
   { path: ':id', component: DeviceDetailComponent },
+
 ];
 
 @NgModule({
