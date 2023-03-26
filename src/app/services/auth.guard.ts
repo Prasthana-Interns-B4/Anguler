@@ -1,11 +1,12 @@
 import { Injectable } from '@angular/core';
-import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot, UrlTree } from '@angular/router';
+import { ActivatedRouteSnapshot, CanActivate, CanActivateChild, Router, RouterStateSnapshot, UrlTree } from '@angular/router';
 import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
-export class AuthGuard implements CanActivate {
+
+export class AuthGuard implements CanActivate, CanActivateChild{
 
   constructor(private route: Router){} 
   
@@ -13,15 +14,26 @@ export class AuthGuard implements CanActivate {
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
     {
-      if (sessionStorage.getItem("token") === null) {
-        this.route.navigate(['']);
-        return false;
-      }else{
+      if (localStorage.getItem("role") === "employee"){
         return true;
+      }else{
+        this.route.navigate(['']);       
+        return false;
       }
-    }
-      
+    }    
+  }  
+
+  canActivateChild(
+    route: ActivatedRouteSnapshot,
+    state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
+    {
+      if (localStorage.getItem("role") === "hr_manager"){
+        return true;
+      }else{
+        this.route.navigate(['']);        
+        return false;
+      }
+    }    
 
   }
-  
 }

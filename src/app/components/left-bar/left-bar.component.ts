@@ -7,6 +7,8 @@ import {
   faUser,
 } from '@fortawesome/free-solid-svg-icons';
 
+import { AuthService } from 'src/app/services/auth.service';
+
 @Component({
   selector: 'app-left-bar',
   templateUrl: './left-bar.component.html',
@@ -17,8 +19,8 @@ export class LeftBarComponent {
   faUsers = faUsers;
   faUser = faUser;
   faPowerOff = faPowerOff;
-
-  constructor (private route: Router ){}
+  
+  constructor (private route: Router, private authService:AuthService ){}
 
   myProfile(){       
     this.route.navigate(['/emp-details']);
@@ -26,6 +28,12 @@ export class LeftBarComponent {
   logout(){
     sessionStorage.clear();
     this.route.navigate(['']); 
+  
+  logout(){
+    this.authService.onLogout().subscribe(() => {});
+    this.route.navigate(['']);
+    localStorage.clear();  
   }
 
+}
 }

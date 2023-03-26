@@ -1,8 +1,8 @@
 <!-- EMP DETAILS SECTION -->
 <div class="container p-3 m-5">
-  <div class="row scroll" style="height: 75vh; width: 75vw; overflow-y: scroll">
+  <div class="row scroll" style="height: 73vh; width: 75vw; overflow-y: scroll">
     <div class="d-flex flex-column align-items-center">
-      <div class="search-employees col-12 col-md-8 m-3">
+      <div class="search-employees col-10 col-md-8 m-3">
         <input
           type="search"
           class="form-control"
@@ -20,41 +20,58 @@
             class="d-flex flex-row justify-content-between align-items-center w-100"
           >
             <div
-              class="name-card-row d-flex flex-row justify-content-start align-items-center"
+              class="d-flex flex-row justify-content-center align-items-center"
             >
               <div
-                class="name-card"
-                [ngStyle]="{ 'background-color': '#ccc', color: '#fff' }"
+                class="name-card pt-4"
+                [ngStyle]="{
+                  'background-color': '#ccc',
+                  color: '#fff'
+                }"
               >
-                {{ employee.name.charAt(0) | uppercase
-                }}{{ employee.username.charAt(0) | uppercase }}
+                {{ employee?.user_detail.first_name[0] | uppercase }}{{ employee?.user_detail.last_name[0] | uppercase }}
+                
               </div>
               <div class="name-card-info">
                 <h2 class="h5 name-card-name">
-                  {{ employee.name }} {{ employee.username }}
+                  {{ employee.user_detail.first_name }}
+                  {{ employee.user_detail.last_name }}
                 </h2>
-                <p class="name-card-phone">{{ employee.phone }}</p>
-                <div class="d-flex flex-row align-items-center">
-                  <p class="name-card-id me-3">.123456</p>
-                  <p class="name-card-id me-3">.designation</p>
-                  <ng-container *ngIf="lapyAssigned">
-                    <fa-icon class="ms-3 me-2 icons" [icon]="faLapy"></fa-icon>
-                  </ng-container>
-                  <ng-container *ngIf="mouseAssigned">
-                    <fa-icon class="ms-3 me-2 icons" [icon]="faMouse"></fa-icon>
+                <p class="name-card-phone">
+                  {{employee.user_detail.phone_number}}
+                </p>
+                <div
+                  class="d-flex flex-row justify-content-between align-items-center w-100"
+                >
+                  <div class="d-flex flex-row align-items-center row">
+                    <p class="name-card-id me-3 col-6 col-md-3">{{employee.emp_id}}</p>
+                    <p class="name-card-id col-6 col-md-6">{{employee.role.role}}</p>
+                  </div>
+
+                  <div class="d-flex flex-row align-items-center">
+                    <ng-container *ngIf="lapyAssigned">
+                      <fa-icon
+                        class="ms-3 me-2 icons"
+                        [icon]="faLapy"
+                      ></fa-icon>
+                    </ng-container>
+                    <ng-container *ngIf="mouseAssigned">
+                      <fa-icon
+                        class="ms-3 me-2 icons"
+                        [icon]="faMouse"
+                      ></fa-icon>
+                    </ng-container>
+                  </div>
+
+                  <ng-container *ngIf="!lapyAssigned && !mouseAssigned">
+                    <p class="ms-3 icons">No Devices Assigned</p>
                   </ng-container>
                 </div>
-                <ng-container *ngIf="!lapyAssigned && !mouseAssigned">
-                  <p class="ms-3 icons">No Devices Assigned</p>
-                </ng-container>
               </div>
             </div>
 
             <div class="nav-arrow">
-              <fa-icon
-                [icon]="faArrowRight"
-                (click)="viewDetails(employee)"
-              ></fa-icon>
+              <fa-icon [icon]="faAngleRight"></fa-icon>
             </div>
           </div>
         </div>

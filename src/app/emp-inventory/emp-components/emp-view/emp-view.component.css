@@ -10,14 +10,23 @@
 }
 
 .name-card {
-  font-size: 24px;
+  font-size: 36px;
   font-weight: bold;
   color: #fff;
-  padding: 20px;
+  
+  padding: 31px;
+vertical-align: middle;
+  
   height: 100px;
   width: 100px;
   text-align: center;
+  
+  align-self: center;
+}
 
+.form-control:focus{
+  border-color: transparent;
+  
 }
 
 .view-Bg{

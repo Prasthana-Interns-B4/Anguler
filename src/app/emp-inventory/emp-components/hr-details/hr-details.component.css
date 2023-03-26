@@ -4,22 +4,35 @@
   cursor: pointer;
 }
 
+
 .edit-icon:hover{
   color: #333;
 }
 
 .name-card {
-  font-size: 24px;
+  font-size: 36px;
   font-weight: bold;
   color: #fff;
-  padding: 20px;
+  
+  padding: 31px;
+vertical-align: middle;
+  
   height: 100px;
   width: 100px;
   text-align: center;
-
+  
+  align-self: center;
 }
 
+.form-control:focus{
+  border-color: transparent;
+  
+}
 
+.view-Bg{
+  background-color: #eeeefc;
+
+}
 
 .name-card-container {
   margin: 8px;
@@ -49,9 +62,9 @@
   border-radius: 14px;
 }
 
-.img-card{
-  height: 80px;
-  width: 80px;
+.device-img{
+  height: 100px;
+  width: 120px;
 }
 .name-card-info {
   display: flex;
