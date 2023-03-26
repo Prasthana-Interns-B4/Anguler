@@ -8,22 +8,27 @@ import { DataService } from '../services/data.service';
   styleUrls: ['./create-device.component.css'],
 })
 export class CreateDeviceComponent {
-  constructor(private fb: FormBuilder, private ds:DataService) {}
+  constructor(private fb: FormBuilder, private ds: DataService) {}
   addDeviceForm = this.fb.group({
-    deviceName: ['', [Validators.required]],
-    deviceType: ['', Validators.required],
-    os: ['', Validators.required],
-    assigned:[null]
+    name: ['', [Validators.required]],
+    device_type: ['', Validators.required],
+    os: [''],
+    category: ['', Validators.required],
   });
 
   onSubmit() {
     this.ds.createDevice(this.addDeviceForm.value).subscribe({
-      
-      next: (res)=> {alert('device added successfully')
-    this.addDeviceForm.reset();}, 
-    error: (e) => {alert("error while adding")},
-    complete: () =>{ console.info('complete')} }
-      
-      )
+      next: (res) => {
+        alert('device added successfully');
+        this.addDeviceForm.reset();
+        console.log(res)
+      },
+      error: (e) => {
+        alert('error while adding');
+      },
+      complete: () => {
+        console.info('complete');
+      },
+    });
   }
 }

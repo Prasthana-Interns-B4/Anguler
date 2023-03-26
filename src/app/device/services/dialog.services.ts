@@ -20,13 +20,10 @@ export class DialogService {
 
   openAssignEmpDialog(){
     this.dialog.open(AssignEmployeeComponent,{
-        width:'70%',
-       
+        width:'70%',       
         disableClose:true,
         position:{left:'25vw',
       top:'100px'}
-
-
     })
   }
 }

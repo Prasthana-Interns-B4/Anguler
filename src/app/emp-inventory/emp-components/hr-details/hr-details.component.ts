@@ -6,7 +6,7 @@ import {
   faMouse,
   faEdit,
 } from '@fortawesome/free-solid-svg-icons';
- 
+
 
 
 @Component({

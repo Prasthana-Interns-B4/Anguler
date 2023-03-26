@@ -56,7 +56,7 @@ export class LoginComponent implements OnInit {
           }else if (role === 'hr_manager') {
             this.router.navigate(['/emp-inventory/hr-details']);
           }else if (role === 'facility_manager') {
-            this.router.navigate(['/device/fmprofile']);
+            this.router.navigate(['/device/fm-details']);
           }          
         } else {
           alert(response.message);

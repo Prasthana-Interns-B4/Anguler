@@ -6,28 +6,28 @@
         <label>Device Name</label>
         <input
           [class.is-invalid]="
-            addDeviceForm.get('deviceName')?.invalid &&
-            addDeviceForm.get('deviceName')?.touched
+            addDeviceForm.get('name')?.invalid &&
+            addDeviceForm.get('name')?.touched
           "
-          formControlName="deviceName"
+          formControlName="name"
           type="text"
-          class="form-control item mt-1" [class.bg-img]="addDeviceForm.get('deviceName')?.invalid"
+          class="form-control item mt-1" [class.bg-img]="addDeviceForm.get('name')?.invalid"
+          style="text-transform: capitalize;"
         />
       </div>
-      <!-- <small [class.d-none]="addDeviceForm.get('deviceName')?.valid || addDeviceForm.get('deviceName')?.untouched" class=" text-danger">Device Name is required</small> -->
       <div
         *ngIf="
-          addDeviceForm.get('deviceName')?.invalid &&
-          addDeviceForm.get('deviceName')?.touched
+          addDeviceForm.get('name')?.invalid &&
+          addDeviceForm.get('name')?.touched
         "
       >
         <small
-          [class.d-none]="addDeviceForm.get('deviceName')?.errors?.['required']"
+          [class.d-none]="addDeviceForm.get('name')?.errors?.['required']"
           class="text-danger"
           >Device Name should be atleast 3 characters</small
         >
         <small
-          [class.d-none]="addDeviceForm.get('deviceName')?.errors?.['minlength']"
+          [class.d-none]="addDeviceForm.get('name')?.errors?.['minlength']"
           class="text-danger"
           >Device Name is required</small
         >
@@ -37,50 +37,79 @@
         <label for="deviceType">Device Type:</label>
         <select
           [class.is-invalid]="
-            addDeviceForm.get('deviceType')?.invalid &&
-            addDeviceForm.get('deviceType')?.touched
+            addDeviceForm.get('device_type')?.invalid &&
+            addDeviceForm.get('device_type')?.touched
           "
-          formControlName="deviceType"
+          formControlName="device_type"
           id="deviceType"
           class="form-select form-control item mt-1"
-          [class.bg-img]="addDeviceForm.get('deviceType')?.touched"
+          [class.bg-img]="addDeviceForm.get('device_type')?.touched"
         >
           <option>Laptop</option>
           <option>Desktop</option>
+          <option>Mouse</option>
+          <option>Mobile</option>
+          <option>Bag</option>
+          <option>Clothing</option>
+          <option>Bottle</option>
+          <option>Id_card</option>
+          <option>Headset</option>
+          <option>Keyboard</option>
+          <option>Default</option>
         </select>
         <small
           [class.d-none]="
-            addDeviceForm.get('deviceType')?.valid ||
-            addDeviceForm.get('deviceType')?.untouched
+            addDeviceForm.get('device_type')?.valid ||
+            addDeviceForm.get('device_type')?.untouched
           "
           class="text-danger"
           >Please select a DeviceType</small
         >
-      </div>
-
+      </div>  
+      
       
 
       <div class="form-group">
         <label for="os">OS:</label>
         <select
         [class.bg-img]="addDeviceForm.get('os')?.touched "
-          [class.is-invalid]="addDeviceForm.get('os')?.invalid && addDeviceForm.get('os')?.touched"
-          formControlName="os"
+                    formControlName="os"
           id="os"
           class="form-select form-control item mt-1"
         >
-          <option>macOS</option>
+          <option>MacOS</option>
           <option>Windows</option>
           <option>Linux</option>
+          <option>ios</option>
+          <option>Android</option>
+        </select>
+      </div>
+
+
+      <div class="form-group">
+        <label for="Category">Category:</label>
+        <select
+        [class.bg-img]="addDeviceForm.get('category')?.touched "
+          [class.is-invalid]="addDeviceForm.get('category')?.invalid && addDeviceForm.get('category')?.touched"
+          formControlName="category"
+          id="category"
+          class="form-select form-control item mt-1"
+        >
+          <option>Goodies</option>
+          <option>Electronics</option>
+          <option>Accessories</option>
+          <!-- <option>Linux</option> -->
         </select>
         <small
           [class.d-none]="
-            addDeviceForm.get('os')?.valid || addDeviceForm.get('os')?.untouched
+            addDeviceForm.get('category')?.valid || addDeviceForm.get('category')?.untouched
           "
           class="text-danger"
-          >Please select a OS</small
+          >Please select a category</small
         >
       </div>
+
+
       <div class="button"><button
         
         type="submit"
@@ -89,8 +118,7 @@
       >
         Add Device
       </button></div>
-      {{addDeviceForm.value | json}}
+      <!-- {{addDeviceForm.value | json}} -->
     </form>
   </div>
 </div>
-

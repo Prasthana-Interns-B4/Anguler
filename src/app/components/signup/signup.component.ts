@@ -87,11 +87,11 @@ export class SignupComponent implements OnInit  {
     
     const data = this.users;     
     this.authService.onSignup(data).subscribe(response => {
-      if (response.user.id) {  
+      if (response.user?.id) {          
+        alert("Registered Successfully")
         this.router.navigate(['']);
-        alert("Signup Successful")
       }else{
-        alert(response.message);
+        alert(response.message +'\nPlease Register again');
         this.router.navigate(['/signup']);
       }
       
