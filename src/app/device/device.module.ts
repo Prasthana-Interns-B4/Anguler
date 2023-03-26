@@ -20,9 +20,7 @@ import { DialogComponent } from './dialog/dialog.component';
     DeviceListComponent,
     DeviceDetailComponent,
     CreateDeviceComponent,
-    DialogComponent
-  
-    
+    DialogComponent,
   ],
   imports: [
     CommonModule,
@@ -35,7 +33,7 @@ import { DialogComponent } from './dialog/dialog.component';
     RouterModule,
     DeviceRouteModule,
     MaterialModule,
-    EmpInventoryModule,
+    
     
     
   ],

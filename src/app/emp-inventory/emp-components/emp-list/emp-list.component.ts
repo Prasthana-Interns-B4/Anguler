@@ -20,7 +20,10 @@ import {
   styleUrls: ['./emp-list.component.css'],
 })
 
-export class EmpListComponent {
+
+
+
+export class EmpListComponent implements OnInit{
   employees: any[] = [];
   filteredEmployees: any[] = [];
   searchInput: string = '';
@@ -35,7 +38,7 @@ export class EmpListComponent {
   faTrash = faTrash;
   lapyAssigned = true;
   mouseAssigned = true;
-assignbutton:boolean=false;
+
   colors = [
     '#FF9A9E',
     '#2F5CFF',
