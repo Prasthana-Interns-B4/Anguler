@@ -1,20 +1,28 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { DeviceListComponent } from './device-list/device-list.component';
-import { DeviceDetailComponent } from './device-detail/device-detail.component';
+import { RouterModule } from '@angular/router';
+
+//  Device Module component
 import { DeviceComponent } from './device.component';
 import { DeviceRouteModule } from './device-routing.module';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
+//  Device Components
+import { DeviceListComponent } from './device-list/device-list.component';
+import { DeviceDetailComponent } from './device-detail/device-detail.component';
 import { CreateDeviceComponent } from './create-device/create-device.component';
 import { EditDeviceComponent } from './edit-device/edit-device.component';
-import { HttpClientModule } from '@angular/common/http';
-import { MatCardModule } from '@angular/material/card';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { RouterModule } from '@angular/router';
-import { MaterialModule } from './material/material.module';
-import { DialogComponent } from './dialog/dialog.component';
 import { AssignEmployeeComponent } from './assign-employee/assign-employee.component';
+import { DialogComponent } from './dialog/dialog.component';
 
+// forms module
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
+// fontawesome module
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+
+// angular material module
+import { MatCardModule } from '@angular/material/card';
+import { MaterialModule } from './material/material.module';
 @NgModule({
   declarations: [
     DeviceComponent,
@@ -22,22 +30,20 @@ import { AssignEmployeeComponent } from './assign-employee/assign-employee.compo
     DeviceDetailComponent,
     CreateDeviceComponent,
     EditDeviceComponent,
-    DialogComponent,
     AssignEmployeeComponent,
+    DialogComponent,    
   ],
   imports: [
     CommonModule,
-    MatCardModule,
+    FontAwesomeModule,
     DeviceRouteModule,
     FormsModule,
-    HttpClientModule,
     ReactiveFormsModule,
-    FontAwesomeModule,
-    RouterModule,
-    DeviceRouteModule,
+    MatCardModule,   
     MaterialModule,
-  ],
-  exports: [DeviceComponent, DeviceListComponent, DeviceDetailComponent],
-  entryComponents:[DialogComponent]
+    RouterModule,
+  ], 
+  entryComponents:[DialogComponent],
+  
 })
 export class DeviceModule {}
