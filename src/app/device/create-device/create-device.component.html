@@ -49,8 +49,12 @@
           <option>Desktop</option>
           <option>Mouse</option>
           <option>Mobile</option>
-          <option>bag</option>
-
+          <option>Bag</option>
+          <option>Clothing</option>
+          <option>Headset</option>
+          <option>Keyboard</option>
+          <option>Bottle</option>
+          <option>Default</option>
 
         </select>
         <small
@@ -73,9 +77,11 @@
           id="os"
           class="form-select form-control item mt-1"
         >
-          <option>macOS</option>
+          <option>MacOS</option>
           <option>Windows</option>
           <option>Linux</option>
+          <option>Android</option>
+          <option>IOS</option>
         </select>
         <!-- <small
           [class.d-none]="
@@ -98,7 +104,7 @@
         >
           <option>Goodies</option>
           <option>Electronics</option>
-          <!-- <option>Linux</option> -->
+          <option>Accessories</option>
         </select>
         <small
           [class.d-none]="
@@ -118,7 +124,7 @@
       >
         Add Device
       </button></div>
-      {{addDeviceForm.value | json}}
+      <!-- {{addDeviceForm.value | json}} -->
     </form>
   </div>
 </div>

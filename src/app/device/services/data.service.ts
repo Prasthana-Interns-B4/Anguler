@@ -7,7 +7,7 @@ import { Injectable } from '@angular/core';
 export class DataService {
 
   baseurl="http://18.142.36.157:3000/devices/"
-
+  
 
   constructor( private http:HttpClient) { }
 

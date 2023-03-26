@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { faAngleRight,faMagnifyingGlass,faTrashCan } from '@fortawesome/free-solid-svg-icons';
+import { AssignService } from '../services/assign.service';
 import { DataService } from '../services/data.service';
 import { DialogService } from '../services/dialog.services';
 @Component({
@@ -14,7 +15,8 @@ export class DeviceListComponent implements OnInit {
     private router: Router,
     private activatedRoute: ActivatedRoute,
     private ds: DataService,
-    private dialogService: DialogService
+    private dialogService: DialogService,
+    private as:AssignService
   ) {}
   ngOnInit(): void {
     this.getdevices();
@@ -100,6 +102,10 @@ submitSearch(val:string){
   console.warn(val)
     this.router.navigate([`search/${val}`],{relativeTo:this.activatedRoute})
 }
+
+// unAssign(id :number){
+//   this.as.Unassignservice
+// }
   
 }
 
