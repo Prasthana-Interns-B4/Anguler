@@ -27,6 +27,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 // AuthInterceptor component
 import { AuthInterceptor } from './services/auth.interceptor';
 
+// AuthGuard component
+import { AuthGuard } from './services/auth.guard';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -50,7 +53,7 @@ import { AuthInterceptor } from './services/auth.interceptor';
   providers: [{
     provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor,
     multi: true
-  }],
+  },AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

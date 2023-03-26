@@ -1,82 +1,65 @@
-<!-- LEFTBAR NAVIGATION SECTION AND EMP DETAILS SECTION -->  
-<div class="d-flex flex-row" >
-
-  <!-- LEFTBAR NAVIGATION SECTION -->    
-  <div class="d-flex flex-column justify-content-between align-items-center p-3" style="background-color: #1d3c6a; height:auto; min-height: 83vh; color: #fff; width: 20vw; margin-top: 65px;">        
-    <div class="d-flex flex-column justify-content-center" >
-        <button class="btn m-2" style=" background-color: #fff; color: #081e42; width: 17vw; text-align: start;">Edit Employee Details</button>
-        <button class="btn m-2" style=" background-color: #fff; color: #081e42; width: 17vw; text-align: start;">Add Employee</button>
-        <button class="btn m-2" style=" background-color: #fff; color: #081e42; width: 17vw; text-align: start;">View Employees List</button>
-  <!-- EMP DETAILS SECTION -->
-<div class="container p-3 m-5" style="height: 77.8vh; width: 75vw">
-  <div class="row">
-<div class="col-12 col-md-8">
-  <div class="name-card-container">
-    <div class="d-flex flex-row justify-content- align-items-center w-100 ms-4">
-      <div class="name-card md-me-3" [ngStyle]="{ color: '#fff' }">EN</div>
-      <div class="d-flex align-items-center flex-grow-1">
-        <div class="name-card-info flex-grow-1">
-          <h2 class="h5 name-card-name">{{ employee.name }} {{ employee.username }}</h2>
-          <div class="d-flex flex-column">
-            <p class="name-card-id mb-1">{{ employee.email }}</p>
-            <p class="name-card-id">{{ employee.phone }}</p>
-          </div>
-        </div>
-        <div class="d-flex flex-row align-items-center">
-          <div class="d-flex flex-column align-items-center me-3">
-            <fa-icon [icon]="faEdit"></fa-icon>
-          </div>
-          <div class="d-flex flex-column align-items-center">
-            <fa-icon [icon]="faTrash" (click)="removeEmployee(employee)"></fa-icon>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="d-flex flex-row justify-content-start align-items-center w-100 ms-5 m-3">
-      <p class="name-card-id me-3 mb-0"><b>Emp ID:</b> 123456</p>
-      <p class="name-card-id me-3 mb-0"><b>Designation:</b> jobTitle</p>
-      <div class="d-flex flex-row align-items-center">
-        <p class="name-card-id mb-0 me-2" style="font-weight: 600">Devices:</p>
-        <ng-container *ngIf="lapyAssigned">
-          <fa-icon class="me-2 icons" [icon]="faLapy"></fa-icon>
-        </ng-container>
-        <ng-container *ngIf="mouseAssigned">
-          <fa-icon class="icons" [icon]="faMouse"></fa-icon>
-        </ng-container>
-        <ng-container *ngIf="!lapyAssigned && !mouseAssigned">
-          <p class="name-card-id mb-0 ms-3" style="color: tomato">No Devices Assigned</p>
-        </ng-container>
-      </div>
-    </div>
-  </div>
-</div>
-
-    <h1 class="col-12 col-md-8 col-lg-7 m-3" style="font-size: 25px">
-      Devices Assigned
-    </h1>
-    <div class="col-12 col-md-8 m-1">
-      <div class="name-card-container p-3">
-        <div
-          class="d-flex flex-row justify-content-between align-items-center w-100"
-        >
-          <div class="container">
-            <div class="row">
-              <div class="col-4">
-                <img
-                  src="https://images.pexels.com/photos/7974/pexels-photo.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-                  alt="Device picture"
-                  class="img-fluid"
-                />
+<div class="d-flex flex-row" style="min-height: 82.7vh">  
+  <div class="container p-3" style="min-height: 82.7vh; width: 120vw">
+    <div class="row">
+      <div class="col-12 col-md-9 p-3">
+        <div class="name-card-container view-Bg mt-5">
+          <div
+            class="d-flex flex-row justify-content-center align-items-center w-100 ms-4"
+          >
+            <div class="name-card md-me-3" [ngStyle]="{ color: '#fff' }">{{ employee?.user.user_detail.first_name[0]}}{{ employee?.user.user_detail.last_name[0] | uppercase }}</div>
+            <div class="d-flex align-items-center flex-grow-1">
+              <div class="name-card-info flex-grow-1">
+                <h2 class="h5 name-card-name">
+                  {{ employee?.user.user_detail.first_name }} {{ employee?.user.user_detail.last_name }}
+                </h2>
+                <div class="d-flex flex-column">
+                  <p class="name-card-id mb-1">{{ employee?.user.email }}</p>
+                  <p class="name-card-id mb-1">{{ employee?.user.user_detail.phone_number }}</p>
+                  <p class="name-card-id mb-1"><b>Emp ID:</b> {{ employee?.user.emp_id }}</p>
+                  <p class="name-card-id mb-1"><b>Designation:</b> {{ employee?.user.role.role }}</p>
+                </div>
               </div>
-              <div class="col-8">
-                <h3>Device Name</h3>
-                <p>Device ID: 1234567890</p>
+              <div class="d-flex flex-row align-items-center">
+                <div class="d-flex flex-column align-items-center me-3">
+                  <fa-icon [icon]="faEdit" ></fa-icon>
+                </div>                
               </div>
             </div>
           </div>
         </div>
       </div>
+  
+      <h1 class="col-12 col-md-8 col-lg-7 m-3" style="font-size: 25px">
+        Devices Assigned
+      </h1>
+      <div *ngFor="let device of devices">
+        <div class="col-12 col-md-8 m-1">
+          <div class="name-card-container p-3" style="background-color: #fff">
+            <div
+              class="d-flex flex-row justify-content-between align-items-center w-100"
+            >
+              <div class="container">
+                <div class="row">
+                  <div class="col-4">
+                    <img
+                      src="{{ device.image_url }}"
+                      alt="Device picture"
+                      class="device-img"
+                    />
+                  </div>
+                  <div class="col-8">
+                    <h3>{{ device.device_type }}</h3>
+                    <p>{{ device.os }}</p>
+                    <p>Device ID: {{ device.tag_no }}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
     </div>
   </div>
 </div>
+<router-outlet></router-outlet>
