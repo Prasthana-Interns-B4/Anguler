@@ -1,69 +1,139 @@
-<!-- EMP DETAILS SECTION -->
-
-<div class="container p-3" style="height: 88.1vh; width: 120vw">
-  <div class="row">
-    <div class="col-12 col-md-9 p-3">
-      <div class="name-card-container view-Bg mt-5">
-        <div
-          class="d-flex flex-row justify-content-center align-items-center w-100 ms-4"
-        >
-          <div class="name-card md-me-3" [ngStyle]="{ color: '#fff' }">{{ employee.name.charAt(0) | uppercase
-                }}{{ employee.username.charAt(0) | uppercase }}</div>
-          <div class="d-flex align-items-center flex-grow-1">
-            <div class="name-card-info flex-grow-1">
-              <h2 class="h5 name-card-name">
-                {{ employee.name }} {{ employee.username }}
-              </h2>
-              <div class="d-flex flex-column">
-                <p class="name-card-id mb-1">{{ employee.email }}</p>
-                <p class="name-card-id mb-1">{{ employee.phone }}</p>
-                <p class="name-card-id mb-1"><b>Emp ID:</b> 123456</p>
-                <p class="name-card-id mb-1"><b>Designation:</b> jobTitle</p>
+<div class="d-flex flex-row" style="min-height: 82.7vh">
+  <div class="container p-3" style="min-height: 82.7vh; width: 120vw">
+    <div class="row ">
+      <div class="col-12 col-md-9 p-3 ">
+        <div class="name-card-container view-Bg mt-5">
+          <div
+            class="d-flex flex-row justify-content-center align-items-center w-100 ms-4"
+          >
+            <div class="name-card md-me-3" [ngStyle]="{ color: '#fff' }">{{ employee?.user.user_detail.first_name[0]}}{{ employee?.user.user_detail.last_name[0] | uppercase }}</div>
+            <div class="d-flex align-items-center flex-grow-1">
+              <div class="name-card-info flex-grow-1">
+                <h2 class="h5 name-card-name">
+                  {{ employee?.user.user_detail.first_name }} {{ employee?.user.user_detail.last_name }}
+                </h2>
+                <div class="d-flex flex-column">
+                  <p class="name-card-id mb-1">{{ employee?.user.email }}</p>
+                  <p class="name-card-id mb-1">{{ employee?.user.user_detail.phone_number }}</p>
+                  <p class="name-card-id mb-1"><b>Emp ID:</b> {{ employee?.user.emp_id }}</p>
+                  <p class="name-card-id mb-1"><b>Designation:</b> {{ employee?.user.role.role }}</p>
+                </div>
               </div>
-            </div>
-            <div class="d-flex flex-row align-items-center">
-              <div class="d-flex flex-column align-items-center me-3">
-                <fa-icon [icon]="faEdit" (click)="openModal()"></fa-icon>
-              </div>
-              <div class="d-flex flex-column align-items-center">
-                <fa-icon
-                  [icon]="faTrash"
-                  (click)="removeEmployee(employee)"
-                ></fa-icon>
+              <div class="d-flex flex-row align-items-center">
+                <div class="d-flex flex-column align-items-center me-3" (click)="openModal()">
+                  <fa-icon [icon]="faEdit" ></fa-icon>
+                </div>
+                <div class="d-flex flex-column align-items-center">
+                  <fa-icon
+                    [icon]="faTrash"
+                    (click)="removeEmployee()"
+                  ></fa-icon>
+                </div>               
               </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-
-    <h1 class="col-12 col-md-8 col-lg-7 m-3" style="font-size: 25px">
-      Devices Assigned
-    </h1>
-    <div class="col-12 col-md-8 m-1">
-      <div class="name-card-container p-3" style="background-color: #fff">
-        <div
-          class="d-flex flex-row justify-content-between align-items-center w-100"
-        >
-          <div class="container">
-            <div class="row">
-              <div class="col-4">
-                <img
-                  src="https://images.pexels.com/photos/7974/pexels-photo.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-                  alt="Device picture"
-                  class="device-img"
-                />
-              </div>
-              <div class="col-8">
-                <h3>Device Name</h3>
-                <p>Device ID: 1234567890</p>
+  
+      <h1 class="col-12 col-md-8 col-lg-7 m-3" style="font-size: 25px">
+        Devices Assigned
+      </h1>
+      <div *ngFor="let device of devices">
+        <div class="col-12 col-md-8 m-1">
+          <div class="name-card-container p-3" style="background-color: #fff">
+            <div
+              class="d-flex flex-row justify-content-between align-items-center w-100"
+            >
+              <div class="container">
+                <div class="row">
+                  <div class="col-4">
+                    <img
+                      src="{{ device.image_url }}"
+                      alt="Device picture"
+                      class="device-img"
+                    />
+                  </div>
+                  <div class="col-8">
+                    <h3>{{ device.name }}</h3>
+                    <p>{{ device.os }}</p>
+                    <p>Device ID: {{ device.tag_no }}</p>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </div>
+      </div>
+      
+    </div>
+  </div>
+</div>
+<div class="modal" id="myModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title"><b>Edit Employee</b></h4>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          (click)="closeModal()"
+        ></button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+        <form>
+          <div class="form-group">
+            <label for="first-name">First Name:</label>
+            <input
+              type="text"
+              class="form-control"
+              id="first-name"
+              name="first-name"
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="last-name">Last Name:</label>
+            <input
+              type="text"
+              class="form-control"
+              id="last-name"
+              name="last-name"
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="dob">Date of Birth:</label>
+            <input type="date" class="form-control" id="dob" name="dob" />
+          </div>
+
+          <div class="form-group">
+            <label for="mobile-number">Mobile Number:</label>
+            <input
+              type="tel"
+              class="form-control"
+              id="mobile-number"
+              name="mobile-number"
+            />
+          </div>
+        </form>
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button
+          type="button"
+          class="btn btn-danger"
+          data-bs-dismiss="modal"
+          (click)="closeModal()"
+        >
+          Close
+        </button>
       </div>
     </div>
   </div>
 </div>
-
-
+<router-outlet></router-outlet>

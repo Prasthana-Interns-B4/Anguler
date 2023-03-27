@@ -1,11 +1,10 @@
-import { EmpViewComponent } from './emp-components/emp-view/emp-view.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-
+// components
+import { EmpViewComponent } from './emp-components/emp-view/emp-view.component';
 import { HrDetailsComponent } from './emp-components/hr-details/hr-details.component';
 import { EmpListComponent } from './emp-components/emp-list/emp-list.component';
-
 
 const routes: Routes = [
   { path: 'emp-list', component: EmpListComponent },
@@ -18,4 +17,4 @@ const routes: Routes = [
     exports: [RouterModule]
   })
 
-  export class EmpInventoryRoutingModule { }
+  export class EmpInventoryRoutingModule {}

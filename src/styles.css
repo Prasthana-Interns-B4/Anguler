@@ -3,3 +3,60 @@
 *{
     font-family:'Inter';
 }
+/*for-dialog-pop-up */
+.btn-dialog-close {
+  width: 45px;
+  min-width: 0px !important;
+  height: 40px;
+  padding: 0px !important;
+}
+/* confirm dialog */
+.confirm-dialog-container .mat-dialog-container {
+  border-radius: 0.25em 0.25em 0.4em 0.4em;
+  padding: 0px;
+}
+.confirm-dialog-container .content-container {
+  margin: 5px 5px 15px 5px;
+  color: #192b4c;
+  display: flex;
+}
+
+.confirm-dialog-container #close-icon {
+  margin-left: auto;
+  order: 2;
+  font-weight: bolder;
+}
+
+.confirm-dialog-container #close-icon:hover {
+  cursor: pointer;
+}
+
+.confirm-dialog-container #no-button {
+  /* height: 50%; */
+  width: 50%;
+  background-color: #2e527e;
+  color: white;
+  border-radius: 0px;
+}
+.confirm-dialog-container #yes-button {
+  /* height: 50%; */
+  width: 50%;
+  background-color: #92a9d8;
+  color: white;
+  border-radius: 0px;
+}
+.confirm-dialog-container span.content-span {
+  padding: 35px 16px;
+  text-align: center;
+  font-size: 20px;
+}
+.mdc-dialog__surface {
+  overflow-y: hidden !important;
+}
+/*background-image of form filed */
+.bg-img {
+  background-image: none !important;
+}
+/* .mat-mdc-card {
+  background-color: #4462a0;
+} */

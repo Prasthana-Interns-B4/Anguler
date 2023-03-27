@@ -5,11 +5,16 @@ import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './components/login/login.component';
 import { SignupComponent } from './components/signup/signup.component';
 import { EmpDetailsComponent } from './components/emp-details/emp-details.component';
-import { EmpInventoryComponent } from './emp-inventory/emp-inventory.component';
 import { NotfoundComponent } from './components/notfound/notfound.component';
+
+// Modules Components
+import { EmpInventoryComponent } from './emp-inventory/emp-inventory.component';
 import { DeviceComponent } from './device/device.component';
 
+// AuthGuard components
 import { AuthGuard } from './services/auth.guard';
+import { HrGuard } from './services/hr.guard';
+import { FmGuard } from './services/fm.guard';
 
 const routes: Routes = [  
 
@@ -18,11 +23,11 @@ const routes: Routes = [
   { path:'emp-details',component:EmpDetailsComponent, canActivate: [AuthGuard] },  
 
 
-  { path: 'emp-inventory',component:EmpInventoryComponent,
+  { path: 'emp-inventory',component:EmpInventoryComponent, canActivateChild: [HrGuard],
     loadChildren: () => import('./emp-inventory/emp-inventory.module').then(res => res.EmpInventoryModule)
   },
 
-  { path: 'device',component:DeviceComponent,
+  { path: 'device',component:DeviceComponent, canActivateChild: [FmGuard],
     loadChildren: () => import('./device/device.module').then(res => res.DeviceModule)
   },
 

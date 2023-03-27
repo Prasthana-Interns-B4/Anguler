@@ -6,6 +6,13 @@ import {
   faFacebookF,
   faInstagramSquare,
 } from '@fortawesome/free-brands-svg-icons';
+import {
+ 
+  faUsers,
+  faPowerOff,
+  faUser,
+} from '@fortawesome/free-solid-svg-icons';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-device',
@@ -13,21 +20,28 @@ import {
   styleUrls: ['./device.component.css'],
 })
 export class DeviceComponent implements OnInit {
-  title = 'devicecompo';
-  faWhatsapp = faWhatsapp;
-  faTwitter = faTwitter;
-  faFacebookF = faFacebookF;
-  faInstagramSquare = faInstagramSquare;
-  showFiller = false;
+  faUsers = faUsers;
+  faUser = faUser;
+  faPowerOff = faPowerOff;
 
-  constructor(private route: Router, private router: ActivatedRoute) {}
+  constructor( private route: Router, private authService:AuthService) {}
   ngOnInit(): void {}
 
-  navigateCreate() {
-    this.route.navigate(['create-device'], { relativeTo: this.router });
+  myProfile(){       
+    this.route.navigate(['/device/fm-details']);
   }
-  
-  navigateDevicelist() {
-    this.route.navigate(['device']);
+
+  addDevice(){
+    this.route.navigate(['/device/add-device']);
+  }
+
+  DeviceList(){
+    this.route.navigate(['/device/device-list']);
+  }
+
+  logout(){
+    this.authService.onLogout().subscribe(() => {});   
+    this.route.navigate(['']);
+    localStorage.clear();  
   }
 }

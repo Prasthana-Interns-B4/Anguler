@@ -80,18 +80,19 @@ export class SignupComponent implements OnInit  {
         date_of_birth : this.binds.date_of_birth.value,
       },
       role_attributes : {
-        role : this.signUpForm.value.role,
+        role : 'employee',
       }
     }
   }
     
     const data = this.users;     
     this.authService.onSignup(data).subscribe(response => {
-      if (response){
-        alert(response.message);
+      if (response.user?.id) {          
+        alert("Registered Successfully")
         this.router.navigate(['']);
       }else{
-        alert(response.message);
+        alert(response.message +'\nPlease Register again');
+        this.router.navigate(['/signup']);
       }
       
     }, error => { 
