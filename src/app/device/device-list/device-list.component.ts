@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { faAngleRight,faMagnifyingGlass,faTrashCan } from '@fortawesome/free-solid-svg-icons';
+import { AssignService } from '../services/assign.service';
 import { DataService } from '../services/data.service';
 import { DialogService } from '../services/dialog.services';
+import { Location } from'@angular/common';
 @Component({
   selector: 'app-device-list',
   templateUrl: './device-list.component.html',
@@ -15,14 +17,19 @@ export class DeviceListComponent implements OnInit {
     private activatedRoute: ActivatedRoute,
     private ds: DataService,
     private dialogService: DialogService,
+    private as:AssignService,
     private dataService: DataService,
+    private location: Location
   ) {}
 
   ngOnInit(): void {
     this.getdevices();
+    
+   
   }
-
   faMagnifyingGlass= faMagnifyingGlass;
+
+  
   faAngleRight= faAngleRight;
   faTrashCan = faTrashCan;
   selected: any;
@@ -46,6 +53,7 @@ export class DeviceListComponent implements OnInit {
         this.devices=this.listDevices.devices
       },
       error: (err) => {
+        alert('error while fetching');
         alert(err);
       },
     });
@@ -62,6 +70,7 @@ export class DeviceListComponent implements OnInit {
 
 
   deletedevice(id: number) {
+   
     this.dialogService
       .openConfirmDialog('Are you sure want to delete this device?')
       .afterClosed()
@@ -80,14 +89,16 @@ export class DeviceListComponent implements OnInit {
         })      
             }
           },     
-      });    
+      });
+    
   }
-
-  navigateToDetail(id: any) {
+  navigateToDetail(id:number) {
     console.log(id);
-    this.router.navigate(['device/device-details',id]);
-
+    this.router.navigate([id], { relativeTo: this.activatedRoute });
+      ;    
   }
+
+  
 
   assignDevice(id:any) {    
     localStorage.setItem('device_id',id);

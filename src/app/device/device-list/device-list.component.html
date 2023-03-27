@@ -11,13 +11,16 @@
 <div *ngFor="let device of devices">
   <mat-card
     class="example-card list name-card-container"
+   
   >
     <mat-card-header>
       <img mat-card-sm-image [src]="device.image_url" />
       <mat-card-title-group class="title">
-        <mat-card-title>{{ device.name | titlecase  }}</mat-card-title>
+        <mat-card-title>{{ device.name | titlecase }}</mat-card-title>
+
         <mat-card-subtitle>
           <div class="devicetype">{{ device.device_type }}</div>
+
           {{ device.tag_no | uppercase }}
           <span class="build"> {{ device.os }}</span>
           <p *ngIf="device.status ===true " class="assigned">
@@ -28,23 +31,23 @@
             No employee assigned
           </p>
         </mat-card-subtitle>
+        <button
+          (click)="assignDevice(device.id)"
+          *ngIf="device.status == false"
+          mat-stroked-button
+          color="primary"
+          class="assign-btn"
+        >
+          Assign
+        </button>
       </mat-card-title-group>
 
       <button
-      (click)="assignDevice(device.id)"
-      *ngIf="device.status == false"
-      mat-stroked-button
-      color="primary"
-      class="assign-btn ms-5"
-    >
-      Assign
-    </button>
-      <button
+      (click)="unAssignDevice(device.id)"
         *ngIf="device.status == true"
         mat-stroked-button
         color="primary"
-        class="assign-btn ms-5"
-        (click)="unAssignDevice(device.id)"
+        class="assign-btn" 
       >
         Unassign
       </button>
@@ -53,7 +56,7 @@
         <fa-icon class="my-icon" [icon]="faTrashCan"></fa-icon>
       </button>
 
-      <button (click)="navigateToDetail(device)" mat-button class="arrow">
+      <button (click)="navigateToDetail(device.id)" mat-button class="arrow">
         <div class="nav-arrow">
           <fa-icon class="my-icon" [icon]="faAngleRight"></fa-icon>
         </div>

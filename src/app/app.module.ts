@@ -34,6 +34,8 @@ import { FmGuard } from './services/fm.guard';
 import { DeviceModule } from './device/device.module';
 import { DeviceRouteModule } from './device/device-routing.module';
 
+// AuthInterceptor component
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -50,11 +52,13 @@ import { DeviceRouteModule } from './device/device-routing.module';
     BrowserAnimationsModule,
     FontAwesomeModule,    
     FormsModule,
-    DeviceModule,
     DeviceRouteModule,    
     HttpClientModule,
     ReactiveFormsModule,    
-    AppRoutingModule    
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    AppRoutingModule,
+    DeviceModule
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor,

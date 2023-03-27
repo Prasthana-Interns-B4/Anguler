@@ -28,15 +28,15 @@ export class DeviceComponent implements OnInit {
   }
 
   myProfile(){       
-    this.route.navigate(['/device/fm-details']);
+    this.route.navigate(['device/fm-details']);
   }
 
   addDevice(){
-    this.route.navigate(['/device/add-device']);
+    this.route.navigate(['device/create-device']);
   }
 
   DeviceList(){
-    this.route.navigate(['/device/device-list']);
+    this.route.navigate(['device/device-list']);
   }
 
   logout(){
