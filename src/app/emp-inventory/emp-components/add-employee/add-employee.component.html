@@ -1,0 +1,228 @@
+ <div class="registration-form shadow">
+     <form [formGroup]="signUpForm" (ngSubmit)="onSubmit()">
+       <div class="form-group">
+        <input
+          type="text"
+          class="form-control item mt-3"
+          formControlName="first_name"
+          [ngClass]="{
+            invalid: binds.first_name.touched && binds.first_name.errors
+          }"
+          placeholder="First Name"
+          ngModel
+        />
+      </div>
+      <div
+        *ngIf="binds.first_name.touched && binds.first_name.errors"
+        class="text-danger d-flex flex-row justify-content-start mt-1"
+      >
+        <div *ngIf="binds.first_name.errors.required" style="font-size: 13px">
+          First Name is required
+        </div>
+        <div *ngIf="binds.first_name.errors.minlength" style="font-size: 13px">
+          First Name must be at least 3 characters
+        </div>
+      </div>
+      <div class="form-group">
+        <input
+          type="text"
+          class="form-control item mt-3"
+          formControlName="last_name"
+          [ngClass]="{
+            invalid: binds.last_name.touched && binds.last_name.errors
+          }"
+          placeholder="Last Name"
+          ngModel
+        />
+      </div>
+      <div
+        *ngIf="binds.last_name.touched && binds.last_name.errors"
+        class="text-danger d-flex flex-row justify-content-start mt-1"
+      >
+        <div *ngIf="binds.last_name.errors.required" style="font-size: 13px">
+          Last Name is required
+        </div>
+        <div *ngIf="binds.last_name.errors.minlength" style="font-size: 13px">
+          Last Name must be at least 2 characters
+        </div>
+      </div>
+      <div class="form-group">
+        <input
+          type="text"
+          class="form-control item mt-3"
+          formControlName="designation"
+          [ngClass]="{
+            invalid: binds.designation.touched && binds.designation.errors
+          }"
+          placeholder="Designation"
+          ngModel
+        />
+      </div>
+      <div
+        *ngIf="binds.designation.touched && binds.designation.errors"
+        class="text-danger d-flex flex-row justify-content-start mt-1"
+      >
+        <div *ngIf="binds.designation.errors.required" style="font-size: 13px">
+          Designation is required
+        </div>
+      </div>
+      <div class="form-group">
+        <input
+          type="text"
+          class="form-control item mt-3"
+          formControlName="phone_number"
+          [ngClass]="{
+            invalid: binds.phone_number.touched && binds.phone_number.errors
+          }"
+          placeholder="Phone Number"
+          ngModel
+        />
+      </div>
+      <div
+        *ngIf="binds.phone_number.touched && binds.phone_number.errors"
+        class="text-danger d-flex flex-row justify-content-start mt-1"
+      >
+        <div *ngIf="binds.phone_number.errors.required" style="font-size: 13px">
+          Phone Number is required
+        </div>
+      </div>
+      <div class="form-group">
+        <input
+          type="email"
+          class="form-control item mt-3"
+          formControlName="email"
+          [ngClass]="{ invalid: binds.email.touched && binds.email.errors }"
+          placeholder="Email address"
+          ngModel
+        />
+      </div>
+      <div
+        *ngIf="binds.email.touched && binds.email.errors"
+        class="text-danger d-flex flex-row justify-content-start mt-1"
+      >
+        <div *ngIf="binds.email.errors.required" style="font-size: 13px">
+          Email address is required
+        </div>
+        <div
+          *ngIf="binds.email.errors.email || binds.email.errors.pattern"
+          style="font-size: 13px"
+        >
+          Email must end with @prasthana.com
+        </div>
+      </div>
+      <div class="form-group">
+        <input
+          type="password"
+          class="form-control item mt-3"
+          formControlName="password"
+          [ngClass]="{
+            invalid: binds.password.touched && binds.password.errors
+          }"
+          placeholder="Password"
+          ngModel
+        />
+      </div>
+      <div
+        *ngIf="binds.password.touched && binds.password.errors"
+        class="text-danger d-flex flex-row justify-content-start mt-1"
+      >
+        <div *ngIf="binds.password.errors.required" style="font-size: 13px">
+          Password is required
+        </div>
+        <div *ngIf="binds.password.errors.minlength" style="font-size: 13px">
+          Password must be at least 6 characters
+        </div>
+      </div>
+      <div class="form-group">
+        <input
+          type="password"
+          class="form-control item mt-3"
+          formControlName="confirm_password"
+          [ngClass]="{
+            invalid:
+              binds.confirm_password.touched && binds.confirm_password.errors
+          }"
+          placeholder="Confirm Password"
+          ngModel
+        />
+      </div>
+      <div
+        *ngIf="binds.confirm_password.touched && binds.confirm_password.errors"
+        class="text-danger d-flex flex-row justify-content-start mt-1"
+      >
+        <div
+          *ngIf="binds.confirm_password.errors.required"
+          style="font-size: 13px"
+        >
+          Confirm Password is required
+        </div>
+        <div
+          *ngIf="binds.confirm_password.errors.mustmatch"
+          style="font-size: 13px"
+        >
+          Password must match
+        </div>
+      </div>
+      <div class="form-group">
+        <input
+          type="date"
+          class="form-control item mt-3"
+          formControlName="date_of_birth"
+          [ngClass]="{
+            invalid: binds.date_of_birth.touched && binds.date_of_birth.errors
+          }"
+          ngModel
+        />
+      </div>
+      <div class="text-danger d-flex flex-row justify-content-start mt-1">
+        <div
+          *ngIf="
+            binds.date_of_birth.touched && binds.date_of_birth.value === ''
+          "
+          style="font-size: 13px"
+        >
+          Birth Date is required
+        </div>
+        <div
+          *ngIf="
+            binds.date_of_birth.value !== '' &&
+            binds.date_of_birth.errors !== null &&
+            binds.date_of_birth.errors.ageInvalid
+          "
+          style="font-size: 13px"
+        >
+          Age must be at least 18 years
+        </div>
+        <div
+          *ngIf="
+            binds.date_of_birth.value !== '' &&
+            binds.date_of_birth.errors !== null &&
+            binds.date_of_birth.errors.futureAge
+          "
+          style="font-size: 13px"
+        >
+          Birth Date can't be future date
+        </div>
+      </div>
+      <div class="form-group">
+        <button
+          type="submit"
+          style="
+            width: 50%;
+            font-size: 16px;
+            color: #fff;
+            font-weight: 500;
+            margin-top: 20px;
+          "
+          [ngClass]="
+            signUpForm.valid === true
+              ? 'btn btn-primary button-active'
+              : 'btn btn-primary disabled'
+          "
+        >
+          Add
+        </button>
+      </div>
+    </form>
+  </div>
+

@@ -7,36 +7,46 @@ import { Router } from '@angular/router';
   providedIn: 'root',
 })
 export class EmpService {
-  baseUrl = 'http://18.142.36.157:3000/users'
+  baseUrl = 'http://18.142.36.157:3000/users';
   employee: any;
 
-  constructor(private http: HttpClient, private route:Router) {}
+  constructor(private http: HttpClient, private route: Router) {}
 
-  onEdit(editData:any,id:any):Observable<any> {     
-    return this.http.post(this.baseUrl+'/:'+id+'/approve', editData);
-  } 
+  // onEdit(editData: any, id: any): Observable<any> {
+  //   return this.http.post(this.baseUrl + '/:' + id + '/approve', editData);
+  // }
 
   getEmployeeList() {
     return this.http.get(this.baseUrl);
   }
 
-  getEmpDetails(id:number) {
-    return this.http.get(this.baseUrl +'/'+ id);
+  getPendingEmployees() {
+    return this.http.get(this.baseUrl + '/pending');
   }
-  
-  onLogout():Observable<any> { 
-    return this.http.delete(this.baseUrl + '/sign_out');   
-  }
-
-  delete(id:number){    
-    return this.http.delete(this.baseUrl +'/'+ id);
+  approveReq(id: number) {
+    return this.http.put(this.baseUrl + '/' + id + '/approve', {});
   }
 
-  search(searchInput:any){
-    return this.http.get(this.baseUrl + '?search='+searchInput);
+  addEmployee(addEmpData: any) {
+    return this.http.post(this.baseUrl + '/create_employee', addEmpData);
   }
 
+  getEmpDetails(id: number) {
+    return this.http.get(this.baseUrl + '/' + id);
+  }
 
+  updateEmpDetails(updatedData: any, id: number) {
+    return this.http.put(this.baseUrl + '/' + id, updatedData);
+  }
+  onLogout(): Observable<any> {
+    return this.http.delete(this.baseUrl + '/sign_out');
+  }
+
+  delete(id: number) {
+    return this.http.delete(this.baseUrl + '/' + id);
+  }
+
+  search(searchInput: any) {
+    return this.http.get(this.baseUrl + '?search=' + searchInput);
+  }
 }
-
-
