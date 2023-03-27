@@ -28,6 +28,6 @@ export class DeviceComponent implements OnInit {
   }
   
   navigateDevicelist() {
-    this.route.navigate(['device']);
+    this.route.navigate(['device/device-list']);
   }
 }

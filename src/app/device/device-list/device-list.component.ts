@@ -55,12 +55,6 @@ export class DeviceListComponent implements OnInit {
       .afterClosed()
       .subscribe({
         next: (_res) => {
-
-          console.log(_res)
-
-          // if(_res){
-          //   console.log(_res +"from console if")
-          // }
           if(_res){this.ds.deleteDevice(id)
             .subscribe({
             next:(res)=>{alert("Deleted Successfully!")
@@ -75,9 +69,9 @@ export class DeviceListComponent implements OnInit {
       });
     
   }
-  navigateToDetail(device: any) {
-    console.log(device);
-    this.router.navigate([device.id], { relativeTo: this.activatedRoute });
+  navigateToDetail(id:number) {
+    console.log(id);
+    this.router.navigate([id], { relativeTo: this.activatedRoute });
   }
 
   assignDevice() {

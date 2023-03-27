@@ -1,7 +1,9 @@
 import { Injectable } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { EmpListComponent } from 'src/app/emp-inventory/emp-components/emp-list/emp-list.component';
+import { CreateDeviceComponent } from '../create-device/create-device.component';
 import { DialogComponent } from '../dialog/dialog.component';
+import { UpdateDeviceComponent } from '../update-device/update-device.component';
 @Injectable({
   providedIn: 'root',
 })
@@ -30,6 +32,17 @@ export class DialogService {
       top:'100px'}
 
 
+    })
+  }
+
+
+  openUpdateDevice(device:string){
+    return this.dialog.open(UpdateDeviceComponent,{
+      width:'30%',
+      panelClass: 'confirm-dialog-container',
+      disableClose:true,
+      data:device 
+      
     })
   }
 }

@@ -1,5 +1,6 @@
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -20,10 +21,12 @@ export class DataService {
   deleteDevice(id:number) {
     return this.http.delete(this.baseurl+id)
   }
-  editDevice(id:number,data:any){
+  putDevice(id:number,data:any){
     return this.http.put(this.baseurl+id,data)
   }
-  searchDevice(query:string){
-    return this.http.get(`{this.baseUrl}/search?q=${query}`)
+  
+
+  getDeviceDetails(id:number):Observable<any> {    
+    return this.http.get(this.baseurl+ id);  
   }
 }

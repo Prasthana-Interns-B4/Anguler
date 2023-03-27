@@ -25,9 +25,6 @@ export class LeftBarComponent {
   myProfile(){       
     this.route.navigate(['/emp-details']);
   }
-  logout(){
-    sessionStorage.clear();
-    this.route.navigate(['']); 
   
   logout(){
     this.authService.onLogout().subscribe(() => {});
@@ -36,4 +33,5 @@ export class LeftBarComponent {
   }
 
 }
-}
+
+

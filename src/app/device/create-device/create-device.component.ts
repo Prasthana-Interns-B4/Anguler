@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { DataService } from '../services/data.service';
 
@@ -7,17 +7,21 @@ import { DataService } from '../services/data.service';
   templateUrl: './create-device.component.html',
   styleUrls: ['./create-device.component.css'],
 })
-export class CreateDeviceComponent {
-  constructor(private fb: FormBuilder, private ds: DataService) {}
-  addDeviceForm = this.fb.group({
-    name: ['', [Validators.required]],
-    device_type: ['', Validators.required],
-    os: ['', Validators.required],
-    category: ['', Validators.required],
-  });
+export class CreateDeviceComponent implements OnInit{
+  constructor(private fb: FormBuilder, private ds: DataService) { }
+  addDeviceForm!:FormGroup;
+  ngOnInit(): void {
+    this.addDeviceForm = this.fb.group({
+      name: ['', [Validators.required]],
+      device_type: ['', Validators.required],
+      os: [''],
+      category: ['', Validators.required],
+    });
+  }
+ 
 
   onSubmit() {
-    this.ds.createDevice(this.addDeviceForm.value).subscribe({
+    if(this.addDeviceForm.valid){this.ds.createDevice(this.addDeviceForm.value).subscribe({
       next: (res) => {
         alert('device added successfully');
         this.addDeviceForm.reset();
@@ -31,4 +35,5 @@ export class CreateDeviceComponent {
       },
     });
   }
+}
 }

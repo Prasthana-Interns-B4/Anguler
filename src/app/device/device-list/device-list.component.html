@@ -16,7 +16,7 @@
     <mat-card-header>
       <img mat-card-sm-image [src]="device.image_url" />
       <mat-card-title-group class="title">
-        <mat-card-title>{{ device.name }}</mat-card-title>
+        <mat-card-title>{{ device.name | titlecase }}</mat-card-title>
 
         <mat-card-subtitle>
           <div class="devicetype">{{ device.device_type }}</div>
@@ -55,7 +55,7 @@
         <fa-icon class="my-icon" [icon]="faTrashCan"></fa-icon>
       </button>
 
-      <button (click)="navigateToDetail(device)" mat-button class="arrow">
+      <button (click)="navigateToDetail(device.id)" mat-button class="arrow">
         <div class="nav-arrow">
           <fa-icon class="my-icon" [icon]="faAngleRight"></fa-icon>
         </div>

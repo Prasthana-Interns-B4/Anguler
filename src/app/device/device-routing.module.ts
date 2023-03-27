@@ -7,11 +7,12 @@ import { DeviceListComponent } from './device-list/device-list.component';
 
 
 const deviceRoutes: Routes = [
-  { path: '', component: DeviceListComponent },
+  { path: '',redirectTo:'devicelist' ,pathMatch:'full' },
+  { path:'device-list',component:DeviceListComponent},
   
   { path: 'create-device', component: CreateDeviceComponent },
 
-  { path: ':id', component: DeviceDetailComponent },
+  { path: 'device-list/:id', component: DeviceDetailComponent },
 
 ];
 
@@ -19,4 +20,7 @@ const deviceRoutes: Routes = [
   imports: [RouterModule.forChild(deviceRoutes)],
   exports: [RouterModule],
 })
-export class DeviceRouteModule {}
+export class DeviceRouteModule {
+
+
+}

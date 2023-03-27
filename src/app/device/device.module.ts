@@ -13,6 +13,7 @@ import { RouterModule } from '@angular/router';
 import { MaterialModule } from './material/material.module';
 import { EmpInventoryModule } from '../emp-inventory/emp-inventory.module';
 import { DialogComponent } from './dialog/dialog.component';
+import { UpdateDeviceComponent } from './update-device/update-device.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { DialogComponent } from './dialog/dialog.component';
     DeviceDetailComponent,
     CreateDeviceComponent,
     DialogComponent,
+    UpdateDeviceComponent,
   ],
   imports: [
     CommonModule,
