@@ -12,18 +12,28 @@ import { HrDetailsComponent } from './emp-components/hr-details/hr-details.compo
 import { EmpViewComponent } from './emp-components/emp-view/emp-view.component';
 
 // forms module
-import { FormsModule } from '@angular/forms';
+import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 
 // fontawesome module
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { PendingRequestsComponent } from './emp-components/pending-requests/pending-requests.component';
+import { AddEmployeeComponent } from './emp-components/add-employee/add-employee.component';
 @NgModule({
-  declarations: [EmpInventoryComponent, EmpListComponent, HrDetailsComponent, EmpViewComponent],
+  declarations: [
+    EmpInventoryComponent,
+    EmpListComponent,
+    HrDetailsComponent,
+    EmpViewComponent,
+    PendingRequestsComponent,
+    AddEmployeeComponent,
+  ],
   imports: [
     CommonModule,
-    FontAwesomeModule,    
+    FontAwesomeModule,
     EmpInventoryRoutingModule,
     FormsModule,
     RouterModule,
+    ReactiveFormsModule,
   ],
 })
 export class EmpInventoryModule {}
