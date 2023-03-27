@@ -1,13 +1,15 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import {
- 
+import { Location } from '@angular/common';
+import { AuthService } from 'src/app/services/auth.service';
+
+import { 
   faUsers,
   faPowerOff,
   faUser,
+  faBackward,
 } from '@fortawesome/free-solid-svg-icons';
 
-import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-left-bar',
@@ -19,9 +21,13 @@ export class LeftBarComponent {
   faUsers = faUsers;
   faUser = faUser;
   faPowerOff = faPowerOff;
+  faBackward = faBackward
   
-  constructor (private route: Router, private authService:AuthService ){}
+  constructor (private route: Router, private authService:AuthService, private location: Location){}
 
+  goBack(){
+    this.location.back();
+  }
   myProfile(){       
     this.route.navigate(['/emp-details']);
   }

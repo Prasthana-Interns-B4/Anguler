@@ -1,26 +1,36 @@
 import { Component,OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import {
- 
+import { Location } from '@angular/common';
+import { AuthService } from '../services/auth.service';
+import { 
   faUsers,
   faPowerOff,
   faUser,
+  faBackward
 } from '@fortawesome/free-solid-svg-icons';
-import { AuthService } from '../services/auth.service';
+
 
 @Component({
   selector: 'app-emp-inventory',
   templateUrl: './emp-inventory.component.html',
   styleUrls: ['./emp-inventory.component.css'],
 })
+
 export class EmpInventoryComponent implements OnInit {
+
   faUsers = faUsers;
   faUser = faUser;
   faPowerOff = faPowerOff;
+  faBackward = faBackward;
 
   ngOnInit(): void {}
 
-  constructor (private route: Router, private authService:AuthService ){}
+  constructor (private route: Router, private authService:AuthService, private location: Location ){}
+
+  goBack(){
+    this.location.back();
+  }
+  
 
   myProfile(){       
     this.route.navigate(['/emp-inventory/hr-details']);
@@ -31,7 +41,7 @@ export class EmpInventoryComponent implements OnInit {
   }
 
   addEmployee(){
-    this.route.navigate(['/signup']);
+    
   }
 
   pendingRequest(){

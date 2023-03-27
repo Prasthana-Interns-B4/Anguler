@@ -16,6 +16,10 @@
         *ngFor="let employee of employeesToDisplay; trackBy: trackByFn"
       >
         <div class="name-card-container p-3" (click)="viewDetails(employee)">
+
+          <div class="d-flex justify-content-end">
+            <fa-icon [icon]="faTrash" class="delete-icon" (click)="removeEmployee(employee.id);$event.stopPropagation()"></fa-icon>
+          </div>
           <div
             class="d-flex flex-row justify-content-between align-items-center w-100"
           >

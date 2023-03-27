@@ -10,6 +10,20 @@
           margin-top: 65px;"
       >
         <div class="d-flex flex-column justify-content-center">
+          <div class="d-flex flex-row justify-content-start align-items-center mb-3">
+            <button
+              class="btn btn-secondary m-2"
+              style="
+                font-size: 15px;
+                font-weight: 600;
+                cursor: pointer;
+                text-align: start;            
+              "
+              (click)="goBack()"
+            ><fa-icon [icon]="faBackward"></fa-icon>
+              &nbsp;Back
+            </button>
+          </div>
           <div class="d-flex flex-row justify-content-start align-items-center" (click)="myProfile()">
             <div>
               <fa-icon [icon]="faUser"></fa-icon>
@@ -17,7 +31,7 @@
             <p
               class="text-white m-2"
               style="
-                font-size: 18px;
+                font-size: 20px;
                 font-weight: 600;
                 cursor: pointer;
                 text-align: start;
@@ -34,7 +48,7 @@
           <p
             class="text-white m-2"
             style="
-              font-size: 18px;
+              font-size: 20px;
               font-weight: 600;
               cursor: pointer;
               text-align: start;

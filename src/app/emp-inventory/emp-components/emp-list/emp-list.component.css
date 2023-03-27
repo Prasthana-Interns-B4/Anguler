@@ -26,6 +26,7 @@ main{
 .name-card-container {
   margin: 8px;
   border: 1px solid #ccc;
+  position: relative;
   border-radius: 5px;
   padding: 10px;
   display: flex;
@@ -83,4 +84,16 @@ main{
 .icons{
   color: #6664ff;
   font-weight: 400;
+}
+
+.delete-icon {
+  position:absolute;
+  top: 0;
+  right: 0;
+  padding:20px;
+  color: red;
+  font-size: 1rem;
+  margin-top: -10px;
+  margin-right: -10px;
+  cursor: pointer;
 }

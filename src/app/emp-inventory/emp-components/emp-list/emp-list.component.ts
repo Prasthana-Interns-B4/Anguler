@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Location } from '@angular/common';
 import { EmpService } from '../emp-services/emp.service';
 
 //fontawesome icons
@@ -37,7 +38,7 @@ export class EmpListComponent implements OnInit {
   faTrash = faTrash;
   lapyAssigned = true;
   mouseAssigned = true;
-  
+
 
   colors = [
     '#FF9A9E',
@@ -50,7 +51,7 @@ export class EmpListComponent implements OnInit {
     '#9796F0',
   ];
 
-  constructor(private empService: EmpService, private router: Router) {}
+  constructor(private empService: EmpService, private router: Router, private location:Location) {}
 
   ngOnInit(): void {
     this.empService.getEmployeeList().subscribe((response: any) => {
@@ -84,6 +85,19 @@ export class EmpListComponent implements OnInit {
     const id = employee.id  
     localStorage.setItem('em_id',id)  
     this.router.navigate(['emp-inventory/emp-details', id]);    
+  }
+
+  removeEmployee(id:number) {
+    if (confirm('Are you sure ? \n To delete this employee')) {            
+      this.empService.delete(id).subscribe(() => {
+        this.refreshPage()  
+      });
+      this.router.navigate(['emp-inventory/emp-list']);      
+      
+    }
+  }
+  refreshPage() {
+    window.location.reload();
   }
   
 }
