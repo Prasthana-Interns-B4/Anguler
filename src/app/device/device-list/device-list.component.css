@@ -22,11 +22,11 @@ mat-card-subtitle {
   color: white;
   width: 3.5rem;
   font-weight:10;
-  margin-bottom: 1em;
+margin-bottom: 1em;
   font-size:small;
   /* margin-left: 1rem; */
-
-
+ 
+ 
 }
 .build {
   margin: 0 25px;
@@ -101,12 +101,16 @@ font-weight: 200;
   /* border: 0.5px solid grey; */
 }
 
+
+
+/*search*/
 .search{
   align-items:center;
   display :flex;
   background: #fff;
   width:60%;
-  height:2.4rem;  
+  height:2.4rem;
+  padding: 10px;
   border-radius: 10px;
   margin-left:auto;
   margin-right: auto;
@@ -122,3 +126,4 @@ font-weight: 200;
 .search o{
   font-size: 20px;
 }
+

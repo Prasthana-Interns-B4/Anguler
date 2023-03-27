@@ -1,8 +1,8 @@
 export interface DeviceType {
-      deviceName: string,
-      deviceType:string,
+      name: string,
+      type:string,
       os:string,
-      assigned:string|null,
+      status:string|null,
       id:number,
       img:String
 }

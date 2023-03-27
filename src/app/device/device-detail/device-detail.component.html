@@ -1,66 +1,86 @@
+
+
 <div class="container p-3" style="height: 88.1vh; width: 120vw">
-    <div class="row">
-      <h1 class="col-12 col-md-8 col-lg-7 m-3" style="font-size: 25px">
-        Devices Details
-      </h1>
-      <div class="col-12 col-md-8 m-1">
-        <div class="name-card-container p-3" style="background-color: #fff">
-          <div
-            class="d-flex flex-row justify-content-between align-items-center w-100"
-          >
-            <div class="container">
-              <div class="row">
-                <div class="col-4">
-                  <img
-                    src="https://images.pexels.com/photos/7974/pexels-photo.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-                    alt="Device picture"
-                    class="device-img"
-                  />
-                </div>
-                <div class="col-8">
-                  <h3>Device Name:DEll </h3>
-                  <p>Device tagno: 1234567890</p>
-                  <p>Device type:laptop</p>
-                  <p>Device category: electronics</p>
-                </div>
+  <div class="row">
+    <h1 class="col-12 col-md-8 col-lg-7 m-3" style="font-size: 25px">
+      Devices Details
+    </h1>
+    <div class="col-12 col-md-8 m-1">
+      <div class="name-card-container p-3" style="background-color: #fff">
+        <div
+          class="d-flex flex-row justify-content-between align-items-center w-100"
+        >
+          <div class="container">
+            <div class="row">
+              <div class="col-4">
+                <img
+                 [src]="device.image_url"
+                  alt="Device picture"
+                  class="device-img"
+                />
               </div>
-            </div>
-            <div class="d-flex flex-row align-items-center">
-              <div class="d-flex flex-column align-items-center me-3">
-                <fa-icon [icon]="faEdit" (click)="openModal()"></fa-icon>
-              </div>
-              <div class="d-flex flex-column align-items-center">
-                <fa-icon [icon]="faTrash"></fa-icon>
+              <div class="col-8">
+                <h3><b> Name: </b>{{device.name | titlecase}} </h3>
+                <p><b> Tagno:</b> {{device.tag_no}}</p>
+                
+                <p><b>Type:</b> {{device.device_type}}</p>
+                <p *ngIf="device?.os"> <b>OS:</b>  {{device.os}}</p>
+                <p> <b> category:</b> {{device.category}}</p>
               </div>
             </div>
           </div>
-        </div>
-      </div>
-   
-      <div class="col-12 col-md-9 p-3">
-        <div class="name-card-container view-Bg mt-5">
-          <h1 class="col-12 col-md-8 col-lg-7 m-3" style="font-size: 25px">
-            Assigned Employee
-          </h1>
-          <div
-            class="d-flex flex-row justify-content-center align-items-center w-100 ms-4"
-          >
-            <div class="name-card md-me-3" [ngStyle]="{ color: '#fff' }">EN</div>
-            <div class="d-flex align-items-center flex-grow-1">
-              <div class="name-card-info flex-grow-1">
-                <h2 class="h5 name-card-name">
-                  <!-- {{ employee.name }} {{ employee.username }} -->
-                </h2>
-                <div class="d-flex flex-column">
-                  <!-- <p class="name-card-id mb-1">{{ employee.email }}</p> -->
-                  <!-- <p class="name-card-id mb-1">{{ employee.phone }}</p> -->
-                  <!-- <p class="name-card-id mb-1"><b>Emp ID:</b> 123456</p> -->
-                  <p class="name-card-id mb-1"><b>Designation:</b> jobTitle</p>
-                </div>
-              </div>
+          <div class="d-flex flex-row align-items-center">
+            <div class="d-flex flex-column align-items-center me-3">
+              <fa-icon (click)="openUpdateDevice(device)" [icon]="faEdit" ></fa-icon>
+            </div>
+            <div class="d-flex flex-column align-items-center">
+              <fa-icon  (click)="deletedevice(device.id)" [icon]="faTrash"></fa-icon>
             </div>
           </div>
         </div>
       </div>
     </div>
+    
+    
+   
+    
+    
+  
+    
+    
   </div>
+  <h1 *ngIf="device?.user?.emp_id==null" class="col-12 col-md-8 col-lg-7 m-3" style="font-size: 25px">
+    No Employee Assigned.!
+     </h1>
+  <div class="row"><ng-container *ngIf="device?.user?.user_detail?.first_name!=null"> 
+    <h1 class="col-12 col-md-8 col-lg-7 m-3" style="font-size: 25px">
+      Assigned Employee
+     </h1>
+    
+      <div class="col-12 col-md-9 p-3">
+        <div class="name-card-container view-Bg ">
+          
+          <div
+            class="d-flex flex-row justify-content-center align-items-center w-100 ms-4"
+          >
+            <div class="name-card md-me-3" [ngStyle]="{ color: '#fff' }">{{ device?.user?.user_detail?.first_name[0] | uppercase }}{{ device?.user.user_detail.last_name[0] | uppercase }}</div>
+            <div class="d-flex align-items-center flex-grow-1">
+              <div class="name-card-info flex-grow-1">
+                <h2 class="h5 name-card-name">
+                  {{ device?.user?.user_detail?.first_name }} {{ device?.user?.user_detail?.last_name}}
+                </h2>
+                <div class="d-flex flex-column">
+                  <p class="name-card-id mb-1"> <b>Email:</b>{{ device?.user?.email}}</p>
+                  
+                  <p class="name-card-id mb-1"><b>Emp ID:</b> {{device?.user?.emp_id}}</p>
+                  <p class="name-card-id mb-1"><b>Designation:{{device?.user?.role?.role}}</b></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+     </ng-container></div>
+</div>
+
+

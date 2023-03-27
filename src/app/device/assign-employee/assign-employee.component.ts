@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { DataService } from '../services/data.service';
 import { MatDialogRef  } from '@angular/material/dialog';
+import { Location } from'@angular/common';
 
 //fontawesome icons
 import {
@@ -51,7 +52,8 @@ export class AssignEmployeeComponent implements OnInit  {
     '#9796F0',
   ];
 
-  constructor(private dataService: DataService, private router: Router, private matDialogRef: MatDialogRef<AssignEmployeeComponent>) {}
+  constructor(private dataService: DataService, private router: Router, private matDialogRef: MatDialogRef<AssignEmployeeComponent>,
+    private location :Location) {}
 
   ngOnInit(): void {
     this.dataService.getEmployeeList().subscribe((response: any) => {
