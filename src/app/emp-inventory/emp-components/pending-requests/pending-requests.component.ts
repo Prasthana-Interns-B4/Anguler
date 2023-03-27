@@ -1,9 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Location } from '@angular/common';
 import { EmpService } from '../emp-services/emp.service';
-import { MatDialogRef } from '@angular/material/dialog';
-
+import { Location } from '@angular/common';
 //fontawesome icons
 import {
   faAngleRight,
@@ -14,14 +12,14 @@ import {
   faPowerOff,
   faUser,
   faBell,
-
 } from '@fortawesome/free-solid-svg-icons';
+
 @Component({
-  selector: 'app-emp-list',
-  templateUrl: './emp-list.component.html',
-  styleUrls: ['./emp-list.component.css'],
+  selector: 'app-pending-requests',
+  templateUrl: './pending-requests.component.html',
+  styleUrls: ['./pending-requests.component.css'],
 })
-export class EmpListComponent implements OnInit {
+export class PendingRequestsComponent implements OnInit {
   employees: any[] = [];
   filtered: any;
   filteredEmployees: any[] = [];
@@ -53,22 +51,23 @@ export class EmpListComponent implements OnInit {
     '#9796F0',
   ];
 
-  constructor(private empService: EmpService, private router: Router, private location:Location) {}
+  constructor(
+    private empService: EmpService,
+    private router: Router,
+    private location: Location
+  ) {}
 
   ngOnInit(): void {
-    this.getCall();
+    this.empService.getPendingEmployees().subscribe((response: any) => {
+      this.employees = response;
+      this.employeesToDisplay = this.employees;
+      this.employeesToDisplay = this.employeesToDisplay.users;
+      console.log(this.employeesToDisplay);
+    });
   }
 
   trackByFn(index: number, employee: any): number {
     return employee.id;
-  }
-
-  getCall(){
-        this.empService.getEmployeeList().subscribe((response: any) => {
-          this.employees = response;
-          this.employeesToDisplay = this.employees;
-          this.employeesToDisplay = this.employeesToDisplay.users;
-        });
   }
 
   searchEmployees(searchInput: any) {
@@ -79,15 +78,22 @@ export class EmpListComponent implements OnInit {
       console.log(this.filteredEmployees);
     });
   }
-  
-  removeEmployee(id: number) {
+  removeEmployee() {
     if (confirm('Are you sure ? \n To delete this employee')) {
-      this.empService.delete(id).subscribe(() => {
-        this.getCall();
-        // this.refreshPage();
-      });
+      this.id = localStorage.getItem('em_id');
+      this.empService.delete(this.id).subscribe(() => {});
       this.router.navigate(['emp-inventory/emp-list']);
     }
+  }
+  acceptEmployee(id: any) {
+    this.empService.approveReq(id).subscribe(() => {
+      this.refreshPage();
+    });
+  }
+  rejectEmployee(id: any) {
+    this.empService.delete(id).subscribe(() => {
+      this.refreshPage();
+    });
   }
 
   randomColor() {
@@ -99,7 +105,6 @@ export class EmpListComponent implements OnInit {
     const id = employee.id;
     localStorage.setItem('em_id', id);
     this.router.navigate(['emp-inventory/emp-details', id]);
-    console.log(employee);
   }
   refreshPage() {
     window.location.reload();

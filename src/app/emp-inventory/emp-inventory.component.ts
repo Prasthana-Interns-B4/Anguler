@@ -32,7 +32,7 @@ export class EmpInventoryComponent implements OnInit {
   }
   
 
-  myProfile(){       
+  myProfile(){
     this.route.navigate(['/emp-inventory/hr-details']);
   }
 
@@ -40,17 +40,17 @@ export class EmpInventoryComponent implements OnInit {
     this.route.navigate(['/emp-inventory/emp-list']);
   }
 
-  addEmployee(){
-    
+  addEmployee(){    
+    this.route.navigate(['/emp-inventory/add-emp']);
   }
 
   pendingRequest(){
-    
+    this.route.navigate(['/emp-inventory/pending-requests']);
   }
-  
+
   logout(){
-    this.authService.onLogout().subscribe(() => {});   
+    this.authService.onLogout().subscribe(() => {});
     this.route.navigate(['']);
-    localStorage.clear();  
+    localStorage.clear();
   }
 }

@@ -1,0 +1,27 @@
+  <div class="container p-3 m-5">
+    <div class="row scroll" style="height: 73vh; width: 75vw; overflow-y: scroll">
+
+      <div class="d-flex flex-column align-items-center">
+        <div class="col-12 col-md-8 m-1" *ngFor="let employee of employeesToDisplay; trackBy: trackByFn">
+          <div class="name-card-container p-3 d-flex flex-row justify-content-between align-items-center">
+            <div class="d-flex flex-row align-items-center">
+              <div class="name-card pt-4" [ngStyle]="{ 'background-color': '#ccc', color: '#fff' }">
+                {{ employee.user_detail.first_name[0] | uppercase }}{{ employee.user_detail.last_name[0] | uppercase }}
+              </div>
+              <div class="name-card-info ml-2">
+                <h2 class="h5 name-card-name">
+                  {{ employee.user_detail.first_name }} {{ employee.user_detail.last_name }}
+                </h2>
+                <p class="name-card-email mb-0">{{ employee.email }}</p>
+                <p class="name-card-email mb-0">{{ employee.user_detail.phone_number }}</p>
+              </div>
+            </div>
+            <div class="d-flex flex-row">
+              <button class="btn btn-success me-3" (click)="acceptEmployee(employee.id)">Accept</button>
+              <button class="btn btn-danger" (click)="rejectEmployee(employee.id)">Reject</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

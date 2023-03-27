@@ -34,15 +34,15 @@
                 }"
               >
                 {{ employee?.user_detail.first_name[0] | uppercase }}{{ employee?.user_detail.last_name[0] | uppercase }}
-                
+
               </div>
               <div class="name-card-info">
                 <h2 class="h5 name-card-name">
-                  {{ employee.user_detail.first_name }}
-                  {{ employee.user_detail.last_name }}
+                  {{ employee?.user_detail.first_name }}
+                  {{ employee?.user_detail.last_name }}
                 </h2>
                 <p class="name-card-phone">
-                  {{employee.user_detail.phone_number}}
+                  {{employee?.user_detail.phone_number}}
                 </p>
                 <div
                   class="d-flex flex-row justify-content-between align-items-center w-100"
@@ -73,7 +73,6 @@
                 </div>
               </div>
             </div>
-
             <div class="nav-arrow">
               <fa-icon [icon]="faAngleRight"></fa-icon>
             </div>
