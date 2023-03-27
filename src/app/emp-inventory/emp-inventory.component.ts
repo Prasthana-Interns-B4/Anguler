@@ -1,7 +1,7 @@
 import { Component,OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import {
- 
+
   faUsers,
   faPowerOff,
   faUser,
@@ -22,7 +22,7 @@ export class EmpInventoryComponent implements OnInit {
 
   constructor (private route: Router, private authService:AuthService ){}
 
-  myProfile(){       
+  myProfile(){
     this.route.navigate(['/emp-inventory/hr-details']);
   }
 
@@ -31,16 +31,16 @@ export class EmpInventoryComponent implements OnInit {
   }
 
   addEmployee(){
-    this.route.navigate(['/signup']);
+    this.route.navigate(['/emp-inventory/add-emp']);
   }
 
   pendingRequest(){
-    
+    this.route.navigate(['/emp-inventory/pending-requests']);
   }
-  
+
   logout(){
-    this.authService.onLogout().subscribe(() => {});   
+    this.authService.onLogout().subscribe(() => {});
     this.route.navigate(['']);
-    localStorage.clear();  
+    localStorage.clear();
   }
 }

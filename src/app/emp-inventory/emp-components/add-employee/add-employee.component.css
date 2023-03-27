@@ -1,0 +1,22 @@
+ .registration-form{
+     background-color:#ffffff;
+     padding: 20px;
+     text-align: center;
+     border-radius: 15px;
+     min-width:30vw;
+ }
+ .item{
+        border-radius: 10px;
+     padding: 10px;
+     font-size: 14px;
+     color: #081e42;
+     font-weight: 500;
+ }
+ .button-active:active{
+     border: 2px solid #ffffff;
+     outline: 2px solid #0d6efd;
+ }
+ .invalid{
+     border-color: #dc3545 !important;
+}
+
