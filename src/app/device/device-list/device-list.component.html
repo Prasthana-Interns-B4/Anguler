@@ -1,12 +1,12 @@
-<!-- <app-search (searchTextChanged)="onSearchTextEntered($event)"></app-search> -->
-<div class="search">
-   
-  <fa-icon (click)="submitSearch(searchInput.value)" class="my-icon" [icon]="faMagnifyingGlass"></fa-icon>
 
-  <form>
-      <input type="text" #searchInput placeholder="search device by name" (keyup)="searchProduct($event)">
-  <!-- <input placeholder="search" type="text" formControlName="search" [(ngModel)]="enteredSearchText" (input)="onSearchTextChange()"> -->
-</form>
+<div class="search">
+  <input
+    type="search"
+    class="form-control w-100"
+    placeholder="Search Employees"
+    (input)="searchDevices(searchInput)"
+    [(ngModel)]="searchInput"
+  />
 </div>
 <div *ngFor="let device of devices">
   <mat-card
@@ -32,7 +32,7 @@
           </p>
         </mat-card-subtitle>
         <button
-          (click)="assignDevice()"
+          (click)="assignDevice(device.id)"
           *ngIf="device.status == false"
           mat-stroked-button
           color="primary"
@@ -43,6 +43,7 @@
       </mat-card-title-group>
 
       <button
+      (click)="unAssignDevice(device.id)"
         *ngIf="device.status == true"
         mat-stroked-button
         color="primary"

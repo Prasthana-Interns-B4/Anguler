@@ -1,5 +1,4 @@
 import { Component, Inject, OnInit } from '@angular/core';
-import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
 import {faTrash,faEdit} from '@fortawesome/free-solid-svg-icons';
 import { DataService } from '../services/data.service';

@@ -1,18 +1,18 @@
-
 .menulist-btn {
-  margin-left: auto;
-}
-
-.device-list {
-  margin-top: 70px;
-  margin-left: auto;
-  margin-right:auto;
-  overflow-y:auto;
-  height: 83vh;
-  background-color:#f2f2f6;
+    margin-left: auto;
+  }
   
-  
-}
-.sidenav{
-  background-color:#f2f2f6;
-}
+  .device-list {
+    padding:20px;
+    margin-top: 70px;
+    margin-left: auto;
+    margin-right:auto;
+    overflow-y:auto;
+    height: 82vh;
+    background-color:#f2f2f6;
+    
+    
+  }
+  .sidenav{
+    background-color:#f2f2f6;
+  }

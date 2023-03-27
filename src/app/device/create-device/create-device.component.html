@@ -16,7 +16,6 @@
           class="form-control item mt-1" [class.bg-img]="addDeviceForm.get('name')?.invalid"
         />
       </div>
-      <!-- <small [class.d-none]="addDeviceForm.get('deviceName')?.valid || addDeviceForm.get('deviceName')?.untouched" class=" text-danger">Device Name is required</small> -->
       <div
         *ngIf="
           addDeviceForm.get('name')?.invalid &&
@@ -69,8 +68,8 @@
           class="text-danger"
           >Device type is required</small
         >
-      </div>
-
+      </div>  
+      
       
 
       <div class="form-group">
@@ -90,7 +89,7 @@
         </select>
         <!-- <small
           [class.d-none]="
-            addDeviceForm.get('os')?.valid || addDeviceForm.get('os')?.untouched
+            addDeviceForm.get('category')?.valid || addDeviceForm.get('category')?.untouched
           "
           class="text-danger"
           >Please select a OS</small
@@ -134,4 +133,3 @@
     </form>
   </div>
 </div>
-

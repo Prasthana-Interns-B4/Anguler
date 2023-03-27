@@ -27,14 +27,15 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 // AuthInterceptor component
 import { AuthInterceptor } from './services/auth.interceptor';
 
-// AuthGuard component
+// AuthGuard components
 import { AuthGuard } from './services/auth.guard';
+import { HrGuard } from './services/hr.guard';
+import { FmGuard } from './services/fm.guard';
+import { DeviceModule } from './device/device.module';
+import { DeviceRouteModule } from './device/device-routing.module';
 
 // AuthInterceptor component
 
-
-
-import { DeviceModule } from './device/device.module';
 @NgModule({
   declarations: [
     AppComponent,
@@ -51,17 +52,18 @@ import { DeviceModule } from './device/device.module';
     BrowserAnimationsModule,
     FontAwesomeModule,    
     FormsModule,
+    DeviceRouteModule,    
     HttpClientModule,
     ReactiveFormsModule,    
     AppRoutingModule,
-    DeviceModule,
     BrowserAnimationsModule,
-    AppRoutingModule    
+    AppRoutingModule,
+    DeviceModule
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor,
     multi: true
-  },AuthGuard],
+  },AuthGuard,HrGuard,FmGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

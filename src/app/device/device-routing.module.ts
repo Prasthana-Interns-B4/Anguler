@@ -4,10 +4,12 @@ import { CreateDeviceComponent } from './create-device/create-device.component';
 import { DeviceDetailComponent } from './device-detail/device-detail.component';
 
 import { DeviceListComponent } from './device-list/device-list.component';
+import { FmprofileComponent } from './fmprofile/fmprofile.component';
 
 
 const deviceRoutes: Routes = [
-  { path: '',redirectTo:'devicelist' ,pathMatch:'full' },
+  // { path: '',redirectTo:'fm-details' ,pathMatch:'full' },
+  { path: 'fm-details', component: FmprofileComponent },
   { path:'device-list',component:DeviceListComponent},
   
   { path: 'create-device', component: CreateDeviceComponent },

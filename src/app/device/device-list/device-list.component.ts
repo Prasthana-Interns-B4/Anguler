@@ -4,6 +4,7 @@ import { faAngleRight,faMagnifyingGlass,faTrashCan } from '@fortawesome/free-sol
 import { AssignService } from '../services/assign.service';
 import { DataService } from '../services/data.service';
 import { DialogService } from '../services/dialog.services';
+import { Location } from'@angular/common';
 @Component({
   selector: 'app-device-list',
   templateUrl: './device-list.component.html',
@@ -16,8 +17,11 @@ export class DeviceListComponent implements OnInit {
     private activatedRoute: ActivatedRoute,
     private ds: DataService,
     private dialogService: DialogService,
-    private as:AssignService
+    private as:AssignService,
+    private dataService: DataService,
+    private location: Location
   ) {}
+
   ngOnInit(): void {
     this.getdevices();
     
@@ -25,9 +29,14 @@ export class DeviceListComponent implements OnInit {
   }
   faMagnifyingGlass= faMagnifyingGlass;
 
+  
   faAngleRight= faAngleRight;
   faTrashCan = faTrashCan;
   selected: any;
+  searchInput:any;
+  filtered:any;
+  filteredDevices:any;
+  devicesToDisplay:any;
   
   listDevices:any;
   devices:any[]=[];
@@ -45,9 +54,21 @@ export class DeviceListComponent implements OnInit {
       },
       error: (err) => {
         alert('error while fetching');
+        alert(err);
       },
     });
   }
+
+  searchDevices(searchInput:any) {
+    this.dataService.search(this.searchInput).subscribe(response => {
+      this.filtered = response;
+      this.filteredDevices = this.filtered.devices      
+      this.devices  = this.filteredDevices;
+      console.log(this.devicesToDisplay);
+    });
+  }
+
+
   deletedevice(id: number) {
    
     this.dialogService
@@ -55,14 +76,16 @@ export class DeviceListComponent implements OnInit {
       .afterClosed()
       .subscribe({
         next: (_res) => {
-          if(_res){this.ds.deleteDevice(id)
+
+        console.log(_res)
+        if(_res){this.ds.deleteDevice(id)
             .subscribe({
             next:(res)=>{alert("Deleted Successfully!")
             this.getdevices();
             },
           error: () => {
                 alert('error while deleting');
-             },
+            },
         })      
             }
           },     
@@ -72,34 +95,30 @@ export class DeviceListComponent implements OnInit {
   navigateToDetail(id:number) {
     console.log(id);
     this.router.navigate([id], { relativeTo: this.activatedRoute });
+      ;    
   }
 
-  assignDevice() {
-    this.dialogService.openAssignEmpDialog() 
-  // assignDevice(device: any, empname: any) {
-  //   this.ds.editdevice(device, empname);
-    }
-  onSearchTextEntered(searchValue:string){
-    this.searchText=searchValue;
-    console.log(this.searchText)
-    
-  }
-
-  /*serach*/
-
-
-searchProduct(query:KeyboardEvent){
-
-}
-
-submitSearch(val:string){
-  console.warn(val)
-    this.router.navigate([`search/${val}`],{relativeTo:this.activatedRoute})
-}
-
-// unAssign(id :number){
-//   this.as.Unassignservice
-// }
   
+
+  assignDevice(id:any) {    
+    localStorage.setItem('device_id',id);
+    this.dialogService.openAssignEmpDialog()     
+  }
+
+  unAssignDevice(id:any) {      
+    const data = { 
+      device : {
+        user_id : null
+      }
+    }
+    this.dataService.unAssignDevice(data,id).subscribe(() => {
+      this.refreshPage()  
+    });
+      
+  }
+
+refreshPage() {
+  window.location.reload();
 }
 
+}

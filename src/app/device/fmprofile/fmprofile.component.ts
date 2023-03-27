@@ -1,4 +1,4 @@
-import { EmpService } from './../emp-services/emp.service';
+import { DataService } from '../services/data.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import {
@@ -7,14 +7,12 @@ import {
   faEdit,
 } from '@fortawesome/free-solid-svg-icons';
 
-
-
 @Component({
-  selector: 'app-hr-details',
-  templateUrl: './hr-details.component.html',
-  styleUrls: ['./hr-details.component.css'],
+  selector: 'app-fmprofile',
+  templateUrl: './fmprofile.component.html',
+  styleUrls: ['./fmprofile.component.css']
 })
-export class HrDetailsComponent implements OnInit  {
+export class FmprofileComponent implements OnInit  {
   faLapy = faLaptop;
   faMouse = faMouse;
   faEdit = faEdit;
@@ -25,21 +23,20 @@ export class HrDetailsComponent implements OnInit  {
   devices: any[]=[]
   id:any;
 
-  constructor(private route: Router,private empService:EmpService) {}
+  constructor(private route: Router,private dataService:DataService) {}
 
   ngOnInit(): void {   
     this.getEmployeeDetails(); 
     
   }
-
   getEmployeeDetails(){
     this.id = localStorage.getItem('id');    
-    this.empService.getEmpDetails(this.id).subscribe(response => {
+    this.dataService.getEmpDetails(this.id).subscribe(response => {
       if(response){
         this.employee = response;
         this.devices = this.employee.user.devices        
       }else{
-        this.empService.onLogout().subscribe(() => {});     
+        this.dataService.onLogout().subscribe(() => {});     
         this.route.navigate(['']);
         localStorage.clear();     
       }
@@ -47,4 +44,5 @@ export class HrDetailsComponent implements OnInit  {
     alert(error.message);
   });
   }
+
 }

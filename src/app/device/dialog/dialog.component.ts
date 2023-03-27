@@ -17,7 +17,7 @@ export class DialogComponent implements OnInit {
   
  
   closeDialog() {
-this.dialogRef.close(false); 
+    this.dialogRef.close(false); 
   }
 
   
