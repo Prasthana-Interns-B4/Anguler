@@ -4,6 +4,7 @@ import { DataService } from '../services/data.service';
 import { MatDialogRef  } from '@angular/material/dialog';
 import { Location } from'@angular/common';
 
+
 //fontawesome icons
 import {
   faAngleRight,
@@ -15,6 +16,7 @@ import {
   faUser,
   faBell,
 } from '@fortawesome/free-solid-svg-icons';
+import { DeviceComponent } from '../device.component';
 
 @Component({
   selector: 'app-assign-employee',
@@ -53,7 +55,7 @@ export class AssignEmployeeComponent implements OnInit  {
   ];
 
   constructor(private dataService: DataService, private router: Router, private matDialogRef: MatDialogRef<AssignEmployeeComponent>,
-    private location :Location) {}
+   private route :Router) {}
 
   ngOnInit(): void {
     this.dataService.getEmployeeList().subscribe((response: any) => {
@@ -91,7 +93,9 @@ export class AssignEmployeeComponent implements OnInit  {
       }
     }    
     this.dataService.assignDevice(data,device_id).subscribe(() => {
-      this.refreshPage();     
+      // this.refreshPage();     
+      this.route.navigate(['device/device-list']);
+      this.closeDialog();
     });
   
   }
