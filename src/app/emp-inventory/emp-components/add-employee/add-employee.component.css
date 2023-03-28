@@ -19,4 +19,11 @@
  .invalid{
      border-color: #dc3545 !important;
 }
-
+.center-horizontal{
+    margin: 0 auto;
+}
+.center-vertical{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

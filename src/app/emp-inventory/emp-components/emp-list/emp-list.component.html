@@ -1,12 +1,12 @@
 <!-- EMP DETAILS SECTION -->
-<div class="container p-3 m-5">
+<div class="container">
   <div class="row scroll" style="height: 73vh; width: 75vw; overflow-y: scroll">
     <div class="d-flex flex-column align-items-center">
-      <div class="search-employees col-10 col-md-8 m-3">
+      <div class="search-employees col-12 col-md-8 m-3">
         <input
           type="search"
           class="form-control"
-          placeholder="Search Employees"
+          placeholder="Search by phone number or Name"
           (input)="searchEmployees(searchInput)"
           [(ngModel)]="searchInput"
         />
@@ -27,13 +27,13 @@
               class="d-flex flex-row justify-content-center align-items-center"
             >
               <div
-                class="name-card pt-4"
+                class="name-card"
                 [ngStyle]="{
-                  'background-color': '#ccc',
+                  'background-color': '#hhh',
                   color: '#fff'
                 }"
               >
-                {{ employee?.user_detail.first_name[0] | uppercase }}{{ employee?.user_detail.last_name[0] | uppercase }}
+                {{ employee?.user_detail.first_name[0] | titlecase }}{{ employee?.user_detail.last_name[0] | titlecase }}
 
               </div>
               <div class="name-card-info">
@@ -53,13 +53,13 @@
                   </div>
 
                   <div class="d-flex flex-row align-items-center">
-                    <ng-container *ngIf="lapyAssigned">
+                    <ng-container *ngIf="employee?.devices.length>0">
                       <fa-icon
                         class="ms-3 me-2 icons"
                         [icon]="faLapy"
                       ></fa-icon>
                     </ng-container>
-                    <ng-container *ngIf="mouseAssigned">
+                    <ng-container *ngIf="employee?.devices.length>0">
                       <fa-icon
                         class="ms-3 me-2 icons"
                         [icon]="faMouse"
@@ -67,7 +67,7 @@
                     </ng-container>
                   </div>
 
-                  <ng-container *ngIf="!lapyAssigned && !mouseAssigned">
+                  <ng-container *ngIf="employee?.devices.length === 0">
                     <p class="ms-3 icons">No Devices Assigned</p>
                   </ng-container>
                 </div>

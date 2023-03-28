@@ -57,6 +57,10 @@ export class PendingRequestsComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    this.setPage();
+  }
+
+  setPage() {
     this.empService.getPendingEmployees().subscribe((response: any) => {
       this.employees = response;
       this.employeesToDisplay = this.employees;
@@ -86,12 +90,12 @@ export class PendingRequestsComponent implements OnInit {
   }
   acceptEmployee(id: any) {
     this.empService.approveReq(id).subscribe(() => {
-      this.refreshPage();
+      this.setPage();
     });
   }
   rejectEmployee(id: any) {
     this.empService.delete(id).subscribe(() => {
-      this.refreshPage();
+      this.setPage();
     });
   }
 
@@ -104,8 +108,5 @@ export class PendingRequestsComponent implements OnInit {
     const id = employee.id;
     localStorage.setItem('em_id', id);
     this.router.navigate(['emp-inventory/emp-details', id]);
-  }
-  refreshPage() {
-    window.location.reload();
   }
 }

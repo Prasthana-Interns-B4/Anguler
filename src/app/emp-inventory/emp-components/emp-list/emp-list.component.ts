@@ -1,10 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Router, ActivatedRoute } from '@angular/router';
-import { Location } from '@angular/common';
+import { Router } from '@angular/router';
 import { EmpService } from '../emp-services/emp.service';
-import { MatDialogRef } from '@angular/material/dialog';
 
-//fontawesome icons
+// fontawesome icons
 import {
   faAngleRight,
   faLaptop,
@@ -14,15 +12,16 @@ import {
   faPowerOff,
   faUser,
   faBell,
-
+  faUserPlus
 } from '@fortawesome/free-solid-svg-icons';
+
 @Component({
   selector: 'app-emp-list',
   templateUrl: './emp-list.component.html',
   styleUrls: ['./emp-list.component.css'],
 })
 export class EmpListComponent implements OnInit {
-  employees: any[] = [];
+  employees: any;
   filtered: any;
   filteredEmployees: any[] = [];
   searchInput: string = '';
@@ -38,6 +37,7 @@ export class EmpListComponent implements OnInit {
   faBell = faBell;
   faPowerOff = faPowerOff;
   faTrash = faTrash;
+  faUserPlus = faUserPlus;
   lapyAssigned = true;
   mouseAssigned = true;
   id: any;
@@ -51,24 +51,33 @@ export class EmpListComponent implements OnInit {
     '#5236FF',
     '#06BEB6',
     '#9796F0',
+    '#F7A9E6',
+    '#7DCFB6',
+    '#FFB6C1',
+    '#FFDAB9',
+    '#F0E68C',
+    '#87CEFA',
+    '#FFE4C4',
+    '#E6E6FA',
   ];
 
-  constructor(private empService: EmpService, private router: Router, private location:Location, private activatedRoute : ActivatedRoute ) {}
+  constructor(private empService: EmpService, private router: Router) {}
 
   ngOnInit(): void {
     this.getCall();
+    console.log(this.employee);
+
   }
 
   trackByFn(index: number, employee: any): number {
     return employee.id;
   }
 
-  getCall(){
-        this.empService.getEmployeeList().subscribe((response: any) => {
-          this.employees = response;
-          this.employeesToDisplay = this.employees;
-          this.employeesToDisplay = this.employeesToDisplay.users;
-        });
+  getCall() {
+    this.empService.getEmployeeList().subscribe((response: any) => {
+      this.employees = response;
+      this.employeesToDisplay = this.employees.users;
+    });
   }
 
   searchEmployees(searchInput: any) {
@@ -79,12 +88,10 @@ export class EmpListComponent implements OnInit {
       console.log(this.filteredEmployees);
     });
   }
-  
   removeEmployee(id: number) {
-    if (confirm('Are you sure ? \n To delete this employee')) {
+    if (confirm('Are you sure?\nTo delete this employee')) {
       this.empService.delete(id).subscribe(() => {
         this.getCall();
-        // this.refreshPage();
       });
       this.router.navigate(['emp-inventory/emp-list']);
     }
@@ -98,10 +105,11 @@ export class EmpListComponent implements OnInit {
   viewDetails(employee: any) {
     const em_id = employee.id;
     console.log(em_id);
-    
-    // this.router.navigate(['/employees/'+em_id+'/details']); 
+
+    // this.router.navigate(['/employees/'+em_id+'/details']);
     console.log(employee);
   }
+
   refreshPage() {
     window.location.reload();
   }
