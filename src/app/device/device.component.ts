@@ -1,18 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
+import { Location } from '@angular/common';
+import { AuthService } from '../services/auth.service';
 import {
-  faWhatsapp,
-  faTwitter,
-  faFacebookF,
-  faInstagramSquare,
-} from '@fortawesome/free-brands-svg-icons';
-import {
- 
   faUsers,
   faPowerOff,
   faUser,
+  faBackward
 } from '@fortawesome/free-solid-svg-icons';
-import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-device',
@@ -23,9 +18,14 @@ export class DeviceComponent implements OnInit {
   faUsers = faUsers;
   faUser = faUser;
   faPowerOff = faPowerOff;
+  faBackward =faBackward;
+  constructor( private route: Router, private authService:AuthService,private location: Location ) {}
 
-  constructor( private route: Router, private authService:AuthService) {}
   ngOnInit(): void {}
+
+  goBack(){
+    this.location.back();
+  }
 
   myProfile(){       
     this.route.navigate(['device/fm-details']);
@@ -35,8 +35,12 @@ export class DeviceComponent implements OnInit {
     this.route.navigate(['device/create-device']);
   }
 
-  DeviceList(){
+  deviceList(){
     this.route.navigate(['device/device-list']);
+  }
+  
+  employeesList(){
+    this.route.navigate(['/employees/list']);
   }
 
   logout(){

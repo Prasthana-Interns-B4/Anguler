@@ -24,7 +24,6 @@ export class PendingRequestsComponent implements OnInit {
   filtered: any;
   filteredEmployees: any[] = [];
   searchInput: string = '';
-  pendingRequests = 3;
   employee: any;
   employeesToDisplay: any;
   faAngleRight = faAngleRight;

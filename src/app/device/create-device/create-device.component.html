@@ -1,4 +1,6 @@
-<div class="d-flex justify-content-center">
+
+
+<div class="d-flex justify-content-center ">
   <div class="shadow add-device-form">
     <h2>Add Device</h2>
     <form [formGroup]="addDeviceForm" (ngSubmit)="onSubmit()">
@@ -57,7 +59,8 @@
           <option>Headset</option>
           <option>Keyboard</option>
           <option>Bottle</option>
-          <option>Default</option>
+          <option>Charger</option>
+          <option>Others</option>
 
         </select>
         <small
@@ -81,11 +84,11 @@
           class="form-select form-control item mt-4"
         >
         <option value="" disabled selected>Select the OS</option>
-          <option>MacOS</option>
+          <option>Mac Os</option>
           <option>Windows</option>
           <option>Linux</option>
           <option>Android</option>
-          <option>IOS</option>
+          <option>ios</option>
         </select>
         <!-- <small
           [class.d-none]="

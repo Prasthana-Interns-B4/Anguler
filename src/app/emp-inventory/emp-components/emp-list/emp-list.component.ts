@@ -1,4 +1,4 @@
-import { Component, NgZone, OnInit, ChangeDetectorRef } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { EmpService } from '../emp-services/emp.service';
 
@@ -61,17 +61,12 @@ export class EmpListComponent implements OnInit {
     '#E6E6FA',
   ];
 
-  constructor(
-    private empService: EmpService,
-    private router: Router,
-    private ngZone: NgZone,
-    private cdr: ChangeDetectorRef
-  ) {}
+  constructor(private empService: EmpService, private router: Router) {}
 
   ngOnInit(): void {
     this.getCall();
     console.log(this.employee);
-    
+
   }
 
   trackByFn(index: number, employee: any): number {
@@ -93,7 +88,6 @@ export class EmpListComponent implements OnInit {
       console.log(this.filteredEmployees);
     });
   }
-
   removeEmployee(id: number) {
     if (confirm('Are you sure?\nTo delete this employee')) {
       this.empService.delete(id).subscribe(() => {
@@ -109,9 +103,10 @@ export class EmpListComponent implements OnInit {
   }
 
   viewDetails(employee: any) {
-    const id = employee.id;
-    localStorage.setItem('em_id', id);
-    this.router.navigate(['emp-inventory/emp-details', id]);
+    const em_id = employee.id;
+    console.log(em_id);
+
+    // this.router.navigate(['/employees/'+em_id+'/details']);
     console.log(employee);
   }
 

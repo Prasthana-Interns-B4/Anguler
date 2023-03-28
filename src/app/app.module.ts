@@ -31,8 +31,11 @@ import { AuthInterceptor } from './services/auth.interceptor';
 import { AuthGuard } from './services/auth.guard';
 import { HrGuard } from './services/hr.guard';
 import { FmGuard } from './services/fm.guard';
+
+
 import { DeviceModule } from './device/device.module';
 import { DeviceRouteModule } from './device/device-routing.module';
+import { EmpInventoryModule } from './emp-inventory/emp-inventory.module';
 
 // AuthInterceptor component
 
@@ -52,13 +55,12 @@ import { DeviceRouteModule } from './device/device-routing.module';
     BrowserAnimationsModule,
     FontAwesomeModule,    
     FormsModule,
+    DeviceModule,
     DeviceRouteModule,    
     HttpClientModule,
     ReactiveFormsModule,    
     AppRoutingModule,
-    BrowserAnimationsModule,
-    AppRoutingModule,
-    DeviceModule
+    
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor,
