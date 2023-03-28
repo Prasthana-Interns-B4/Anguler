@@ -1,5 +1,5 @@
 <div class="d-flex justify-content-center">
-  <mat-icon id="close-icon" (click)="closeDialog()">close</mat-icon>
+  <mat-icon id="close-icon" (click)="closeDialog()" [mat-dialog-close]="false">close</mat-icon>
 
     <div class=" add-device-form ">
       <h2>Update Device</h2>
@@ -120,14 +120,14 @@
   
   
         <div class="button"><button
-          
+          [mat-dialog-close]="true"
           type="submit"
           class="btn btn-primary mt-3"
           style="width: 150px; font-size: 16px; color: #fff; font-weight: 500"
         >
           Update Device
         </button></div>
-        <!-- {{addDeviceForm.value | json}} -->
+        
       </form>
     </div>
   </div>
