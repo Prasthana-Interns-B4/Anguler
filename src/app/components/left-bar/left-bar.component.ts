@@ -24,6 +24,8 @@ export class LeftBarComponent {
   faBackward = faBackward
   
   constructor (private route: Router, private authService:AuthService, private location: Location){}
+ 
+  role = localStorage.getItem('role')
 
   goBack(){
     this.location.back();
@@ -44,6 +46,14 @@ export class LeftBarComponent {
 
   pendingRequest(){
     this.route.navigate(['/employees/pending-requests']);
+  }
+
+  addDevice(){
+    this.route.navigate(['device/create-device']);
+  }
+
+  deviceList(){
+    this.route.navigate(['device/device-list']);
   }
   
   logout(){

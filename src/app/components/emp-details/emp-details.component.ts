@@ -1,6 +1,6 @@
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
 import { Location } from '@angular/common';
 import {
@@ -29,6 +29,7 @@ export class EmpDetailsComponent implements OnInit {
   employee: any;
   devices: any[] = [];
   id: any;
+  em_id:any;
 
   formValue!: FormGroup;
   constructor(
@@ -36,6 +37,7 @@ export class EmpDetailsComponent implements OnInit {
     private route: Router,    
     private location: Location,
     private authService:AuthService,
+    private activatedRoute:ActivatedRoute,
   ) {}
 
   ngOnInit(): void {
@@ -45,27 +47,38 @@ export class EmpDetailsComponent implements OnInit {
       dob: ['', [Validators.required]],
       phoneNumber: ['', [Validators.required]],
     });
-    this.getEmployeeDetails();
+
+    this.em_id = this.activatedRoute.snapshot.paramMap.get('id');
+
+    
+    this.authService.getEmpDetails(this.em_id).subscribe((response)=>{
+      this.employee = response
+      console.log(response);
+      
+      
+    })
+
+    // this.getEmployeeDetails();
   }
 
-  getEmployeeDetails() {
-    this.id = localStorage.getItem('id');
-    this.authService.getEmpDetails(this.id).subscribe(
-      (response) => {
-        if (response) {
-          this.employee = response;
-          this.devices = this.employee.user.devices;
-        } else {
-          this.authService.onLogout().subscribe(() => {});
-          this.route.navigate(['/login']);
-          localStorage.clear();
-        }
-      },
-      (error) => {
-        alert(error.message);
-      }
-    );
-  }
+  // getEmployeeDetails() {
+  //   this.id = localStorage.getItem('id');
+  //   this.authService.getEmpDetails(this.id).subscribe(
+  //     (response) => {
+  //       if (response) {
+  //         this.employee = response;
+  //         this.devices = this.employee.user.devices;
+  //       } else {
+  //         this.authService.onLogout().subscribe(() => {});
+  //         this.route.navigate(['/login']);
+  //         localStorage.clear();
+  //       }
+  //     },
+  //     (error) => {
+  //       alert(error.message);
+  //     }
+  //   );
+  // }
 
   removeEmployee() {
     if (confirm('Are you sure ? \n To delete this employee')) {
@@ -111,7 +124,7 @@ export class EmpDetailsComponent implements OnInit {
 
     this.authService.updateEmpDetails(updatedData, id).subscribe(
       () => {
-        this.getEmployeeDetails();
+        // this.getEmployeeDetails();
         this.closeModal();
       },
       (error) => {

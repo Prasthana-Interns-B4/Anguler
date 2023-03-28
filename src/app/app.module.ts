@@ -35,6 +35,7 @@ import { FmGuard } from './services/fm.guard';
 
 import { DeviceModule } from './device/device.module';
 import { DeviceRouteModule } from './device/device-routing.module';
+import { EmpInventoryModule } from './emp-inventory/emp-inventory.module';
 
 // AuthInterceptor component
 
@@ -58,8 +59,6 @@ import { DeviceRouteModule } from './device/device-routing.module';
     DeviceRouteModule,    
     HttpClientModule,
     ReactiveFormsModule,    
-    AppRoutingModule,
-    BrowserAnimationsModule,
     AppRoutingModule,
     
   ],

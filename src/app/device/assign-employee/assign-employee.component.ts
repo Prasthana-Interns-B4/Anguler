@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { DataService } from '../services/data.service';
-import { MatDialogRef  } from '@angular/material/dialog';
-import { Location } from'@angular/common';
+import { MatDialogRef } from '@angular/material/dialog';
+import { Location } from '@angular/common';
 
 //fontawesome icons
 import {
@@ -15,18 +15,19 @@ import {
   faUser,
   faBell,
 } from '@fortawesome/free-solid-svg-icons';
+import { DeviceComponent } from '../device.component';
 
 @Component({
   selector: 'app-assign-employee',
   templateUrl: './assign-employee.component.html',
-  styleUrls: ['./assign-employee.component.css']
+  styleUrls: ['./assign-employee.component.css'],
 })
-export class AssignEmployeeComponent implements OnInit  {
+export class AssignEmployeeComponent implements OnInit {
   employees: any[] = [];
-  filtered:any;
+  filtered: any;
   filteredEmployees: any[] = [];
   searchInput: string = '';
-  pendingRequests=3;
+  pendingRequests = 3;
   employee: any;
   employeesToDisplay: any;
   faAngleRight = faAngleRight;
@@ -39,7 +40,6 @@ export class AssignEmployeeComponent implements OnInit  {
   faTrash = faTrash;
   lapyAssigned = true;
   mouseAssigned = true;
-  
 
   colors = [
     '#FF9A9E',
@@ -52,13 +52,17 @@ export class AssignEmployeeComponent implements OnInit  {
     '#9796F0',
   ];
 
-  constructor(private dataService: DataService, private router: Router, private matDialogRef: MatDialogRef<AssignEmployeeComponent>,
-    private location :Location) {}
+  constructor(
+    private dataService: DataService,
+    private router: Router,
+    private matDialogRef: MatDialogRef<AssignEmployeeComponent>,
+    private route: Router
+  ) {}
 
   ngOnInit(): void {
     this.dataService.getEmployeeList().subscribe((response: any) => {
       this.employees = response;
-      this.employeesToDisplay  = this.employees;
+      this.employeesToDisplay = this.employees;
       this.employeesToDisplay = this.employeesToDisplay.users;
     });
   }
@@ -67,12 +71,11 @@ export class AssignEmployeeComponent implements OnInit  {
     return employee.id;
   }
 
-
-  searchEmployees(searchInput:any) {
-    this.dataService.search(this.searchInput).subscribe(response => {
+  searchEmployees(searchInput: any) {
+    this.dataService.searchEmployee(this.searchInput).subscribe((response) => {
       this.filtered = response;
-      this.filteredEmployees = this.filtered.users      
-      this.employeesToDisplay  = this.filteredEmployees;
+      this.filteredEmployees = this.filtered.users;
+      this.employeesToDisplay = this.filteredEmployees;
       console.log(this.filteredEmployees);
     });
   }
@@ -83,21 +86,22 @@ export class AssignEmployeeComponent implements OnInit  {
   }
 
   assign(employee: any) {
-    const id = employee.id  
-    const device_id = localStorage.getItem('device_id')  
-    const data = { 
-      device : {
-        user_id : id
-      }
-    }    
-    this.dataService.assignDevice(data,device_id).subscribe(() => {
-      this.refreshPage();     
+    const id = employee.id;
+    const device_id = localStorage.getItem('device_id');
+    const data = {
+      device: {
+        user_id: id,
+      },
+    };
+    this.dataService.assignDevice(data, device_id).subscribe(() => {
+      // this.refreshPage();
+      this.route.navigate(['device/device-list']);
+      this.closeDialog();
     });
-  
   }
 
   closeDialog() {
-    this.matDialogRef.close(); 
+    this.matDialogRef.close();
   }
   refreshPage() {
     window.location.reload();

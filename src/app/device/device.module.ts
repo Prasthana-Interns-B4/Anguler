@@ -9,8 +9,7 @@ import { DeviceRouteModule } from './device-routing.module';
 import { DeviceListComponent } from './device-list/device-list.component';
 import { DeviceDetailComponent } from './device-detail/device-detail.component';
 import { CreateDeviceComponent } from './create-device/create-device.component';
-import { HttpClientModule } from '@angular/common/http';
-import { RouterModule } from '@angular/router';
+
 import { EmpInventoryModule } from '../emp-inventory/emp-inventory.module';
 import { DialogComponent } from './dialog/dialog.component';
 import { UpdateDeviceComponent } from './update-device/update-device.component';
@@ -32,6 +31,7 @@ import { AssignEmployeeComponent } from './assign-employee/assign-employee.compo
     DialogComponent,
     UpdateDeviceComponent,
     AssignEmployeeComponent,
+    
   ],
   imports: [
     CommonModule,
@@ -41,6 +41,7 @@ import { AssignEmployeeComponent } from './assign-employee/assign-employee.compo
     ReactiveFormsModule,
     MatCardModule,   
     MaterialModule,
+    EmpInventoryModule
   ],
   exports: [DeviceComponent, DeviceListComponent, DeviceDetailComponent],
   entryComponents: [DialogComponent],

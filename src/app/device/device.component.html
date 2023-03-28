@@ -12,20 +12,6 @@
       margin-top: 65px;"
   >
     <div class="d-flex flex-column justify-content-center">
-      <div class="d-flex flex-row justify-content-start align-items-center mb-3">
-        <button
-          class="btn btn-secondary m-2"
-          style="
-            font-size: 15px;
-            font-weight: 600;
-            cursor: pointer;
-            text-align: start;            
-          "
-          (click)="goBack()"
-        ><fa-icon [icon]="faBackward"></fa-icon>
-          &nbsp;Back
-        </button>
-      </div>
       <div class="d-flex flex-row justify-content-start align-items-center">
         <div>
           <fa-icon [icon]="faUser"></fa-icon>
@@ -45,6 +31,23 @@
       </div>
       <div class="d-flex flex-row justify-content-start align-items-center">
         <div>
+          <fa-icon [icon]="faUser"></fa-icon>
+        </div>
+        <p
+          class="text-white m-2"
+          style="
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            text-align: start;
+          "
+          (click)="employeesList()"
+        >
+          &nbsp;&nbsp; Employee List
+        </p>
+      </div> 
+      <div class="d-flex flex-row justify-content-start align-items-center">
+        <div>
           <fa-icon [icon]="faUsers"></fa-icon>
         </div>
         <p
@@ -60,6 +63,7 @@
           &nbsp;&nbsp; Add Device
         </p>
       </div>
+      
       <div class="d-flex flex-row justify-content-start align-items-center">
         <div>
           <fa-icon [icon]="faUser"></fa-icon>
@@ -72,11 +76,12 @@
             cursor: pointer;
             text-align: start;
           "
-          (click)="DeviceList()"
+          (click)="deviceList()"
         >
           &nbsp; &nbsp; Devices List
         </p>
-      </div>      
+      </div>  
+    
     </div>
     
     <div class="d-flex flex-row justify-content-start align-items-center">

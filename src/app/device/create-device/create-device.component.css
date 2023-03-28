@@ -1,24 +1,29 @@
-body{
-    background-color: #f2f2f6;    
-    font-family:'Inter';  
-    height: auto;  
+body {
+  background-color: #f2f2f6;
+  font-family: "Inter";
+  height: auto;
 }
-.add-device-form{   
-    background-color:#ffffff;          
-    padding: 30px;    
-    margin:auto;
-    
-    border-radius: 15px;              
-    width: 500px;    
+.add-device-form {
+  background-color: #ffffff;
+  padding: 50px;
+  margin:auto;
+  border-radius: 15px;
+  width: 800px;
+  height: auto;
 }
-.item{
-	border-radius: 10px;    
-    padding: 10px; 
-    font-size: 15px;   
-    color: #081e42;
-    font-weight: 500;     
+.item {
+  border-radius: 10px;
+  padding: 10px;
+  font-size: 15px;
+  color: #081e42;
+  font-weight: 500;
 }
-.button{
-    
-    text-align: center;
+.button {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.addcard {
+  display: flex;
+  align-items: center;
 }

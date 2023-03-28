@@ -1,5 +1,7 @@
 <!-- EMP DETAILS SECTION -->
-<div class="container-fluid p-3 m-4">
+
+<div class="d-flex justify-content-center p-3 m-4">
+  <mat-icon  id="close-icon" (click)="closeDialog()">close</mat-icon>
   <div class="row scroll" style="height: 73vh; width: 70vw; overflow-y: scroll">
     <div class="d-flex flex-column justify-content-center align-items-center">
       <div class="search-employees col-10 col-md-8 m-3">
@@ -70,12 +72,12 @@
               </div>
             </div>
             <div class="nav-arrow">
-              <button class="btn btn-primary" (click)="assign(employee)" >Assign</button>
+              <button class="btn btn-primary" (click)="assign(employee)"   [mat-dialog-close]= "true">Assign</button>
             </div>
           </div>
         </div>
-      </div>
-    <div><button class="btn btn-danger mt-3" (click)=closeDialog()>close</button></div>
+      </div>    
     </div>  
   </div>
 </div>
+

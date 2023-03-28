@@ -43,7 +43,7 @@
               &nbsp;&nbsp; Employees List
             </p>
           </div>
-          <div class="d-flex flex-row justify-content-start align-items-center">
+          <div class="d-flex flex-row justify-content-start align-items-center" *ngIf="role === 'hr_manager'">
             <div>
               <fa-icon [icon]="faUser"></fa-icon>
             </div>
@@ -60,7 +60,7 @@
               &nbsp; &nbsp; Add Employee
             </p>
           </div>
-          <div class="d-flex flex-row justify-content-start align-items-center">
+          <div class="d-flex flex-row justify-content-start align-items-center" *ngIf="role === 'hr_manager'">
             <div>
               <fa-icon [icon]="faUser"></fa-icon>
             </div>
@@ -76,8 +76,49 @@
             >
               &nbsp; &nbsp; Pending Requests
             </p>
-          </div>         
+          </div>   
+          
+          <div class="d-flex flex-row justify-content-start align-items-center" *ngIf="role === 'facility_manager'">
+            <div>
+              <fa-icon [icon]="faUsers"></fa-icon>
+            </div>
+            <p
+              class="text-white m-2"
+              style="
+                font-size: 20px;
+                font-weight: 600;
+                cursor: pointer;
+                text-align: start;
+              "
+              (click)="addDevice()"
+            >
+              &nbsp;&nbsp; Add Device
+            </p>
+          </div>
+          
+          <div class="d-flex flex-row justify-content-start align-items-center" *ngIf="role === 'facility_manager'">
+            <div>
+              <fa-icon [icon]="faUser"></fa-icon>
+            </div>
+            <p
+              class="text-white m-2"
+              style="
+                font-size: 20px;
+                font-weight: 600;
+                cursor: pointer;
+                text-align: start;
+              "
+              (click)="deviceList()"
+            >
+              &nbsp; &nbsp; Devices List
+            </p>
+          </div> 
+          
         </div>
+
+
+
+
         <div class="d-flex flex-row justify-content-start align-items-center" (click)="logout()">
           <div>
             <fa-icon [icon]="faPowerOff"></fa-icon>

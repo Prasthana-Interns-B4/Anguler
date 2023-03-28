@@ -35,8 +35,12 @@ export class DeviceComponent implements OnInit {
     this.route.navigate(['device/create-device']);
   }
 
-  DeviceList(){
+  deviceList(){
     this.route.navigate(['device/device-list']);
+  }
+  
+  employeesList(){
+    this.route.navigate(['/employees/list']);
   }
 
   logout(){
