@@ -79,7 +79,7 @@ export class DeviceListComponent implements OnInit {
           if (_res) {
             this.ds.deleteDevice(id).subscribe({
               next: (res) => {
-                alert('Deleted Successfully!');
+                
                 this.getdevices();
               },
               error: () => {
@@ -98,7 +98,8 @@ export class DeviceListComponent implements OnInit {
   assignDevice(id: any) {
     localStorage.setItem('device_id', id);
     this.dialogService.openAssignEmpDialog().afterClosed().subscribe(res=>{
-     this.getdevices();
+      if(res){this.getdevices();}
+     
     });
   }
 
@@ -110,7 +111,7 @@ export class DeviceListComponent implements OnInit {
     };
     this.dataService.unAssignDevice(data, id).subscribe(() => {
       this.getdevices();
-      // this.refreshPage()
+      
     });
   }
 

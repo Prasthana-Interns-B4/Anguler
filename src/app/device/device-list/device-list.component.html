@@ -7,7 +7,10 @@
     (input)="searchDevices(searchInput)"
     [(ngModel)]="searchInput"
   />
+  
+
 </div>
+
 <div *ngFor="let device of devices">
   <mat-card
     class="example-card list name-card-container"

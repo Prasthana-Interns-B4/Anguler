@@ -4,62 +4,64 @@ import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class DataService {
+  public res: any;
 
-  baseurl="http://18.142.36.157:3000/devices/"
-  
+  baseurl = 'http://18.142.36.157:3000/devices/';
 
-  baseUrlUsers = "http://18.142.36.157:3000/users"
-  baseurlDevices="http://18.142.36.157:3000/devices"
-  
-  constructor( private http:HttpClient) { }
+  baseUrlUsers = 'http://18.142.36.157:3000/users';
+  baseurlDevices = 'http://18.142.36.157:3000/devices';
+
+  constructor(private http: HttpClient) {}
 
   getEmployeeList() {
     return this.http.get(this.baseUrlUsers);
   }
 
-  search(searchInput:any){
-    return this.http.get(this.baseurlDevices + '?search='+searchInput);
+  search(searchInput: any) {
+    return this.http.get(this.baseurlDevices + '?search=' + searchInput);
   }
 
-  getEmpDetails(id:number) {
-    return this.http.get(this.baseUrlUsers +'/'+ id);
+  getEmpDetails(id: number) {
+    return this.http.get(this.baseUrlUsers + '/' + id);
   }
 
-  getDevices(){
+  getDevices() {
     return this.http.get(this.baseurlDevices);
   }
 
-  createDevice(data:any){
-    return this.http.post(this.baseurlDevices,data)
+  createDevice(data: any) {
+    return this.http.post(this.baseurlDevices, data);
   }
 
-  deleteDevice(id:number) {
-    return this.http.delete(this.baseurlDevices+'/'+id)
+  deleteDevice(id: number) {
+    return this.http.delete(this.baseurlDevices + '/' + id);
   }
 
-  assignDevice(data:any, id:any) {
-    return this.http.put(this.baseurlDevices + '/'+ id + '/assign',data)
+  assignDevice(data: any, id: any) {
+    return this.http.put(this.baseurlDevices + '/' + id + '/assign', data);
   }
 
-  unAssignDevice(data:any, id:any) {
-    return this.http.put(this.baseurlDevices + '/'+ id + '/unassign',data)
+  unAssignDevice(data: any, id: any) {
+    return this.http.put(this.baseurlDevices + '/' + id + '/unassign', data);
   }
-  putDevice(id:number,data:any){
-    return this.http.put(this.baseurl+id,data)
+  updateDevice(res: { id: number; data: any }) {
+    return this.http.put(this.baseurl + res?.id, res?.data);
   }
-  editdevice(id:number,data:any){
-    return this.http.put(this.baseurlDevices+id,data)
+  editdevice(id: number, data: any) {
+    return this.http.put(this.baseurlDevices + id, data);
   }
 
-  onLogout():Observable<any> { 
-    return this.http.delete(this.baseUrlUsers + '/sign_out');   
+  onLogout(): Observable<any> {
+    return this.http.delete(this.baseUrlUsers + '/sign_out');
   }
-  
 
-  getDeviceDetails(id:number):Observable<any> {    
-    return this.http.get(this.baseurl+ id);  
+  getDeviceDetails(id: number): Observable<any> {
+    return this.http.get(this.baseurl + id);
+  }
+  searchEmployee(input: any) {
+    return this.http.get(this.baseUrlUsers + '?search=' + input);
   }
 }

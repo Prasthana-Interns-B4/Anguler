@@ -24,7 +24,7 @@ export class DialogService {
 
   openAssignEmpDialog(){
     return this.dialog.open(AssignEmployeeComponent,{
-       
+      panelClass: 'confirm-dialog-container',
         width:'70%',       
         disableClose:true,
         position:{
