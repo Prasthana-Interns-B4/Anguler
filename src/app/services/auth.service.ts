@@ -30,4 +30,14 @@ export class AuthService {
     return this.http.get(this.baseUrl +'/'+ id);  
   }
 
+  updateEmpDetails(updatedData: any, id: number) {
+    return this.http.put(this.baseUrl + '/' + id, updatedData);
+  }
+
+  delete(id: number) {
+    return this.http.delete(this.baseUrl + '/' + id);
+  }
+
+  
+
 }

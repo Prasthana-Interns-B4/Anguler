@@ -51,19 +51,13 @@ export class LoginComponent implements OnInit {
           localStorage.setItem('token', token);   
           localStorage.setItem('role', role);       
           localStorage.setItem('id', id);          
-          if (role === 'employee') {            
-            this.router.navigate(['/emp-details']);
-          }else if (role === 'hr_manager') {
-            this.router.navigate(['/emp-inventory/hr-details']);
-          }else if (role === 'facility_manager') {
-            this.router.navigate(['/device/fm-details']);
-          }          
+          this.router.navigate(['/employees/'+id+'/details']);                   
         } else {
-          alert(response.message);
+          this.router.navigate(['/login']);
         }
       },
       (error) => {
-        alert('login failed');
+        this.router.navigate(['/login']);
       }
     );
     this.loginForm.reset();

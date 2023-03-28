@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
+import { Location } from '@angular/common';
 import { EmpService } from '../emp-services/emp.service';
 import { MatDialogRef } from '@angular/material/dialog';
 
@@ -52,7 +53,7 @@ export class EmpListComponent implements OnInit {
     '#9796F0',
   ];
 
-  constructor(private empService: EmpService, private router: Router) {}
+  constructor(private empService: EmpService, private router: Router, private location:Location, private activatedRoute : ActivatedRoute ) {}
 
   ngOnInit(): void {
     this.getCall();
@@ -78,6 +79,7 @@ export class EmpListComponent implements OnInit {
       console.log(this.filteredEmployees);
     });
   }
+  
   removeEmployee(id: number) {
     if (confirm('Are you sure ? \n To delete this employee')) {
       this.empService.delete(id).subscribe(() => {
@@ -94,9 +96,10 @@ export class EmpListComponent implements OnInit {
   }
 
   viewDetails(employee: any) {
-    const id = employee.id;
-    localStorage.setItem('em_id', id);
-    this.router.navigate(['emp-inventory/emp-details', id]);
+    const em_id = employee.id;
+    console.log(em_id);
+    
+    // this.router.navigate(['/employees/'+em_id+'/details']); 
     console.log(employee);
   }
   refreshPage() {

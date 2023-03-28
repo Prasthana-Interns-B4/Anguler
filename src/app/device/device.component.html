@@ -19,7 +19,7 @@
         <p
           class="text-white m-2"
           style="
-            font-size: 18px;
+            font-size: 20px;
             font-weight: 600;
             cursor: pointer;
             text-align: start;
@@ -31,12 +31,29 @@
       </div>
       <div class="d-flex flex-row justify-content-start align-items-center">
         <div>
-          <fa-icon [icon]="faUsers"></fa-icon>
+          <fa-icon [icon]="faUser"></fa-icon>
         </div>
         <p
           class="text-white m-2"
           style="
             font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            text-align: start;
+          "
+          (click)="employeesList()"
+        >
+          &nbsp;&nbsp; Employee List
+        </p>
+      </div> 
+      <div class="d-flex flex-row justify-content-start align-items-center">
+        <div>
+          <fa-icon [icon]="faUsers"></fa-icon>
+        </div>
+        <p
+          class="text-white m-2"
+          style="
+            font-size: 20px;
             font-weight: 600;
             cursor: pointer;
             text-align: start;
@@ -54,7 +71,7 @@
         <p
           class="text-white m-2"
           style="
-            font-size: 18px;
+            font-size: 20px;
             font-weight: 600;
             cursor: pointer;
             text-align: start;
@@ -64,23 +81,7 @@
           &nbsp; &nbsp; Devices List
         </p>
       </div>  
-      <div class="d-flex flex-row justify-content-start align-items-center">
-        <div>
-          <fa-icon [icon]="faUser"></fa-icon>
-        </div>
-        <p
-          class="text-white m-2"
-          style="
-            font-size: 18px;
-            font-weight: 600;
-            cursor: pointer;
-            text-align: start;
-          "
-          (click)="employeeList()"
-        >
-          &nbsp; &nbsp;Employee List
-        </p>
-      </div>     
+    
     </div>
     
     <div class="d-flex flex-row justify-content-start align-items-center">
@@ -90,7 +91,7 @@
       <p
         class="text-white m-2"
         style="
-          font-size: 18px;
+          font-size: 20px;
           font-weight: 600;
           cursor: pointer;
           text-align: start;

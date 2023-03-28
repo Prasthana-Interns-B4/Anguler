@@ -37,6 +37,7 @@ main{
   position: relative;
   margin: 8px;
   border: 1px solid #ccc;
+  position: relative;
   border-radius: 5px;
   padding: 10px;
   display: flex;
