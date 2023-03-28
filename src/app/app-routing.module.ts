@@ -18,16 +18,17 @@ import { FmGuard } from './services/fm.guard';
 
 const routes: Routes = [  
 
-  { path:'',component:LoginComponent }, 
+  { path:'login',component:LoginComponent, }, 
   { path:'signup',component:SignupComponent },
-  { path:'emp-details',component:EmpDetailsComponent, canActivate: [AuthGuard] },  
+  { path:'',component:EmpDetailsComponent,  canActivate: [AuthGuard] },  
+  { path:'employees/:id/details',component:EmpDetailsComponent,  canActivate: [AuthGuard] },  
 
 
-  { path: 'emp-inventory',component:EmpInventoryComponent, canActivateChild: [HrGuard],
+  { path: 'employees',component:EmpInventoryComponent, canActivateChild: [HrGuard],
     loadChildren: () => import('./emp-inventory/emp-inventory.module').then(res => res.EmpInventoryModule)
   },
 
-  { path: 'device',component:DeviceComponent, canActivateChild: [FmGuard],
+  { path: 'device',component:DeviceComponent, canActivateChild: [FmGuard], 
     loadChildren: () => import('./device/device.module').then(res => res.DeviceModule)
   },
 

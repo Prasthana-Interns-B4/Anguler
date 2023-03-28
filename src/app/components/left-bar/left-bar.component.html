@@ -1,6 +1,4 @@
 
-
-
 <!-- LEFTBAR NAVIGATION SECTION -->
 <div
         class="d-flex flex-column justify-content-between p-3"
@@ -12,20 +10,6 @@
           margin-top: 65px;"
       >
         <div class="d-flex flex-column justify-content-center">
-          <div class="d-flex flex-row justify-content-start align-items-center mb-3">
-            <button
-              class="btn btn-secondary m-2"
-              style="
-                font-size: 15px;
-                font-weight: 600;
-                cursor: pointer;
-                text-align: start;            
-              "
-              (click)="goBack()"
-            ><fa-icon [icon]="faBackward"></fa-icon>
-              &nbsp;Back
-            </button>
-          </div>
           <div class="d-flex flex-row justify-content-start align-items-center" (click)="myProfile()">
             <div>
               <fa-icon [icon]="faUser"></fa-icon>
@@ -41,7 +25,58 @@
             >
               &nbsp; &nbsp; My Profile
             </p>
-          </div>          
+          </div> 
+          <div class="d-flex flex-row justify-content-start align-items-center">
+            <div>
+              <fa-icon [icon]="faUsers"></fa-icon>
+            </div>
+            <p
+              class="text-white m-2"
+              style="
+                font-size: 20px;
+                font-weight: 600;
+                cursor: pointer;
+                text-align: start;
+              "
+              (click)="employeesList()"
+            >
+              &nbsp;&nbsp; Employees List
+            </p>
+          </div>
+          <div class="d-flex flex-row justify-content-start align-items-center">
+            <div>
+              <fa-icon [icon]="faUser"></fa-icon>
+            </div>
+            <p
+              class="text-white m-2"
+              style="
+                font-size: 20px;
+                font-weight: 600;
+                cursor: pointer;
+                text-align: start;
+              "
+              (click)="addEmployee()"
+            >
+              &nbsp; &nbsp; Add Employee
+            </p>
+          </div>
+          <div class="d-flex flex-row justify-content-start align-items-center">
+            <div>
+              <fa-icon [icon]="faUser"></fa-icon>
+            </div>
+            <p
+              class="text-white m-2"
+              style="
+                font-size: 20px;
+                font-weight: 600;
+                cursor: pointer;
+                text-align: start;
+              "
+              (click)="pendingRequest()"
+            >
+              &nbsp; &nbsp; Pending Requests
+            </p>
+          </div>         
         </div>
         <div class="d-flex flex-row justify-content-start align-items-center" (click)="logout()">
           <div>

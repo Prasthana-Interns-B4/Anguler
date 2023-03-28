@@ -14,7 +14,7 @@ export class FmGuard implements CanActivateChild {
         if (localStorage.getItem("role") === "facility_manager"){
           return true;
         }else{
-          this.route.navigate(['']);        
+          this.route.navigate(['/login']);        
           return false;
         }
       }

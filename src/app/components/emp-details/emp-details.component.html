@@ -1,35 +1,73 @@
-<div class="d-flex flex-row" style="min-height: 82.7vh">
+<div class="d-flex flex-row" style="min-height: 0vh">
   <app-left-bar></app-left-bar>
-  <div class="container p-3" style="min-height: 82.7vh; width: 120vw">
-    <div class="row">
+  <button
+  class="btn btn-dark"
+  style="
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    text-align: start;  
+    margin-top:80px;  
+    margin-left: 8px;
+    height: 50px !important;        
+  "
+  (click)="goBack()"
+><fa-icon [icon]="faBackward"></fa-icon>
+  &nbsp;Back
+</button>
+
+  <div class="container p-2" >
+    <div class="row scroll" style="height: 85vh; overflow-y: scroll; width: 75vw">
+      <!-- <div class="d-flex flex-row justify-content-start align-items-center mb-3"> -->
+
+      <!-- </div> -->
       <div class="col-12 col-md-9 p-3">
         <div class="name-card-container view-Bg mt-5">
           <div
             class="d-flex flex-row justify-content-center align-items-center w-100 ms-4"
           >
-            <div class="name-card md-me-3" [ngStyle]="{ color: '#fff' }">{{ employee?.user.user_detail.first_name[0] | uppercase }}{{ employee?.user.user_detail.last_name[0] | uppercase }}</div>
+            <div class="name-card md-me-3" [ngStyle]="{ color: '#fff' }">
+              {{ employee?.user.user_detail.first_name[0] | uppercase
+              }}{{ employee?.user.user_detail.last_name[0] | uppercase }}
+            </div>
             <div class="d-flex align-items-center flex-grow-1">
               <div class="name-card-info flex-grow-1">
                 <h2 class="h5 name-card-name">
-                  {{ employee?.user.user_detail.first_name }} {{ employee?.user.user_detail.last_name }}
+                  {{ employee?.user.user_detail.first_name }}
+                  {{ employee?.user.user_detail.last_name }}
                 </h2>
                 <div class="d-flex flex-column">
                   <p class="name-card-id mb-1">{{ employee?.user.email }}</p>
-                  <p class="name-card-id mb-1">{{ employee?.user.user_detail.phone_number }}</p>
-                  <p class="name-card-id mb-1"><b>Emp ID:</b> {{ employee?.user.emp_id }}</p>
-                  <p class="name-card-id mb-1"><b>Designation:</b> {{ employee?.user.role.role }}</p>
+                  <p class="name-card-id mb-1">
+                    {{ employee?.user.user_detail.phone_number }}
+                  </p>
+                  <p class="name-card-id mb-1">
+                    <b>Emp ID:</b> {{ employee?.user.emp_id }}
+                  </p>
+                  <p class="name-card-id mb-1">
+                    <b>Designation:</b> {{ employee?.user.user_detail.designation }}
+                  </p>
                 </div>
               </div>
               <div class="d-flex flex-row align-items-center">
-                <div class="d-flex flex-column align-items-center me-3">
-                  <fa-icon [icon]="faEdit" ></fa-icon>
-                </div>                
+                <div
+                  class="d-flex flex-column align-items-center me-3"
+                  (click)="openModal();onEdit(employee)"
+                >
+                  <fa-icon [icon]="faEdit"></fa-icon>
+                </div>
+                <div class="d-flex flex-column align-items-center">
+                  <fa-icon
+                    [icon]="faTrash"
+                    (click)="removeEmployee()"
+                  ></fa-icon>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-  
+
       <h1 class="col-12 col-md-8 col-lg-7 m-3" style="font-size: 25px">
         Devices Assigned
       </h1>
@@ -49,7 +87,7 @@
                     />
                   </div>
                   <div class="col-8">
-                    <h3>{{ device.device_type }}</h3>
+                    <h3>{{ device.name }}</h3>
                     <p>{{ device.os }}</p>
                     <p>Device ID: {{ device.tag_no }}</p>
                   </div>
@@ -59,7 +97,94 @@
           </div>
         </div>
       </div>
-      
+    </div>
+  </div>
+</div>
+<div class="modal" id="myModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title"><b>Edit Employee</b></h4>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          (click)="closeModal()"
+        ></button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+        <form [formGroup]="formValue">
+          <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label"
+              >First Name</label
+            >
+            <input
+              type="text"
+              formControlName="firstName"
+              class="form-control"
+              id="exampleInputEmail1"
+              aria-describedby="emailHelp"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label"
+              >Last Name</label
+            >
+            <input
+              type="text"
+              formControlName="lastName"
+              class="form-control"
+              id="exampleInputPassword1"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label"
+              >Date Of Birth</label
+            >
+            <input
+              type="date"
+              formControlName="dob"
+              class="form-control"
+              id="exampleInputPassword1"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label"
+              >Phone Number</label
+            >
+            <input
+              type="text"
+              formControlName="phoneNumber"
+              class="form-control"
+              id="exampleInputPassword1"
+            />
+          </div>
+        </form>
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button
+          type="button"
+          class="btn btn-danger"
+          data-bs-dismiss="modal"
+          (click)="closeModal()"
+        >
+          Cancel
+        </button>
+        <button
+          type="button"
+          class="btn btn-primary"
+          data-bs-dismiss="modal"
+          (click)="closeModal()"
+          (click)="updateEmployee()"
+        >
+          Update
+        </button>
+      </div>
     </div>
   </div>
 </div>

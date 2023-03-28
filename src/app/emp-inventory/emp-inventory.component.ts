@@ -32,20 +32,21 @@ export class EmpInventoryComponent implements OnInit {
   }
   
 
-  myProfile(){
-    this.route.navigate(['/emp-inventory/hr-details']);
+  myProfile(){  
+    const id = localStorage.getItem('id');     
+    this.route.navigate(['/employees/'+id+'/details']); 
   }
 
   employeesList(){
-    this.route.navigate(['/emp-inventory/emp-list']);
+    this.route.navigate(['/employees/list']);
   }
 
   addEmployee(){    
-    this.route.navigate(['/emp-inventory/add-emp']);
+    this.route.navigate(['/employees/add-employee']);
   }
 
   pendingRequest(){
-    this.route.navigate(['/emp-inventory/pending-requests']);
+    this.route.navigate(['/employees/pending-requests']);
   }
 
   logout(){

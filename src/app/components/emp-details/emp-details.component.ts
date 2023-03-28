@@ -1,12 +1,15 @@
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
+import { Location } from '@angular/common';
 import {
   faLaptop,
   faMouse,
   faEdit,
+  faTrash,
+  faBackward,
 } from '@fortawesome/free-solid-svg-icons';
-
 
 @Component({
   selector: 'app-emp-details',
@@ -15,36 +18,117 @@ import {
 })
 export class EmpDetailsComponent implements OnInit {
   
+  employees: any[] = [];
   faLapy = faLaptop;
   faMouse = faMouse;
   faEdit = faEdit;
+  faTrash = faTrash;
+  faBackward = faBackward;
   lapyAssigned = true;
-  mouseAssigned = true; 
-
+  mouseAssigned = true;
   employee: any;
-  devices: any[]=[]
-  id:any;
+  devices: any[] = [];
+  id: any;
 
-  constructor(private authService:AuthService,private route: Router) {}
+  formValue!: FormGroup;
+  constructor(
+    private formBuilder: FormBuilder,
+    private route: Router,    
+    private location: Location,
+    private authService:AuthService,
+  ) {}
 
-  ngOnInit(): void {   
-    this.getEmployeeDetails();     
+  ngOnInit(): void {
+    this.formValue = this.formBuilder.group({
+      firstName: ['', Validators.minLength(3)],
+      lastName: ['', Validators.required],
+      dob: ['', [Validators.required]],
+      phoneNumber: ['', [Validators.required]],
+    });
+    this.getEmployeeDetails();
   }
 
-  getEmployeeDetails(){
-    this.id = localStorage.getItem('id');       
-    this.authService.getEmpDetails(this.id).subscribe(response => {      
-      if(response.user){
-        this.employee = response;
-        this.devices = this.employee.user.devices        
-      }else{
-        this.authService.onLogout().subscribe(() => {}); 
-        this.route.navigate(['']);
-        localStorage.clear();   
-
+  getEmployeeDetails() {
+    this.id = localStorage.getItem('id');
+    this.authService.getEmpDetails(this.id).subscribe(
+      (response) => {
+        if (response) {
+          this.employee = response;
+          this.devices = this.employee.user.devices;
+        } else {
+          this.authService.onLogout().subscribe(() => {});
+          this.route.navigate(['/login']);
+          localStorage.clear();
+        }
+      },
+      (error) => {
+        alert(error.message);
       }
-  },error => {
-    alert(error.message);
-  });
+    );
   }
+
+  removeEmployee() {
+    if (confirm('Are you sure ? \n To delete this employee')) {
+      this.id = localStorage.getItem('em_id');
+      this.authService.delete(this.id).subscribe(() => {});
+      this.route.navigate(['/emp-inventory/emp-list']);
+    }
+  }
+
+  openModal() {
+    const modelDiv = document.getElementById('myModal');
+    if (modelDiv != null) {
+      modelDiv.style.display = 'block';
+    }
+  }
+
+  onEdit(row: any) {
+    this.formValue.controls['firstName'].setValue(
+      row.user.user_detail.first_name
+    );
+    this.formValue.controls['lastName'].setValue(
+      row.user.user_detail.last_name
+    );
+    this.formValue.controls['dob'].setValue(row.user.user_detail.date_of_birth);
+    this.formValue.controls['phoneNumber'].setValue(
+      row.user.user_detail.phone_number
+    );
+  }
+
+  updateEmployee() {
+    const updatedData = {
+      user: {
+        email: this.employee.user.email,
+        user_detail_attributes: {
+          first_name: this.formValue.value.firstName,
+          last_name: this.formValue.value.lastName,
+          phone_number: this.formValue.value.phoneNumber,
+          date_of_birth: this.formValue.value.dob,
+        },
+      },
+    };
+    const id = this.employee.user.id;
+
+    this.authService.updateEmpDetails(updatedData, id).subscribe(
+      () => {
+        this.getEmployeeDetails();
+        this.closeModal();
+      },
+      (error) => {
+        alert(error.message);
+      }
+    );
+  }
+
+  closeModal() {
+    const modelDiv = document.getElementById('myModal');
+    if (modelDiv != null) {
+      modelDiv.style.display = 'none';
+    }
+  }
+
+  goBack(){
+    this.location.back();
+  }
+
 }

@@ -28,13 +28,27 @@ export class LeftBarComponent {
   goBack(){
     this.location.back();
   }
-  myProfile(){       
-    this.route.navigate(['/emp-details']);
+
+  myProfile(){  
+    const id = localStorage.getItem('id');     
+    this.route.navigate(['/employees/'+id+'/details']); 
+  }
+
+  employeesList(){
+    this.route.navigate(['/employees/list']);
+  }
+
+  addEmployee(){    
+    this.route.navigate(['/employees/add-employee']);
+  }
+
+  pendingRequest(){
+    this.route.navigate(['/employees/pending-requests']);
   }
   
   logout(){
     this.authService.onLogout().subscribe(() => {});
-    this.route.navigate(['']);
+    this.route.navigate(['/login']);
     localStorage.clear();  
   }
 
