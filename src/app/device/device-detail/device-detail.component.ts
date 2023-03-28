@@ -1,4 +1,4 @@
-import { Component, Inject, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { faTrash, faEdit } from '@fortawesome/free-solid-svg-icons';
 import { DataService } from '../services/data.service';

@@ -31,10 +31,10 @@
           </div>
           <div class="d-flex flex-row align-items-center">
             <div class="d-flex flex-column align-items-center me-3">
-              <fa-icon (click)="openUpdateDevice(device)" [icon]="faEdit" ></fa-icon>
+              <fa-icon class="edit-icon"(click)="openUpdateDevice(device)" [icon]="faEdit" ></fa-icon>
             </div>
             <div class="d-flex flex-column align-items-center">
-              <fa-icon  (click)="deletedevice(device.id)" [icon]="faTrash"></fa-icon>
+              <fa-icon  class="edit-icon"(click)="deletedevice(device.id)" [icon]="faTrash"></fa-icon>
             </div>
           </div>
         </div>
