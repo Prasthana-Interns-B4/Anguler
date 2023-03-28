@@ -14,13 +14,32 @@ export class AuthGuard implements CanActivate{
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
     {
-      if (localStorage.getItem("role") === "employee"){
+      if (localStorage.getItem("token")){
         return true;
       }else{
-        this.route.navigate(['']);       
+        this.route.navigate(['/login']);       
         return false;
       }
     }    
   }  
 
 }
+
+// export class LoginGuard implements CanActivate{
+
+//   constructor(private route: Router){} 
+  
+//   canActivate(
+//     route: ActivatedRouteSnapshot,
+//     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
+//     {
+//       if (localStorage.getItem("token")){
+//         return false;
+//       }else{
+//         this.route.navigate(['']);       
+//         return true;
+//       }
+//     }    
+//   }  
+
+// }

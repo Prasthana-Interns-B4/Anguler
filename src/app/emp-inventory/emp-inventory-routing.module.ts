@@ -9,11 +9,11 @@ import { AddEmployeeComponent } from './emp-components/add-employee/add-employee
 import { PendingRequestsComponent } from './emp-components/pending-requests/pending-requests.component';
 
 const routes: Routes = [
-  { path: 'emp-list', component: EmpListComponent },
-  { path: 'hr-details', component: HrDetailsComponent },
-  { path: 'emp-details/:', component: EmpViewComponent },
+  { path: 'list', component: EmpListComponent },
+  // { path: 'hr-details', component: HrDetailsComponent },
+  // { path: 'emp-details/:', component: EmpViewComponent },
   { path: 'pending-requests', component: PendingRequestsComponent },
-  { path: 'add-emp', component: AddEmployeeComponent },
+  { path: 'add-employee', component: AddEmployeeComponent },
 ];
 
   @NgModule({

@@ -8,5 +8,7 @@ import { Router } from '@angular/router';
 export class AppComponent {
 
   title = 'inventory-web';
+  token = localStorage.getItem('token')
+  role = localStorage.getItem('role')
 
 }

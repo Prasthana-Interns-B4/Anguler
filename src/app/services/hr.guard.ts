@@ -14,7 +14,7 @@ export class HrGuard implements CanActivateChild {
         if (localStorage.getItem("role") === "hr_manager"){
           return true;
         }else{
-          this.route.navigate(['']);        
+          this.route.navigate(['/login']);        
           return false;
         }
       }

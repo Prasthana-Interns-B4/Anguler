@@ -20,7 +20,7 @@ export class FmprofileComponent implements OnInit  {
   mouseAssigned = true; 
 
   employee: any;
-  devices: any[]=[]
+  devices: any[]=[];
   id:any;
 
   constructor(private route: Router,private dataService:DataService) {}
@@ -33,8 +33,9 @@ export class FmprofileComponent implements OnInit  {
     this.id = localStorage.getItem('id');    
     this.dataService.getEmpDetails(this.id).subscribe(response => {
       if(response){
-        this.employee = response;
-        this.devices = this.employee.user.devices        
+        this.employee = response;        
+        this.devices = this.employee?.user.devices 
+        console.log(this.devices)       
       }else{
         this.dataService.onLogout().subscribe(() => {});     
         this.route.navigate(['']);

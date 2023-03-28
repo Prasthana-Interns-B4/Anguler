@@ -99,3 +99,10 @@ vertical-align: middle;
   color: #6664ff;
   font-weight: 400;
 }
+.scroll::-webkit-scrollbar{
+  display: none;
+}
+.scroll{
+  -ms-overflow-style: none;
+  scrollbar-width:none
+}
