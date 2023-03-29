@@ -2,12 +2,9 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 // components
-import { EmpViewComponent } from './emp-components/emp-view/emp-view.component';
-import { HrDetailsComponent } from './emp-components/hr-details/hr-details.component';
-import { EmpListComponent } from './emp-components/emp-list/emp-list.component';
 import { AddEmployeeComponent } from './emp-components/add-employee/add-employee.component';
+import { EmpListComponent } from './emp-components/emp-list/emp-list.component';
 import { PendingRequestsComponent } from './emp-components/pending-requests/pending-requests.component';
-
 const routes: Routes = [
   { path: 'list', component: EmpListComponent },
   // { path: 'hr-details', component: HrDetailsComponent },
@@ -16,9 +13,8 @@ const routes: Routes = [
   { path: 'add-employee', component: AddEmployeeComponent },
 ];
 
-  @NgModule({
-    imports: [RouterModule.forChild(routes)],
-    exports: [RouterModule]
-  })
-
-  export class EmpInventoryRoutingModule {}
+@NgModule({
+  imports: [RouterModule.forChild(routes)],
+  exports: [RouterModule],
+})
+export class EmpInventoryRoutingModule {}

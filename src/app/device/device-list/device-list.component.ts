@@ -3,7 +3,8 @@ import { Router, ActivatedRoute } from '@angular/router';
 import {
   faAngleRight,
   faMagnifyingGlass,
-  faTrashCan,
+  faTrash,
+ 
 } from '@fortawesome/free-solid-svg-icons';
 import { AssignService } from '../services/assign.service';
 import { DataService } from '../services/data.service';
@@ -32,7 +33,7 @@ export class DeviceListComponent implements OnInit {
   faMagnifyingGlass = faMagnifyingGlass;
 
   faAngleRight = faAngleRight;
-  faTrashCan = faTrashCan;
+  faTrash = faTrash;
   selected: any;
   searchInput: any;
   filtered: any;
@@ -77,7 +78,8 @@ export class DeviceListComponent implements OnInit {
         next: (_res) => {
           console.log(_res);
           if (_res) {
-            this.ds.deleteDevice(id).subscribe({
+            this.ds.deleteDevice(id)
+            .subscribe({
               next: (res) => {
                 
                 this.getdevices();
@@ -101,6 +103,7 @@ export class DeviceListComponent implements OnInit {
       if(res){this.getdevices();}
      
     });
+    
   }
 
   unAssignDevice(id: any) {
@@ -115,7 +118,7 @@ export class DeviceListComponent implements OnInit {
     });
   }
 
-  refreshPage() {
-    window.location.reload();
-  }
+
+
+  
 }
