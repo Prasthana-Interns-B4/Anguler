@@ -1,6 +1,7 @@
- <div class="registration-form shadow"  style="margin-left:400px">
-     <form [formGroup]="signUpForm" (ngSubmit)="onSubmit()">
-       <div class="form-group">
+<div class="d-flex justify-content-center">
+  <div class="registration-form shadow">
+    <form [formGroup]="signUpForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
         <input
           type="text"
           class="form-control item mt-3"
@@ -204,6 +205,7 @@
           Birth Date can't be future date
         </div>
       </div>
+
       <div class="form-group">
         <button
           type="submit"
@@ -225,4 +227,4 @@
       </div>
     </form>
   </div>
-
+</div>

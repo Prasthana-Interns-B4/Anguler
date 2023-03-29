@@ -1,49 +1,27 @@
-.edit-icon{
+.edit-icon {
   font-size: 1.2rem;
-  color: #999;
+  color: #333;
   cursor: pointer;
 }
 
-
-.edit-icon:hover{
-  color: #333;
-}
-
-.name-card {
-  font-size: 36px;
-  font-weight: bold;
-  color: #fff;
-  
-  padding: 31px;
-vertical-align: middle;
-  
-  height: 100px;
-  width: 100px;
-  text-align: center;
-  
-  align-self: center;
-}
-
-.form-control:focus{
+.form-control:focus {
   border-color: transparent;
-  
 }
 
-.view-Bg{
+.view-Bg {
   background-color: #eeeefc;
-
 }
 
 .name-card-container {
   margin: 8px;
   border: 1px solid #ccc;
+  background-color: #fff;
   border-radius: 15px;
   padding: 25px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-
 }
 
 .name-card-row {
@@ -54,15 +32,21 @@ vertical-align: middle;
 }
 
 .name-card {
-  font-size: 36px;
+  font-size: 35px;
   font-weight: bold;
+  text-align: center;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  height: 100px;
+  width: 100px;
   color: #fff;
   margin-right: 20px;
   background-color: yellowgreen;
   border-radius: 14px;
 }
 
-.device-img{
+.device-img {
   height: 100px;
   width: 120px;
 }
@@ -95,7 +79,7 @@ vertical-align: middle;
   font-size: 24px;
   color: #333;
 }
-.icons{
+.icons {
   color: #6664ff;
   font-weight: 400;
 }

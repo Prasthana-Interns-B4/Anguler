@@ -1,4 +1,4 @@
-import { Component, Inject, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { faTrash, faEdit } from '@fortawesome/free-solid-svg-icons';
 import { DataService } from '../services/data.service';
@@ -70,7 +70,8 @@ export class DeviceDetailComponent implements OnInit {
       .subscribe({
         next: (_res) => {
           if (_res) {
-            this.ds.deleteDevice(id).subscribe({
+            this.ds.deleteDevice(id)
+            .subscribe({
               next: (res) => {
                 console.log(res);
                 this.route.navigate(['device/device-list']);
@@ -82,5 +83,17 @@ export class DeviceDetailComponent implements OnInit {
           }
         },
       });
+  }
+
+  unAssignDevice(id: any) {
+    const data = {
+      device: {
+        user_id: null,
+      },
+    };
+    this.ds.unAssignDevice(data, id).subscribe((res) => {
+      this.getDeviceDetail()
+      
+    });
   }
 }

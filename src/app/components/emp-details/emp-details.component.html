@@ -33,7 +33,7 @@
                   </p>
                 </div>
               </div>
-              <div class="d-flex flex-row align-items-center">
+              <div class="d-flex flex-row align-items-center" *ngIf="localStorage.getItem('role')==='hr_manager'">
                 <div
                   class="d-flex flex-column align-items-center me-3"
                   (click)="openModal();onEdit(employee)"

@@ -61,6 +61,7 @@ import { EmpInventoryModule } from './emp-inventory/emp-inventory.module';
     ReactiveFormsModule,    
     AppRoutingModule,
     
+    
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor,

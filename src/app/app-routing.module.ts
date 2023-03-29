@@ -24,7 +24,8 @@ const routes: Routes = [
   { path:'employees/:id/details',component:EmpDetailsComponent,  canActivate: [AuthGuard] },  
 
 
-  { path: 'employees',component:EmpInventoryComponent, canActivateChild: [HrGuard],
+  { path: 'employees',component:EmpInventoryComponent, 
+  // canActivateChild: [HrGuard,FmGuard],
     loadChildren: () => import('./emp-inventory/emp-inventory.module').then(res => res.EmpInventoryModule)
   },
 
