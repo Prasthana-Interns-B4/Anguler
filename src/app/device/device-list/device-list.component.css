@@ -93,6 +93,10 @@ font-weight: 200;
   font-size: 18px;
   color: #1d3c6a;
 }
+.del-icon{
+  font-size: 18px;
+  color:red;  
+}
 
 
 .mat-mdc-card {

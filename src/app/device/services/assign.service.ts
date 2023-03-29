@@ -19,5 +19,7 @@ export class AssignService {
   // unAssignservice(id:number){
   //   this.ds.unAssignDevice()
   // }
+  
+
 
 }

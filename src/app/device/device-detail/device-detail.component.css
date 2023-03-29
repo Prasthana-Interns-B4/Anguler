@@ -41,6 +41,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    
   
   }
   
@@ -58,6 +59,7 @@
     margin-right: 20px;
     background-color: yellowgreen;
     border-radius: 14px;
+    
   }
   
   .device-img{

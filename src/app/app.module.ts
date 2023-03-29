@@ -36,6 +36,7 @@ import { FmGuard } from './services/fm.guard';
 import { DeviceModule } from './device/device.module';
 import { DeviceRouteModule } from './device/device-routing.module';
 import { EmpInventoryModule } from './emp-inventory/emp-inventory.module';
+import { SharedModule } from './shared/shared.module';
 
 // AuthInterceptor component
 
@@ -60,6 +61,8 @@ import { EmpInventoryModule } from './emp-inventory/emp-inventory.module';
     HttpClientModule,
     ReactiveFormsModule,    
     AppRoutingModule,
+    SharedModule,
+    
     
   ],
   providers: [{
