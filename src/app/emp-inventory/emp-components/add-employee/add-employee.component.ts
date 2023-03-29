@@ -92,7 +92,7 @@
             date_of_birth: this.binds.date_of_birth.value,
           },
           role_attributes: {
-            role: 'employee',
+            role: this.binds.role.value,
           },
         },
       };
@@ -103,7 +103,7 @@
           if (response) {
             console.log(response);
 
-            alert('Added Successfully');
+            // alert('Added Successfully');
 
           } else {
             // alert(response + '\nPlease Register again');
@@ -111,7 +111,7 @@
           }
         },
         (error) => {
-          alert(error.message);
+          // alert(error.message);
         }
       );
 

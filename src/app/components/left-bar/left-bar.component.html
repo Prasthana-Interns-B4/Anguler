@@ -25,7 +25,7 @@
               &nbsp; &nbsp; My Profile
             </p>
           </div> 
-          <div class="d-flex flex-row justify-content-start align-items-center">
+          <div class="d-flex flex-row justify-content-start align-items-center" *ngIf="role === 'hr_manager'">
             <div>
               <fa-icon [icon]="faUsers"></fa-icon>
             </div>

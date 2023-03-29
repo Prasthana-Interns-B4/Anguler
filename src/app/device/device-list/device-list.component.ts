@@ -55,8 +55,8 @@ export class DeviceListComponent implements OnInit {
         this.devices = this.listDevices.devices;
       },
       error: (err) => {
-        alert('error while fetching');
-        alert(err);
+        // alert('error while fetching');
+        // alert(err);
       },
     });
   }
@@ -85,7 +85,7 @@ export class DeviceListComponent implements OnInit {
                 this.getdevices();
               },
               error: () => {
-                alert('error while deleting');
+                // alert('error while deleting');
               },
             });
           }

@@ -22,6 +22,7 @@ export class SignupComponent implements OnInit  {
   submitted = false 
 
   users: any;
+  message:any;
 
   constructor(private formBuilder: FormBuilder, private authService: AuthService, private router:Router){}
 
@@ -31,7 +32,7 @@ export class SignupComponent implements OnInit  {
       last_name:["",[Validators.required,Validators.minLength(2)]],
       designation:["",Validators.required],
       phone_number:["",[Validators.required,Validators.minLength(10),Validators.maxLength(10)]],
-      email:["",[Validators.required,Validators.email,Validators.pattern("^([a-zA-Z_.])+\@([prasthana]{9})+\.([com]{3})+$")]],
+      email:["",[Validators.required,Validators.email,Validators.pattern("^([a-zA-Z1-9_.])+\@([prasthana]{9})+\.([com]{3})+$")]],
       password:["",[Validators.required,Validators.minLength(6)]],
       confirm_password:["",Validators.required],
       date_of_birth: [Date,[Validators.required, this.validateAge]],
@@ -86,20 +87,13 @@ export class SignupComponent implements OnInit  {
   }
     
     const data = this.users;     
-    this.authService.onSignup(data).subscribe(response => {
-      if (response.user?.id) {          
-        alert("Registered Successfully")
-        this.router.navigate(['']);
-      }else{
-        alert(response.message +'\nPlease Register again');
-        this.router.navigate(['/signup']);
-      }
-      
-    }, error => { 
-      alert(error.message);
-    });
+    this.authService.onSignup(data).subscribe(
+      res => this.router.navigate(['/login']),
+      err => {this.message = err.error.message
+      console.log(this.message)}
+    );
 
-    this.signUpForm.reset();
+    // this.signUpForm.reset();
     this.submitted = false;
   }
 

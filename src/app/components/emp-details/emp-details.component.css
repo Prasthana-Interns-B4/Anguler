@@ -1,12 +1,7 @@
 .edit-icon{
-  font-size: 1.2rem;
-  color: #999;
+  font-size: 1rem;
+  color: #090909;
   cursor: pointer;
-}
-
-
-.edit-icon:hover{
-  color: #333;
 }
 
 .name-card {

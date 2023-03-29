@@ -1,8 +1,9 @@
 .login-form{   
-    background-color:#ffffff;          
+    background-color:#f4f3f2;          
     padding: 25px;         
     border-radius: 15px;              
-    min-width: 25%;      
+    min-width: 25%;   
+    border: 1px solid #081e42;   
 }
 .item{
 	border-radius: 10px;    

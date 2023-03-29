@@ -76,7 +76,7 @@ export class EmpDetailsComponent implements OnInit {
         }
       },
       (error) => {
-        alert(error.message);
+        // alert(error.message);
       }
     );
   }
@@ -135,11 +135,12 @@ export class EmpDetailsComponent implements OnInit {
     const id = this.employee.user.id;
 
     this.authService.updateEmpDetails(updatedData, id).subscribe(
-      () => {
+      (response) => {
+        this.employee = response;
         this.closeModal();
       },
       (error) => {
-        alert(error.message);
+        // alert(error.message);
       }
     );
   }

@@ -106,7 +106,7 @@ export class EmpListComponent implements OnInit {
               {this.getCall()};
               },
               error: () => {
-                alert('error while deleting');
+                // alert('error while deleting');
               },
 
             });
@@ -124,7 +124,7 @@ export class EmpListComponent implements OnInit {
     const em_id = employee.id
     console.log(em_id); 
     localStorage.setItem('em_id',em_id);
-    this.router.navigate(['/employees/'+em_id+'/details']); 
+    this.router.navigate(['']); 
     
   }
 
