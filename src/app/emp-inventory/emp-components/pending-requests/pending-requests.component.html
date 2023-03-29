@@ -5,7 +5,7 @@
         <div class="col-12 col-md-8 m-1" *ngFor="let employee of employeesToDisplay; trackBy: trackByFn">
           <div class="name-card-container p-3 d-flex flex-row justify-content-between align-items-center">
             <div class="d-flex flex-row align-items-center">
-              <div class="name-card pt-4" [ngStyle]="{ 'background-color': '#ccc', color: '#fff' }">
+              <div class="name-card pt-4" [ngStyle]="{ color: '#fff' }">
                 {{ employee.user_detail.first_name[0] | uppercase }}{{ employee.user_detail.last_name[0] | uppercase }}
               </div>
               <div class="name-card-info ml-2">

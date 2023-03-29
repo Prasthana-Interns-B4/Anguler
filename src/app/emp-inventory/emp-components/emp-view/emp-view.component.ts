@@ -1,3 +1,4 @@
+import { DialogService } from './../../../device/services/dialog.services';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { EmpService } from './../emp-services/emp.service';
 import { Component, OnInit } from '@angular/core';
@@ -32,7 +33,8 @@ export class EmpViewComponent implements OnInit {
     private formBuilder: FormBuilder,
     private route: Router,
     private empService: EmpService,
-    private location: Location
+    private location: Location,
+    private dialog :DialogService
   ) {}
 
   ngOnInit(): void {
@@ -65,11 +67,22 @@ export class EmpViewComponent implements OnInit {
   }
 
   removeEmployee() {
-    if (confirm('Are you sure ? \n To delete this employee')) {
-      this.id = localStorage.getItem('em_id');
-      this.empService.delete(this.id).subscribe(() => {});
-      this.route.navigate(['/emp-inventory/emp-list']);
-    }
+    // if (confirm('Are you sure ? \n To delete this employee')) {
+    //   this.id = localStorage.getItem('em_id');
+    //   this.empService.delete(this.id).subscribe(() => {});
+    //   this.route.navigate(['/emp-inventory/emp-list']);
+    // }
+    this.dialog.openConfirmDialog('Are you sure want to delete this employee?')
+    .afterClosed()
+    .subscribe({
+      next:(res)=>{
+        if(res){
+          this.empService.delete(this.id).subscribe(() => {});
+          this.route.navigate(['/emp-inventory/emp-list']);
+        }
+      }
+    })
+
   }
 
   openModal() {

@@ -10,14 +10,16 @@ import {
   faTrash,
   faBackward,
 } from '@fortawesome/free-solid-svg-icons';
+import { DialogService } from 'src/app/device/services/dialog.services';
 
 @Component({
   selector: 'app-emp-details',
   templateUrl: './emp-details.component.html',
-  styleUrls: ['./emp-details.component.css']
+  styleUrls: ['./emp-details.component.css'],
 })
 export class EmpDetailsComponent implements OnInit {
-  
+  localStorage = window.localStorage;
+
   employees: any[] = [];
   faLapy = faLaptop;
   faMouse = faMouse;
@@ -29,15 +31,16 @@ export class EmpDetailsComponent implements OnInit {
   employee: any;
   devices: any[] = [];
   id: any;
-  em_id:any;
+  em_id: any;
 
   formValue!: FormGroup;
   constructor(
     private formBuilder: FormBuilder,
-    private route: Router,    
+    private route: Router,
     private location: Location,
-    private authService:AuthService,
-    private activatedRoute:ActivatedRoute,
+    private authService: AuthService,
+    private activatedRoute: ActivatedRoute,
+    private dialog: DialogService
   ) {}
 
   ngOnInit(): void {
@@ -50,13 +53,10 @@ export class EmpDetailsComponent implements OnInit {
 
     this.em_id = this.activatedRoute.snapshot.paramMap.get('id');
 
-    
-    this.authService.getEmpDetails(this.em_id).subscribe((response)=>{
-      this.employee = response
+    this.authService.getEmpDetails(this.em_id).subscribe((response) => {
+      this.employee = response;
       console.log(response);
-      
-      
-    })
+    });
 
     // this.getEmployeeDetails();
   }
@@ -81,11 +81,22 @@ export class EmpDetailsComponent implements OnInit {
   // }
 
   removeEmployee() {
-    if (confirm('Are you sure ? \n To delete this employee')) {
-      this.id = localStorage.getItem('em_id');
-      this.authService.delete(this.id).subscribe(() => {});
-      this.route.navigate(['/emp-inventory/emp-list']);
-    }
+    // if (confirm('Are you sure ? \n To delete this employee')) {
+    //   this.id = localStorage.getItem('em_id');
+    //   this.authService.delete(this.id).subscribe(() => {});
+    //   this.route.navigate(['/emp-inventory/emp-list']);
+    // }
+    this.dialog
+      .openConfirmDialog('Are you sure want to delete this employee?')
+      .afterClosed()
+      .subscribe({
+        next: (res) => {
+          if (res) {
+            this.authService.delete(this.id).subscribe(() => {});
+            this.route.navigate(['/emp-inventory/emp-list']);
+          }
+        },
+      });
   }
 
   openModal() {
@@ -140,8 +151,7 @@ export class EmpDetailsComponent implements OnInit {
     }
   }
 
-  goBack(){
+  goBack() {
     this.location.back();
   }
-
 }
