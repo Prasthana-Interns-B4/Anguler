@@ -14,6 +14,7 @@ import {
   faBell,
   faUserPlus
 } from '@fortawesome/free-solid-svg-icons';
+import { DialogService } from 'src/app/device/services/dialog.services';
 
 @Component({
   selector: 'app-emp-list',
@@ -21,6 +22,7 @@ import {
   styleUrls: ['./emp-list.component.css'],
 })
 export class EmpListComponent implements OnInit {
+  localStorage = window.localStorage;
   employees: any;
   filtered: any;
   filteredEmployees: any[] = [];
@@ -61,12 +63,14 @@ export class EmpListComponent implements OnInit {
     '#E6E6FA',
   ];
 
-  constructor(private empService: EmpService, private router: Router) {}
+  constructor(
+    private empService: EmpService,
+    private router: Router,
+    private dialog: DialogService
+  ) {}
 
   ngOnInit(): void {
     this.getCall();
-    console.log(this.employee);
-
   }
 
   trackByFn(index: number, employee: any): number {
@@ -89,14 +93,28 @@ export class EmpListComponent implements OnInit {
     });
   }
   removeEmployee(id: number) {
-    if (confirm('Are you sure?\nTo delete this employee')) {
-      this.empService.delete(id).subscribe(() => {
-        this.getCall();
-      });
-      this.router.navigate(['emp-inventory/emp-list']);
-    }
-  }
+    this.dialog
+      .openConfirmDialog('Are you sure want to delete this employee?')
+      .afterClosed()
+      .subscribe({
+        next: (_res) => {
+          console.log(_res);
+          if (_res) {
+            this.empService.delete(id)
+            .subscribe({
+              next: (res) => {
+              {this.getCall()};
+              },
+              error: () => {
+                alert('error while deleting');
+              },
 
+            });
+          }
+
+        },
+      });
+  }
   randomColor() {
     let index = Math.floor(Math.random() * this.colors.length);
     return this.colors[index];

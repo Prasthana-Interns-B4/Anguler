@@ -25,20 +25,24 @@
                     <b>Emp ID:</b> {{ employee?.user.emp_id }}
                   </p>
                   <p class="name-card-id mb-1">
-                    <b>Designation:</b> {{ employee?.user.user_detail.designation }}
+                    <b>Designation:</b>
+                    {{ employee?.user.user_detail.designation }}
                   </p>
                 </div>
               </div>
-              <div class="d-flex flex-row align-items-center">
+              <div
+                class="d-flex flex-row align-items-center"
+                *ngIf="employee?.user.role.role === 'hr_manager'"
+              >
                 <div
                   class="d-flex flex-column align-items-center me-3"
-                  (click)="openModal();onEdit(employee)"
+                  (click)="openModal(); onEdit(employee)"
                 >
                   <fa-icon [icon]="faEdit" class="edit-icon"></fa-icon>
                 </div>
                 <div class="d-flex flex-column align-items-center">
                   <fa-icon
-                  class="edit-icon"
+                    class="edit-icon"
                     [icon]="faTrash"
                     (click)="removeEmployee()"
                   ></fa-icon>

@@ -103,11 +103,11 @@
           if (response) {
             console.log(response);
 
-            alert('Registered Successfully');
+            alert('Added Successfully');
 
           } else {
-            alert(response + '\nPlease Register again');
-     
+            // alert(response + '\nPlease Register again');
+
           }
         },
         (error) => {
