@@ -33,7 +33,7 @@ export class LeftBarComponent {
 
   myProfile(){  
     const id = localStorage.getItem('id');     
-    this.route.navigate(['']); 
+    this.route.navigate(['/employees/'+id+'/details']); 
   }
 
   employeesList(){

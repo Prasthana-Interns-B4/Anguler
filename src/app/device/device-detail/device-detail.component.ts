@@ -37,7 +37,7 @@ export class DeviceDetailComponent implements OnInit {
         console.log(res);
       },
       error: () => {
-        alert('error');
+        // alert('error');
       },
     });
   }
@@ -55,7 +55,7 @@ export class DeviceDetailComponent implements OnInit {
                 if (res && res?.device) this.device = res?.device;
               },
               error: () => {
-                alert('error');
+                // alert('error');
               },
             });
           }

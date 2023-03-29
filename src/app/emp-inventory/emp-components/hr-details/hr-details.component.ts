@@ -44,7 +44,7 @@ export class HrDetailsComponent implements OnInit  {
         localStorage.clear();     
       }
   },error => {
-    alert(error.message);
+    // alert(error.message);
   });
   }
 }

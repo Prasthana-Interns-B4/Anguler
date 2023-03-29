@@ -21,9 +21,12 @@
                   {{ employee?.user.user_detail.last_name }}
                 </h2>
                 <div class="d-flex flex-column">
-                  <p class="name-card-id mb-1">{{ employee?.user.email }}</p>
+                  <p class="name-card-id mb-1"><b>Email:</b> {{ employee?.user.email }}</p>
                   <p class="name-card-id mb-1">
-                    {{ employee?.user.user_detail.phone_number }}
+                    <b>Phone:</b> {{ employee?.user.user_detail.phone_number }}
+                  </p>
+                  <p class="name-card-id mb-1">
+                    <b>DOB:</b> {{ employee?.user.user_detail.date_of_birth }}
                   </p>
                   <p class="name-card-id mb-1">
                     <b>Emp ID:</b> {{ employee?.user.emp_id }}
@@ -33,19 +36,20 @@
                   </p>
                 </div>
               </div>
-              <div class="d-flex flex-row align-items-center" *ngIf="localStorage.getItem('role')==='hr_manager'">
+              <div class="d-flex flex-row align-items-center">
                 <div
                   class="d-flex flex-column align-items-center me-3"
                   (click)="openModal();onEdit(employee)"
                 >
-                  <fa-icon [icon]="faEdit"></fa-icon>
+                  <fa-icon [icon]="faEdit" class="edit-icon"></fa-icon>
                 </div>
-                <div class="d-flex flex-column align-items-center">
+                <!-- <div class="d-flex flex-column align-items-center">
                   <fa-icon
                     [icon]="faTrash"
+                    class="edit-icon"
                     (click)="removeEmployee()"
                   ></fa-icon>
-                </div>
+                </div> -->
               </div>
             </div>
           </div>
@@ -73,9 +77,9 @@
                     />
                   </div>
                   <div class="col-8">
-                    <h3>{{ device.name }}</h3>
+                    <h3 ><b>{{ device.name }}</b></h3>
                     <p>{{ device.os }}</p>
-                    <p>Device ID: {{ device.tag_no }}</p>
+                    <p>{{ device.tag_no }}</p>
                   </div>
                 </div>
               </div>

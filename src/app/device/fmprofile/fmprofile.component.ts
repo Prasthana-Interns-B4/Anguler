@@ -42,7 +42,7 @@ export class FmprofileComponent implements OnInit  {
         localStorage.clear();     
       }
   },error => {
-    alert(error.message);
+    // alert(error.message);
   });
   }
 

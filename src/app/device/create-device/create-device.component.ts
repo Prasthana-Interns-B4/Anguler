@@ -32,7 +32,7 @@ export class CreateDeviceComponent implements OnInit {
           this.route.navigate(['device/device-list']);
         },
         error: (e) => {
-          alert('error while adding');
+          // alert('error while adding');
         },
         complete: () => {
           console.info('complete');

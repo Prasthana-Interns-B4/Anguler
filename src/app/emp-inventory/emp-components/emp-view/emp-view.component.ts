@@ -61,7 +61,7 @@ export class EmpViewComponent implements OnInit {
         }
       },
       (error) => {
-        alert(error.message);
+        // alert(error.message);
       }
     );
   }

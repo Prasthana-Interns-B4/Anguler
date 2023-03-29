@@ -1,33 +1,87 @@
 <div class="d-flex flex-row sidenav" style="min-height: 89.3vh">
-<!-- LEFTBAR NAVIGATION SECTION -->
-  <div
-    class="d-flex flex-column justify-content-between p-3"
-    style="
-      background-color: #1d3c6a;
-      color: #fff;
-      width: 15vw;"
-  >
-    <div class="d-flex flex-column justify-content-center">
-      <div class="d-flex flex-row justify-content-start align-items-center">
-        <div>
-          <fa-icon [icon]="faUser"></fa-icon>
+  <!-- LEFTBAR NAVIGATION SECTION -->
+    <div
+      class="d-flex flex-column justify-content-between p-3"
+      style="
+        background-color: #1d3c6a;
+        color: #fff;
+        width: 15vw;
+"
+    >
+      <div class="d-flex flex-column justify-content-center">
+        <div class="d-flex flex-row justify-content-start align-items-center">
+          <div>
+            <fa-icon [icon]="faUser"></fa-icon>
+          </div>
+          <p
+            class="text-white m-2"
+            style="
+              font-size: 20px;
+              font-weight: 600;
+              cursor: pointer;
+              text-align: start;
+            "
+            (click)="myProfile()"
+          >
+            &nbsp; &nbsp; My Profile
+          </p>
         </div>
-        <p
-          class="text-white m-2"
-          style="
-            font-size: 20px;
-            font-weight: 600;
-            cursor: pointer;
-            text-align: start;
-          "
-          (click)="myProfile()"
-        >
-          &nbsp; &nbsp; My Profile
-        </p>
+        <div class="d-flex flex-row justify-content-start align-items-center">
+          <div>
+            <fa-icon [icon]="faUsers"></fa-icon>
+          </div>
+          <p
+            class="text-white m-2"
+            style="
+              font-size: 20px;
+              font-weight: 600;
+              cursor: pointer;
+              text-align: start;
+            "
+            (click)="employeesList()"
+          >
+            &nbsp;&nbsp; Employees List
+          </p>
+        </div>
+        <div class="d-flex flex-row justify-content-start align-items-center">
+          <div>
+            <fa-icon [icon]="faUser"></fa-icon>
+          </div>
+          <p
+            class="text-white m-2"
+            style="
+              font-size: 20px;
+              font-weight: 600;
+              cursor: pointer;
+              text-align: start;
+            "
+            (click)="addEmployee()"
+          >
+            &nbsp; &nbsp; Add Employee
+          </p>
+        </div>
+        <div class="d-flex flex-row justify-content-start align-items-center">
+          <div>
+            <fa-icon [icon]="faUser"></fa-icon>
+          </div>
+          <p
+            class="text-white m-2"
+            style="
+              font-size: 20px;
+              font-weight: 600;
+              cursor: pointer;
+              text-align: start;
+            "
+            (click)="pendingRequest()"
+          >
+            &nbsp; &nbsp; Pending Requests
+          </p>
+        </div>
       </div>
+  
       <div class="d-flex flex-row justify-content-start align-items-center">
         <div>
-          <fa-icon [icon]="faUsers"></fa-icon>
+          <fa-icon [icon]="faPowerOff"></fa-icon>
         </div>
         <p
           class="text-white m-2"
@@ -37,69 +91,13 @@
             cursor: pointer;
             text-align: start;
           "
-          (click)="employeesList()"
+          (click)="logout()"
         >
-          &nbsp;&nbsp; Employees List
-        </p>
-      </div>
-      <div class="d-flex flex-row justify-content-start align-items-center">
-        <div>
-          <fa-icon [icon]="faUser"></fa-icon>
-        </div>
-        <p
-          class="text-white m-2"
-          style="
-            font-size: 20px;
-            font-weight: 600;
-            cursor: pointer;
-            text-align: start;
-          "
-          (click)="addEmployee()"
-        >
-          &nbsp; &nbsp; Add Employee
-        </p>
-      </div>
-      <div class="d-flex flex-row justify-content-start align-items-center">
-        <div>
-          <fa-icon [icon]="faUser"></fa-icon>
-        </div>
-        <p
-          class="text-white m-2"
-          style="
-            font-size: 20px;
-            font-weight: 600;
-            cursor: pointer;
-            text-align: start;
-          "
-          (click)="pendingRequest()"
-        >
-          &nbsp; &nbsp; Pending Requests
+          &nbsp;&nbsp; Logout
         </p>
       </div>
     </div>
-
-    <div class="d-flex flex-row justify-content-start align-items-center">
-      <div>
-        <fa-icon [icon]="faPowerOff"></fa-icon>
-      </div>
-      <p
-        class="text-white m-2"
-        style="
-          font-size: 20px;
-          font-weight: 600;
-          cursor: pointer;
-          text-align: start;
-        "
-        (click)="logout()"
-      >
-        &nbsp;&nbsp; Logout
-      </p>
+    <div class="col-12 col-lg-9 device-list" >
+        <router-outlet></router-outlet>
     </div>
   </div>
-  <div class="d-flex flex-row justify-content-center align-items-center">
-  <div class="col-12 col-lg-9 device-list" >
-      <router-outlet></router-outlet>
-  </div>
-</div>
-
-
