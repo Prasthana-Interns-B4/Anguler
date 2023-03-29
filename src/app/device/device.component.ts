@@ -28,7 +28,8 @@ export class DeviceComponent implements OnInit {
   }
 
   myProfile(){       
-    this.route.navigate(['device/fm-details']);
+    const id = localStorage.getItem('id');     
+    this.route.navigate(['/employees/'+id+'/details']); 
   }
 
   addDevice(){
@@ -45,7 +46,7 @@ export class DeviceComponent implements OnInit {
 
   logout(){
     this.authService.onLogout().subscribe(() => {});   
-    this.route.navigate(['']);
+    this.route.navigate(['/login']);
     localStorage.clear();  
   }
 }

@@ -51,7 +51,10 @@ export class EmpInventoryComponent implements OnInit {
 
   logout(){
     this.authService.onLogout().subscribe(() => {});
-    this.route.navigate(['']);
+    this.route.navigate(['/login']);
     localStorage.clear();
+  }
+  refreshPage() {
+    window.location.reload();
   }
 }

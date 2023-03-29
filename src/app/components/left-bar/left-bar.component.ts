@@ -33,7 +33,7 @@ export class LeftBarComponent {
 
   myProfile(){  
     const id = localStorage.getItem('id');     
-    this.route.navigate(['/employees/'+id+'/details']); 
+    this.route.navigate(['']); 
   }
 
   employeesList(){
@@ -60,6 +60,9 @@ export class LeftBarComponent {
     this.authService.onLogout().subscribe(() => {});
     this.route.navigate(['/login']);
     localStorage.clear();  
+  }
+  refreshPage() {
+    window.location.reload();
   }
 
 }

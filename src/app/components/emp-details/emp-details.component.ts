@@ -50,35 +50,36 @@ export class EmpDetailsComponent implements OnInit {
       dob: ['', [Validators.required]],
       phoneNumber: ['', [Validators.required]],
     });
-
-    this.em_id = this.activatedRoute.snapshot.paramMap.get('id');
-
-    this.authService.getEmpDetails(this.em_id).subscribe((response) => {
-      this.employee = response;
-      console.log(response);
-    });
-
-    // this.getEmployeeDetails();
+    
+    if (localStorage.getItem('em_id') ){
+      this.id = localStorage.getItem('em_id');
+      this.getEmployeeDetails(this.id);   
+      localStorage.removeItem('em_id');        
+    }else{
+      // this.id = this.activatedRoute.snapshot.paramMap.get('id');  
+      this.id = localStorage.getItem('id');
+      console.log(this.id);  
+      this.getEmployeeDetails(this.id); 
+      
+    }    
   }
 
-  // getEmployeeDetails() {
-  //   this.id = localStorage.getItem('id');
-  //   this.authService.getEmpDetails(this.id).subscribe(
-  //     (response) => {
-  //       if (response) {
-  //         this.employee = response;
-  //         this.devices = this.employee.user.devices;
-  //       } else {
-  //         this.authService.onLogout().subscribe(() => {});
-  //         this.route.navigate(['/login']);
-  //         localStorage.clear();
-  //       }
-  //     },
-  //     (error) => {
-  //       alert(error.message);
-  //     }
-  //   );
-  // }
+  getEmployeeDetails(id:number) {    
+    this.authService.getEmpDetails(this.id).subscribe(
+      (response) => {
+        if (response) {
+          this.employee = response;          
+        } else {
+          this.authService.onLogout().subscribe(() => {});
+          this.route.navigate(['']);
+          localStorage.clear();
+        }
+      },
+      (error) => {
+        alert(error.message);
+      }
+    );
+  }
 
   removeEmployee() {
     // if (confirm('Are you sure ? \n To delete this employee')) {
@@ -135,7 +136,6 @@ export class EmpDetailsComponent implements OnInit {
 
     this.authService.updateEmpDetails(updatedData, id).subscribe(
       () => {
-        // this.getEmployeeDetails();
         this.closeModal();
       },
       (error) => {
@@ -150,8 +150,8 @@ export class EmpDetailsComponent implements OnInit {
       modelDiv.style.display = 'none';
     }
   }
-
-  goBack() {
-    this.location.back();
+  
+  refreshPage() {
+    window.location.reload();
   }
 }

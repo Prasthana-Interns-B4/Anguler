@@ -15,6 +15,10 @@
         class="col-12 col-md-8 m-1"
         *ngFor="let employee of employeesToDisplay; trackBy: trackByFn"
       >
+        <div class="name-card-container p-3" (click)="viewDetails(employee)" >
+
+          <div class="d-flex justify-content-end">
+            <fa-icon [icon]="faTrash" class="delete-icon" (click)="removeEmployee(employee.id);$event.stopPropagation()"></fa-icon>
         <div
           class="name-card-container p-3"
           routerLink="/employees/{{ employee.id }}/details"

@@ -120,12 +120,12 @@ export class EmpListComponent implements OnInit {
     return this.colors[index];
   }
 
-  viewDetails(employee: any) {
-    const em_id = employee.id;
-    console.log(em_id);
-
-    // this.router.navigate(['/employees/'+em_id+'/details']);
-    console.log(employee);
+  viewDetails(employee: any) {  
+    const em_id = employee.id
+    console.log(em_id); 
+    localStorage.setItem('em_id',em_id);
+    this.router.navigate(['/employees/'+em_id+'/details']); 
+    
   }
 
   refreshPage() {

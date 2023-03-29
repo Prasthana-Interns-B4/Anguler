@@ -45,8 +45,6 @@ import { AssignEmployeeComponent } from './assign-employee/assign-employee.compo
   ],
   exports: [DeviceComponent, DeviceListComponent, DeviceDetailComponent],
   entryComponents: [DialogComponent],
-    
- 
-  
 })
+
 export class DeviceModule {}

@@ -5,24 +5,9 @@
     style="
       background-color: #1d3c6a;
       color: #fff;
-      width: 16vw;
-      margin-top: 65px;"
+      width: 15vw;"
   >
     <div class="d-flex flex-column justify-content-center">
-      <div class="d-flex flex-row justify-content-start align-items-center mb-3">
-        <button
-          class="btn btn-secondary m-2"
-          style="
-            font-size: 15px;
-            font-weight: 600;
-            cursor: pointer;
-            text-align: start;            
-          "
-          (click)="goBack()"
-        ><fa-icon [icon]="faBackward"></fa-icon>
-          &nbsp;Back
-        </button>
-      </div>
       <div class="d-flex flex-row justify-content-start align-items-center">
         <div>
           <fa-icon [icon]="faUser"></fa-icon>
@@ -111,6 +96,7 @@
       </p>
     </div>
   </div>
+  <div class="d-flex flex-row justify-content-center align-items-center">
   <div class="col-12 col-lg-9 device-list" >
       <router-outlet></router-outlet>
   </div>
