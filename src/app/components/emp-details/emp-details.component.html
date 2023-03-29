@@ -1,14 +1,14 @@
-<div class="d-flex flex-row" style="min-height: 0vh">
+<div class="d-flex flex-row" >
   <app-left-bar></app-left-bar>
   <div class="container p-2" >
-    <div class="row scroll" style="height: 85vh; overflow-y: scroll; width: 75vw">
+    <div class="row scroll" style="height: auto; overflow-y: scroll; width: 75vw">
       <!-- <div class="d-flex flex-row justify-content-start align-items-center mb-3"> -->
 
       <!-- </div> -->
       <div class="col-12 col-md-9 p-3">
         <div class="name-card-container view-Bg mt-5">
           <div
-            class="d-flex flex-row justify-content-center align-items-center w-100 ms-4"
+            class="d-flex flex-row justify-content-center align-items-center w-100 "
           >
             <div class="name-card md-me-3" [ngStyle]="{ color: '#fff' }">
               {{ employee?.user.user_detail.first_name[0] | uppercase
@@ -51,13 +51,15 @@
           </div>
         </div>
       </div>
-
-      <h1 class="col-12 col-md-8 col-lg-7 m-3" style="font-size: 25px">
+      <div *ngIf="employee?.user.devices.length > 0">
+        <h1 class="col-12 col-md-8 col-lg-7 m-3" style="font-size: 25px">
         Devices Assigned
-      </h1>
+        </h1>
+      </div>      
       <div *ngFor="let device of employee?.user.devices">
-        <div class="col-12 col-md-8 m-1">
-          <div class="name-card-container p-3" style="background-color: #fff">
+        <div class="col-12 col-md-8">
+
+          <div class="name-card-container" style="background-color: #fff">
             <div
               class="d-flex flex-row justify-content-between align-items-center w-100"
             >

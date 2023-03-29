@@ -16,11 +16,11 @@ import { AuthGuard } from './services/auth.guard';
 import { HrGuard } from './services/hr.guard';
 import { FmGuard } from './services/fm.guard';
 
-const routes: Routes = [  
+const routes: Routes = [
 
-  { path:'login',component:LoginComponent, }, 
-  { path:'signup',component:SignupComponent },
-  { path:'',component:EmpDetailsComponent,  canActivate: [AuthGuard] },  
+  { path:'',component:EmpDetailsComponent,canActivate: [AuthGuard] },  
+  { path:'login',component:LoginComponent, canActivate: []}, 
+  { path:'signup',component:SignupComponent },  
   { path:'employees/:id/details',component:EmpDetailsComponent,  canActivate: [AuthGuard] },  
 
 

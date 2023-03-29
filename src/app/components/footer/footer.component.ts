@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 //fontawesome icons
-import { faWhatsapp, faTwitter,  faFacebookF, faInstagramSquare } from '@fortawesome/free-brands-svg-icons';
+import { faWhatsapp, faTwitter,  faFacebookF, faInstagramSquare, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons'
 
 @Component({
@@ -15,4 +15,5 @@ export class FooterComponent {
   faFacebookF = faFacebookF;
   faInstagramSquare = faInstagramSquare;
   faEnvelope = faEnvelope;
+  faLinkedin = faLinkedin;
 }

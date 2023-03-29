@@ -30,12 +30,12 @@ export class SignupComponent implements OnInit  {
       first_name:["",[Validators.required,Validators.minLength(3)]],
       last_name:["",[Validators.required,Validators.minLength(2)]],
       designation:["",Validators.required],
-      phone_number:["",Validators.required],
+      phone_number:["",[Validators.required,Validators.minLength(10),Validators.maxLength(10)]],
       email:["",[Validators.required,Validators.email,Validators.pattern("^([a-zA-Z_.])+\@([prasthana]{9})+\.([com]{3})+$")]],
       password:["",[Validators.required,Validators.minLength(6)]],
       confirm_password:["",Validators.required],
       date_of_birth: [Date,[Validators.required, this.validateAge]],
-      role : 'employee',
+      role : ["",Validators.required],
     },{
         validators: PasswordChecker("password","confirm_password"),         
     });
@@ -80,7 +80,7 @@ export class SignupComponent implements OnInit  {
         date_of_birth : this.binds.date_of_birth.value,
       },
       role_attributes : {
-        role : 'employee',
+        role : this.binds.role.value,
       }
     }
   }
@@ -101,6 +101,10 @@ export class SignupComponent implements OnInit  {
 
     this.signUpForm.reset();
     this.submitted = false;
+  }
+
+  onClickLogin(){
+      this.router.navigate(['/login']);
   }
 
 }
