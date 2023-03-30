@@ -38,6 +38,7 @@ export class EmpService {
   updateEmpDetails(updatedData: any, id: number) {
     return this.http.put(this.baseUrl + '/' + id, updatedData);
   }
+  
   onLogout(): Observable<any> {
     return this.http.delete(this.baseUrl + '/sign_out');
   }
