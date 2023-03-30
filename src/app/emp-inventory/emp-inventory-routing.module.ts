@@ -5,6 +5,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AddEmployeeComponent } from './emp-components/add-employee/add-employee.component';
 import { EmpListComponent } from './emp-components/emp-list/emp-list.component';
 import { PendingRequestsComponent } from './emp-components/pending-requests/pending-requests.component';
+
 const routes: Routes = [
   { path: 'list', component: EmpListComponent },
   { path: 'pending-requests', component: PendingRequestsComponent },

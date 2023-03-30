@@ -9,9 +9,9 @@
           min-height: 89.3vh;"
       >
         <div class="d-flex flex-column justify-content-center">
-          <div class="d-flex flex-row justify-content-start align-items-center" (click)="myProfile()">
+          <div class="d-flex flex-row justify-content-start align-items-center mt-2"  (click)="myProfile()">
             <div>
-              <fa-icon [icon]="faUser"></fa-icon>
+              <fa-icon [icon]="faUser" style="font-size:1.1rem"></fa-icon>
             </div>
             <p
               class="text-white m-2"
@@ -25,9 +25,9 @@
               &nbsp; &nbsp; My Profile
             </p>
           </div> 
-          <div class="d-flex flex-row justify-content-start align-items-center" *ngIf="role === 'hr_manager'">
+          <div class="d-flex flex-row justify-content-start align-items-center  mt-2" *ngIf="role === 'hr_manager'">
             <div>
-              <fa-icon [icon]="faUsers"></fa-icon>
+              <fa-icon [icon]="faUsers" style="font-size:1.1rem"></fa-icon>
             </div>
             <p
               class="text-white m-2"
@@ -42,9 +42,9 @@
               &nbsp;&nbsp; Employees List
             </p>
           </div>
-          <div class="d-flex flex-row justify-content-start align-items-center" *ngIf="role === 'hr_manager'">
+          <div class="d-flex flex-row justify-content-start align-items-center mt-2" *ngIf="role === 'hr_manager'">
             <div>
-              <fa-icon [icon]="faUser"></fa-icon>
+              <fa-icon [icon]="faUserPlus" style="font-size:1.1rem"></fa-icon>
             </div>
             <p
               class="text-white m-2"
@@ -59,9 +59,9 @@
               &nbsp; &nbsp; Add Employee
             </p>
           </div>
-          <div class="d-flex flex-row justify-content-start align-items-center" *ngIf="role === 'hr_manager'">
+          <div class="d-flex flex-row justify-content-start align-items-center mt-2" *ngIf="role === 'hr_manager'">
             <div>
-              <fa-icon [icon]="faUser"></fa-icon>
+              <fa-icon [icon]="faSquarePersonConfined" style="font-size:1.1rem"></fa-icon>
             </div>
             <p
               class="text-white m-2"
@@ -77,9 +77,9 @@
             </p>
           </div>   
           
-          <div class="d-flex flex-row justify-content-start align-items-center" *ngIf="role === 'facility_manager'">
+          <div class="d-flex flex-row justify-content-start align-items-center  mt-2" *ngIf="role === 'facility_manager'">
             <div>
-              <fa-icon [icon]="faUsers"></fa-icon>
+              <fa-icon [icon]="faAdd" style="font-size:1.1rem"></fa-icon>
             </div>
             <p
               class="text-white m-2"
@@ -95,9 +95,9 @@
             </p>
           </div>
           
-          <div class="d-flex flex-row justify-content-start align-items-center" *ngIf="role === 'facility_manager'">
+          <div class="d-flex flex-row justify-content-start align-items-center mt-2" *ngIf="role === 'facility_manager'">
             <div>
-              <fa-icon [icon]="faUser"></fa-icon>
+              <fa-icon [icon]="faListSquares" style="font-size:1.1rem"></fa-icon>
             </div>
             <p
               class="text-white m-2"
@@ -118,9 +118,9 @@
 
 
 
-        <div class="d-flex flex-row justify-content-start align-items-center" (click)="logout()">
+        <div class="d-flex flex-row justify-content-start align-items-center  mt-2" (click)="logout()">
           <div>
-            <fa-icon [icon]="faPowerOff"></fa-icon>
+            <fa-icon [icon]="faPowerOff" style="font-size:1.1rem"></fa-icon>
           </div>
           <p
             class="text-white m-2"

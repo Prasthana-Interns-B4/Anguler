@@ -12,7 +12,13 @@ import {
   faPowerOff,
   faUser,
   faBell,
-  faUserPlus
+  faUserPlus,
+  faBottleWater,
+  faDesktop,
+  faShirt,
+  faHeadset,
+  faSuitcase,
+  faMobile,
 } from '@fortawesome/free-solid-svg-icons';
 import { DialogService } from 'src/app/device/services/dialog.services';
 
@@ -34,8 +40,16 @@ export class EmpListComponent implements OnInit {
 
   faLapy = faLaptop;
   faMouse = faMouse;
+  faDesktop = faDesktop;
+
+  faMobile = faMobile;
+
+  faSuitcase = faSuitcase;
+  faBottleWater = faBottleWater;
   faUsers = faUsers;
   faUser = faUser;
+  faShirt = faShirt;
+  faHeadset = faHeadset;
   faBell = faBell;
   faPowerOff = faPowerOff;
   faTrash = faTrash;
@@ -89,7 +103,6 @@ export class EmpListComponent implements OnInit {
       this.filtered = response;
       this.filteredEmployees = this.filtered.users;
       this.employeesToDisplay = this.filteredEmployees;
-      console.log(this.filteredEmployees);
     });
   }
   removeEmployee(id: number) {
@@ -124,8 +137,7 @@ export class EmpListComponent implements OnInit {
     const em_id = employee.id
     console.log(em_id); 
     localStorage.setItem('em_id',em_id);
-    this.router.navigate(['']); 
-    
+    this.router.navigate(['']);   
   }
 
   refreshPage() {

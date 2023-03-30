@@ -2,14 +2,11 @@
   
   .device-list {
     padding:20px;
-    margin-top: 70px;
     margin-left: auto;
     margin-right:auto;
     overflow-y:auto;
-    height: 82vh;
+    height: 89.3vh;
     background-color:#f2f2f6;
-    
-    
   }
   .sidenav{
     background-color:#f2f2f6;

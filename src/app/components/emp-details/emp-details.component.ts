@@ -18,7 +18,7 @@ import { DialogService } from 'src/app/device/services/dialog.services';
   styleUrls: ['./emp-details.component.css'],
 })
 export class EmpDetailsComponent implements OnInit {
-  localStorage = window.localStorage;
+
 
   employees: any[] = [];
   faLapy = faLaptop;
@@ -37,9 +37,7 @@ export class EmpDetailsComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private route: Router,
-    private location: Location,
     private authService: AuthService,
-    private activatedRoute: ActivatedRoute,
     private dialog: DialogService
   ) {}
 
@@ -71,7 +69,7 @@ export class EmpDetailsComponent implements OnInit {
           this.employee = response;          
         } else {
           this.authService.onLogout().subscribe(() => {});
-          this.route.navigate(['']);
+          this.route.navigate(['/login']);
           localStorage.clear();
         }
       },
@@ -94,7 +92,7 @@ export class EmpDetailsComponent implements OnInit {
         next: (res) => {
           if (res) {
             this.authService.delete(this.id).subscribe(() => {});
-            this.route.navigate(['/emp-inventory/emp-list']);
+            this.route.navigate(['/employees/list']);
           }
         },
       });

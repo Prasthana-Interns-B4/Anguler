@@ -7,7 +7,11 @@ import {
   faUsers,
   faPowerOff,
   faUser,
+  faUserPlus,
   faBackward,
+  faSquarePersonConfined,
+  faAdd,
+  faListSquares,
 } from '@fortawesome/free-solid-svg-icons';
 
 
@@ -21,7 +25,11 @@ export class LeftBarComponent {
   faUsers = faUsers;
   faUser = faUser;
   faPowerOff = faPowerOff;
-  faBackward = faBackward
+  faBackward = faBackward;
+  faUserPlus = faUserPlus;
+  faSquarePersonConfined = faSquarePersonConfined;
+  faAdd = faAdd;
+  faListSquares = faListSquares;
   
   constructor (private route: Router, private authService:AuthService, private location: Location){}
  

@@ -6,7 +6,9 @@ import {
   faUsers,
   faPowerOff,
   faUser,
-  faBackward
+  faBackward,
+  faAdd, 
+  faListSquares
 } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
@@ -19,6 +21,8 @@ export class DeviceComponent implements OnInit {
   faUser = faUser;
   faPowerOff = faPowerOff;
   faBackward =faBackward;
+  faAdd = faAdd;
+  faListSquares =   faListSquares;
   constructor( private route: Router, private authService:AuthService,private location: Location ) {}
 
   ngOnInit(): void {}

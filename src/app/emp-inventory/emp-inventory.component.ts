@@ -6,7 +6,9 @@ import {
   faUsers,
   faPowerOff,
   faUser,
-  faBackward
+  faUserPlus,
+  faBackward,
+  faSquarePersonConfined,
 } from '@fortawesome/free-solid-svg-icons';
 
 
@@ -22,6 +24,8 @@ export class EmpInventoryComponent implements OnInit {
   faUser = faUser;
   faPowerOff = faPowerOff;
   faBackward = faBackward;
+  faUserPlus = faUserPlus;
+  faSquarePersonConfined = faSquarePersonConfined;
 
   ngOnInit(): void {}
 
@@ -34,7 +38,7 @@ export class EmpInventoryComponent implements OnInit {
 
   myProfile(){  
     const id = localStorage.getItem('id');     
-    this.route.navigate(['']); 
+    this.route.navigate(['/employees/'+id+'/details']);
   }
 
   employeesList(){
