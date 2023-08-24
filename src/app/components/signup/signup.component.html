@@ -1,283 +1,392 @@
 <!-- COROUSEL & REGISTRATION FORM SECTION -->
 <div class="container-fluid">
-      <div class="row" style="background-color: #fff;
-          min-height: 89.3vh;">
-        <div class="d-flex flex-row justify-content-center align-items-center">
-          <!-- COROUSEL SECTION -->
+  <div class="row" style="background-color: #fff; min-height: 89.3vh">
+    <div class="d-flex flex-row justify-content-center align-items-center">
+      <!-- COROUSEL SECTION -->
+      <div
+        id="carouselExampleIndicators"
+        class="d-none d-lg-block carousel slide m-5 shadow"
+        data-bs-ride="carousel"
+        data-bs-interval="4000"
+      >
+        <div class="carousel-indicators">
+          <button
+            type="button"
+            data-bs-target="#carouselExampleIndicators"
+            data-bs-slide-to="0"
+            class="active"
+            aria-current="true"
+            aria-label="Slide 1"
+          ></button>
+          <button
+            type="button"
+            data-bs-target="#carouselExampleIndicators"
+            data-bs-slide-to="1"
+            aria-label="Slide 2"
+          ></button>
+          <button
+            type="button"
+            data-bs-target="#carouselExampleIndicators"
+            data-bs-slide-to="2"
+            aria-label="Slide 3"
+          ></button>
+        </div>
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img
+              src="https://github.com/Prasthana-Interns-B4/inventory-web/blob/dev/src/app/assets/image1.png"
+              class="d-block w-100"
+              style="
+                height: 450px;
+                border-radius: 20px;
+                border: 3px solid #081e42;
+              "
+              alt="Image1"
+            />
+          </div>
+          <div class="carousel-item">
+            <img
+              src="https://github.com/Prasthana-Interns-B4/inventory-web/blob/dev/src/app/assets/image2.png"
+              class="d-block w-100"
+              style="height: 450px; border-radius: 20px"
+              alt="Image2"
+            />
+          </div>
+          <div class="carousel-item">
+            <img
+              src="https://github.com/Prasthana-Interns-B4/inventory-web/blob/dev/src/app/assets/image3.png"
+              class="d-block w-100"
+              style="height: 450px; border-radius: 20px"
+              alt="Image3"
+            />
+          </div>
+        </div>
+        <button
+          class="carousel-control-prev"
+          type="button"
+          data-bs-target="#carouselExampleIndicators"
+          data-bs-slide="prev"
+        >
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button
+          class="carousel-control-next"
+          type="button"
+          data-bs-target="#carouselExampleIndicators"
+          data-bs-slide="next"
+        >
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+      <!-- FORM SECTION -->
+      <div class="registration-form shadow">
+        <form [formGroup]="signUpForm" (ngSubmit)="onSubmit()">
+          <p style="color: #dc384b">{{ message }}</p>
+          <div class="form-group">
+            <input
+              type="text"
+              class="form-control item mt-3"
+              formControlName="first_name"
+              [ngClass]="{
+                invalid: binds.first_name.touched && binds.first_name.errors
+              }"
+              placeholder="First Name"
+              ngModel
+            />
+          </div>
           <div
-            id="carouselExampleIndicators"
-            class="d-none d-lg-block carousel slide m-5 shadow"
-            data-bs-ride="carousel"
-            data-bs-interval="4000"
+            *ngIf="binds.first_name.touched && binds.first_name.errors"
+            class="text-danger d-flex flex-row justify-content-start mt-1"
           >
-            <div class="carousel-indicators">
-              <button
-                type="button"
-                data-bs-target="#carouselExampleIndicators"
-                data-bs-slide-to="0"
-                class="active"
-                aria-current="true"
-                aria-label="Slide 1"
-              ></button>
-              <button
-                type="button"
-                data-bs-target="#carouselExampleIndicators"
-                data-bs-slide-to="1"
-                aria-label="Slide 2"
-              ></button>
-              <button
-                type="button"
-                data-bs-target="#carouselExampleIndicators"
-                data-bs-slide-to="2"
-                aria-label="Slide 3"
-              ></button>
-            </div>
-            <div class="carousel-inner">
-              <div class="carousel-item active">
-                <img
-                  src="https://imgtr.ee/images/2023/03/28/93YQx.png"
-                  class="d-block w-100"
-                  style="height:450px;border-radius:20px;
-                  border:3px solid #081e42"
-
-                  alt="Image1"
-                />
-              </div>
-              <div class="carousel-item">
-                <img
-                  src="https://imgtr.ee/images/2023/03/28/93ZeJ.png"
-                  class="d-block w-100"
-                  style="height:450px;border-radius:20px;
-                  border:3px solid #081e42"
-                  alt="Image2"
-                />
-              </div>
-              <div class="carousel-item">
-                <img
-                  src="https://imgtr.ee/images/2023/03/28/93r1r.png"
-                  class="d-block w-100"
-                  style="height:450px;border-radius:20px;
-                  border:3px solid #081e42"
-                  alt="Image3"
-                />
-              </div>
-            </div>
-            <button
-              class="carousel-control-prev"
-              type="button"
-              data-bs-target="#carouselExampleIndicators"
-              data-bs-slide="prev"
+            <div
+              *ngIf="binds.first_name.errors.required"
+              style="font-size: 13px"
             >
-              <span
-                class="carousel-control-prev-icon"
-                aria-hidden="true"
-              ></span>
-              <span class="visually-hidden">Previous</span>
-            </button>
-            <button
-              class="carousel-control-next"
-              type="button"
-              data-bs-target="#carouselExampleIndicators"
-              data-bs-slide="next"
+              First Name is required
+            </div>
+            <div
+              *ngIf="binds.first_name.errors.minlength"
+              style="font-size: 13px"
             >
-              <span
-                class="carousel-control-next-icon"
-                aria-hidden="true"
-              ></span>
-              <span class="visually-hidden">Next</span>
+              First Name must be at least 3 characters
+            </div>
+          </div>
+          <div class="form-group">
+            <input
+              type="text"
+              class="form-control item mt-3"
+              formControlName="last_name"
+              [ngClass]="{
+                invalid: binds.last_name.touched && binds.last_name.errors
+              }"
+              placeholder="Last Name"
+              ngModel
+            />
+          </div>
+          <div
+            *ngIf="binds.last_name.touched && binds.last_name.errors"
+            class="text-danger d-flex flex-row justify-content-start mt-1"
+          >
+            <div
+              *ngIf="binds.last_name.errors.required"
+              style="font-size: 13px"
+            >
+              Last Name is required
+            </div>
+            <div
+              *ngIf="binds.last_name.errors.minlength"
+              style="font-size: 13px"
+            >
+              Last Name must be at least 2 characters
+            </div>
+          </div>
+          <div class="form-group">
+            <input
+              type="text"
+              class="form-control item mt-3"
+              formControlName="designation"
+              [ngClass]="{
+                invalid: binds.designation.touched && binds.designation.errors
+              }"
+              placeholder="Designation"
+              ngModel
+            />
+          </div>
+          <div
+            *ngIf="binds.designation.touched && binds.designation.errors"
+            class="text-danger d-flex flex-row justify-content-start mt-1"
+          >
+            <div
+              *ngIf="binds.designation.errors.required"
+              style="font-size: 13px"
+            >
+              Designation is required
+            </div>
+          </div>
+          <div class="form-group">
+            <select
+              type="text"
+              class="form-select form-control item mt-3"
+              formControlName="role"
+              [ngClass]="{ invalid: binds.role.touched && binds.role.errors }"
+              placeholder="Role"
+              ngModel
+            >
+              <option value="" disabled selected>Select the role</option>
+              <option value="hr_manager">HR Manager</option>
+              <option value="facility_manager">Facility Manager</option>
+              <option value="employee">Employee</option>
+            </select>
+          </div>
+          <div
+            *ngIf="binds.role.touched && binds.role.errors"
+            class="text-danger d-flex flex-row justify-content-start mt-1"
+          >
+            <div *ngIf="binds.role.errors.required" style="font-size: 13px">
+              Role is required
+            </div>
+          </div>
+          <div class="form-group">
+            <input
+              type="text"
+              class="form-control item mt-3"
+              formControlName="phone_number"
+              [ngClass]="{
+                invalid: binds.phone_number.touched && binds.phone_number.errors
+              }"
+              placeholder="Phone Number"
+              ngModel
+            />
+          </div>
+          <div
+            *ngIf="binds.phone_number.touched && binds.phone_number.errors"
+            class="text-danger d-flex flex-row justify-content-start mt-1"
+          >
+            <div
+              *ngIf="binds.phone_number.errors.required"
+              style="font-size: 13px"
+            >
+              Phone Number is required
+            </div>
+            <div
+              *ngIf="
+                binds.phone_number.errors.minlength ||
+                binds.phone_number.errors.maxlength
+              "
+              style="font-size: 13px"
+            >
+              Phone Number must be 10 digits
+            </div>
+          </div>
+          <div class="form-group">
+            <input
+              type="email"
+              class="form-control item mt-3"
+              formControlName="email"
+              [ngClass]="{ invalid: binds.email.touched && binds.email.errors }"
+              placeholder="Email address"
+              ngModel
+            />
+          </div>
+          <div
+            *ngIf="binds.email.touched && binds.email.errors"
+            class="text-danger d-flex flex-row justify-content-start mt-1"
+          >
+            <div *ngIf="binds.email.errors.required" style="font-size: 13px">
+              Email address is required
+            </div>
+            <div
+              *ngIf="binds.email.errors.email || binds.email.errors.pattern"
+              style="font-size: 13px"
+            >
+              Email must end with @prasthana.com
+            </div>
+          </div>
+          <div class="form-group">
+            <input
+              type="password"
+              class="form-control item mt-3"
+              formControlName="password"
+              [ngClass]="{
+                invalid: binds.password.touched && binds.password.errors
+              }"
+              placeholder="Password"
+              ngModel
+            />
+          </div>
+          <div
+            *ngIf="binds.password.touched && binds.password.errors"
+            class="text-danger d-flex flex-row justify-content-start mt-1"
+          >
+            <div *ngIf="binds.password.errors.required" style="font-size: 13px">
+              Password is required
+            </div>
+            <div
+              *ngIf="binds.password.errors.minlength"
+              style="font-size: 13px"
+            >
+              Password must be at least 6 characters
+            </div>
+          </div>
+          <div class="form-group">
+            <input
+              type="password"
+              class="form-control item mt-3"
+              formControlName="confirm_password"
+              [ngClass]="{
+                invalid:
+                  binds.confirm_password.touched &&
+                  binds.confirm_password.errors
+              }"
+              placeholder="Confirm Password"
+              ngModel
+            />
+          </div>
+          <div
+            *ngIf="
+              binds.confirm_password.touched && binds.confirm_password.errors
+            "
+            class="text-danger d-flex flex-row justify-content-start mt-1"
+          >
+            <div
+              *ngIf="binds.confirm_password.errors.required"
+              style="font-size: 13px"
+            >
+              Confirm Password is required
+            </div>
+            <div
+              *ngIf="binds.confirm_password.errors.mustmatch"
+              style="font-size: 13px"
+            >
+              Password must match
+            </div>
+          </div>
+          <div class="form-group">
+            <input
+              type="date"
+              class="form-control item mt-3"
+              formControlName="date_of_birth"
+              [ngClass]="{
+                invalid:
+                  binds.date_of_birth.touched && binds.date_of_birth.errors
+              }"
+              ngModel
+            />
+          </div>
+          <div class="text-danger d-flex flex-row justify-content-start mt-1">
+            <div
+              *ngIf="
+                binds.date_of_birth.touched && binds.date_of_birth.value === ''
+              "
+              style="font-size: 13px"
+            >
+              Birth Date is required
+            </div>
+            <div
+              *ngIf="
+                binds.date_of_birth.value !== '' &&
+                binds.date_of_birth.errors !== null &&
+                binds.date_of_birth.errors.ageInvalid
+              "
+              style="font-size: 13px"
+            >
+              Age must be at least 18 years
+            </div>
+            <div
+              *ngIf="
+                binds.date_of_birth.value !== '' &&
+                binds.date_of_birth.errors !== null &&
+                binds.date_of_birth.errors.futureAge
+              "
+              style="font-size: 13px"
+            >
+              Birth Date can't be future date
+            </div>
+          </div>
+          <div class="form-group">
+            <button
+              type="submit"
+              style="
+                width: 50%;
+                font-size: 15px;
+                color: #fff;
+                font-weight: 500;
+                margin-top: 18px;
+              "
+              [ngClass]="
+                signUpForm.valid === true
+                  ? 'btn btn-primary button-active'
+                  : 'btn btn-primary disabled'
+              "
+            >
+              Register
             </button>
           </div>
-          <!-- FORM SECTION -->
-          <div class="registration-form shadow">
-            <form [formGroup] = "signUpForm" (ngSubmit) = "onSubmit()">
-              <p style="color:#dc384b">{{message}}</p>
-              <div class="form-group">
-                <input
-                  type="text"
-                  class="form-control item mt-3"      
-                  formControlName = "first_name"            
-                  [ngClass] = "{ 'invalid': binds.first_name.touched && binds.first_name.errors }"         
-                  placeholder="First Name"
-                  ngModel
-                />
-              </div>
-              <div *ngIf="binds.first_name.touched && binds.first_name.errors" class="text-danger d-flex flex-row justify-content-start mt-1">
-                <div *ngIf="binds.first_name.errors.required" style="font-size: 13px;">
-                  First Name is required
-                </div> 
-                <div *ngIf="binds.first_name.errors.minlength" style="font-size: 13px;">
-                  First Name must be at least 3 characters
-                </div>               
-              </div>
-              <div class="form-group">
-                <input
-                  type="text"
-                  class="form-control item mt-3"
-                  formControlName = "last_name"            
-                  [ngClass] = "{ 'invalid': binds.last_name.touched && binds.last_name.errors }"
-                  placeholder="Last Name"
-                  ngModel
-                />
-              </div>
-              <div *ngIf="binds.last_name.touched && binds.last_name.errors" class="text-danger d-flex flex-row justify-content-start mt-1">
-                <div *ngIf="binds.last_name.errors.required" style="font-size: 13px;">
-                  Last Name is required
-                </div> 
-                <div *ngIf="binds.last_name.errors.minlength" style="font-size: 13px;">
-                  Last Name must be at least 2 characters
-                </div>               
-              </div>
-              <div class="form-group">
-                <input
-                  type="text"
-                  class="form-control item mt-3"
-                  formControlName = "designation"            
-                  [ngClass] = "{ 'invalid': binds.designation.touched && binds.designation.errors }"
-                  placeholder="Designation"
-                  ngModel
-                />
-              </div>
-              <div *ngIf="binds.designation.touched && binds.designation.errors" class="text-danger d-flex flex-row justify-content-start mt-1">
-                <div *ngIf="binds.designation.errors.required" style="font-size: 13px;">
-                  Designation is required
-                </div>                               
-              </div>
-              <div class="form-group">
-                <select type="text"
-                class="form-select form-control item mt-3"
-                formControlName = "role"            
-                [ngClass] = "{ 'invalid': binds.role.touched && binds.role.errors }"
-                placeholder="Role"
-                ngModel> 
-                <option value="" disabled selected>Select the role</option>
-                <option value="hr_manager">HR Manager</option>
-                <option value="facility_manager">Facility Manager</option>
-                <option value="employee">Employee</option>                 
-                </select>
-              </div>
-              <div *ngIf="binds.role.touched && binds.role.errors" class="text-danger d-flex flex-row justify-content-start mt-1">
-                <div *ngIf="binds.role.errors.required" style="font-size: 13px;">
-                  Role is required
-                </div>                               
-              </div>
-              <div class="form-group">
-                <input
-                  type="text"
-                  class="form-control item mt-3"
-                  formControlName = "phone_number"            
-                  [ngClass] = "{ 'invalid': binds.phone_number.touched && binds.phone_number.errors }"
-                  placeholder="Phone Number"
-                  ngModel
-                />
-              </div>
-              <div *ngIf="binds.phone_number.touched && binds.phone_number.errors" class="text-danger d-flex flex-row justify-content-start mt-1">
-                <div *ngIf="binds.phone_number.errors.required" style="font-size: 13px;">
-                  Phone Number is required
-                </div>  
-                <div *ngIf="binds.phone_number.errors.minlength || binds.phone_number.errors.maxlength" style="font-size: 13px;">
-                  Phone Number must be 10 digits
-                </div>                             
-              </div>
-              <div class="form-group">
-                <input
-                  type="email"
-                  class="form-control item mt-3"
-                  formControlName = "email"            
-                  [ngClass] = "{ 'invalid': binds.email.touched && binds.email.errors }"
-                  placeholder="Email address"
-                  ngModel
-                />
-              </div>
-              <div *ngIf="binds.email.touched && binds.email.errors" class="text-danger d-flex flex-row justify-content-start mt-1">
-                <div *ngIf="binds.email.errors.required" style="font-size: 13px;">
-                  Email address is required
-                </div> 
-                <div *ngIf="binds.email.errors.email || binds.email.errors.pattern" style="font-size: 13px;">
-                  Email must end with @prasthana.com
-                </div>               
-              </div>
-              <div class="form-group">
-                <input
-                  type="password"
-                  class="form-control item mt-3"
-                  formControlName = "password"            
-                  [ngClass] = "{ 'invalid': binds.password.touched && binds.password.errors }"
-                  placeholder="Password"
-                  ngModel
-                />
-              </div>
-              <div *ngIf="binds.password.touched && binds.password.errors" class="text-danger d-flex flex-row justify-content-start mt-1">
-                <div *ngIf="binds.password.errors.required" style="font-size: 13px;">
-                  Password is required
-                </div> 
-                <div *ngIf="binds.password.errors.minlength" style="font-size: 13px;">
-                  Password must be at least 6 characters
-                </div>               
-              </div>
-              <div class="form-group">
-                <input
-                  type="password"
-                  class="form-control item mt-3"
-                  formControlName = "confirm_password"            
-                  [ngClass] = "{ 'invalid': binds.confirm_password.touched && binds.confirm_password.errors }"
-                  placeholder="Confirm Password"
-                  ngModel
-                />
-              </div>
-              <div *ngIf="binds.confirm_password.touched && binds.confirm_password.errors" class="text-danger d-flex flex-row justify-content-start  mt-1">
-                <div *ngIf="binds.confirm_password.errors.required" style="font-size: 13px;">
-                  Confirm Password is required
-                </div> 
-                <div *ngIf="binds.confirm_password.errors.mustmatch" style="font-size: 13px;">
-                  Password must match
-                </div>               
-              </div>
-              <div class="form-group">
-                <input
-                  type="date"
-                  class="form-control item mt-3"
-                  formControlName = "date_of_birth"            
-                  [ngClass] = "{ 'invalid': binds.date_of_birth.touched && binds.date_of_birth.errors }"                  
-                  ngModel
-                />
-              </div>
-              <div class="text-danger d-flex flex-row justify-content-start mt-1">
-                <div *ngIf="binds.date_of_birth.touched && binds.date_of_birth.value === '' " style="font-size: 13px;">
-                  Birth Date is required
-                </div> 
-                <div *ngIf="binds.date_of_birth.value !== '' && binds.date_of_birth.errors !== null && binds.date_of_birth.errors.ageInvalid" style="font-size: 13px;">
-                  Age must be at least 18 years
-                </div> 
-                <div *ngIf="binds.date_of_birth.value !== '' && binds.date_of_birth.errors !== null && binds.date_of_birth.errors.futureAge" style="font-size: 13px;">
-                  Birth Date can't be future date
-                </div>                             
-              </div>
-              <div class="form-group">
-                <button
-                  type="submit"                  
-                  style="                    
-                    width:50%;
-                    font-size: 15px;
-                    color: #fff;
-                    font-weight: 500;
-                    margin-top: 18px;
-                  "
-                  [ngClass] = "signUpForm.valid  === true? 'btn btn-primary button-active' : 'btn btn-primary disabled'"
-                >
-                  Register
-                </button>
-              </div> 
-              <!-- <hr> -->
-              <br>
-              <div style="text-align: center;">
-                <span style="font-size: 15px; font-weight: 500; color: #081e42;" >Already have an account ? &nbsp;</span>
-                <span (click)="onClickLogin()" class="text-primary" style="cursor: pointer; font-size: 17px; font-weight: 600; text-decoration: underline; text-align: start;">Login</span>
-              </div>
-            </form>            
-          </div>          
-        </div>  
-          <!-- <p>value: {{signUpForm.value | json}}</p>
-          <p>value: {{signUpForm.valid | json}}</p>       -->
+          <!-- <hr> -->
+          <br />
+          <div style="text-align: center">
+            <span style="font-size: 15px; font-weight: 500; color: #081e42"
+              >Already have an account ? &nbsp;</span
+            >
+            <span
+              (click)="onClickLogin()"
+              class="text-primary"
+              style="
+                cursor: pointer;
+                font-size: 17px;
+                font-weight: 600;
+                text-decoration: underline;
+                text-align: start;
+              "
+              >Login</span
+            >
+          </div>
+        </form>
       </div>
+    </div>
+    <!-- <p>value: {{signUpForm.value | json}}</p>
+          <p>value: {{signUpForm.valid | json}}</p>       -->
+  </div>
 </div>
-
